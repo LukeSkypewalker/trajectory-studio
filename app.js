@@ -155,6 +155,9 @@ class TrajectoryApp {
       const sliderVal = parseFloat(e.target.value);
       this.currentTime = (sliderVal / 100.0) * this.totalDuration;
       this.updatePlaybackState(this.currentTime);
+      if (!this.isPlaying) {
+        this.updatePlayPauseButtonUI();
+      }
     });
     
     // Speed badges
@@ -594,15 +597,23 @@ class TrajectoryApp {
 
   // Playback control functions
   togglePlayPause() {
+    if (!this.isPlaying && this.totalDuration > 0 && this.currentTime >= this.totalDuration - 0.001) {
+      this.currentTime = 0.0;
+    }
     this.isPlaying = !this.isPlaying;
     this.updatePlayPauseButtonUI();
   }
 
   updatePlayPauseButtonUI() {
     const btn = this.elements['btn-play-pause'];
-    btn.innerHTML = this.isPlaying 
-      ? '<i data-lucide="pause" id="play-icon"></i>' 
-      : '<i data-lucide="play" id="play-icon"></i>';
+    let iconName = 'play';
+    if (this.isPlaying) {
+      iconName = 'pause';
+    } else if (this.totalDuration > 0 && this.currentTime >= this.totalDuration - 0.001) {
+      iconName = 'rotate-ccw'; // Restart icon in Lucide
+    }
+    
+    btn.innerHTML = `<i data-lucide="${iconName}" id="play-icon"></i>`;
       
     if (window.lucide) {
       window.lucide.createIcons();
