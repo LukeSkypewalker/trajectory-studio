@@ -315,10 +315,11 @@ export class TrajectoryViewer {
     if (dh && dh.d && dh.d[0]) {
       const colHeight = dh.d[0];
       const columnGeo = new THREE.CylinderGeometry(0.1, 0.1, colHeight, 32);
-      columnGeo.rotateX(Math.PI / 2); // Align along Z axis
+      // In Link 1's DH frame, the shoulder column lies along the Y axis,
+      // which matches Three.js CylinderGeometry's default alignment.
       const column = new THREE.Mesh(columnGeo, this.robotMaterials.solid);
       column.name = 'hitbox'; // So X-ray matches its material
-      column.position.set(0, 0, -colHeight / 2);
+      column.position.set(0, -colHeight / 2, 0);
       column.castShadow = true;
       column.receiveShadow = true;
       this.linkGroups[1].add(column);
@@ -375,13 +376,14 @@ export class TrajectoryViewer {
 
     // Add visual joint cylinders to show revolute axes
     if (dh) {
-      // Render simple joint connector rings
+      // Render simple joint connector rings at the actual joint axes.
+      // The axis of Joint i is the Z-axis of Link i-1.
       for (let i = 1; i <= 6; i++) {
         const ringGeo = new THREE.CylinderGeometry(0.075, 0.075, 0.08, 24);
         ringGeo.rotateX(Math.PI / 2);
         const ring = new THREE.Mesh(ringGeo, this.robotMaterials.joint);
         ring.name = 'joint-decor';
-        this.linkGroups[i].add(ring);
+        this.linkGroups[i - 1].add(ring);
       }
     }
   }
