@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- CSS -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=28">
   
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -66,6 +66,10 @@
       
       <!-- Scale Tools Panel -->
       <div class="scale-tools-panel">
+        <div class="scale-meta-row">
+          <span class="meta-label">Segments:</span>
+          <span class="meta-val monospace" id="meta-parts">--</span>
+        </div>
         <div class="scale-slider-row">
           <label for="time-scale-slider" class="scale-label">Time Adjust: <span id="time-scale-val">0%</span></label>
           <div class="scale-slider-wrapper">
@@ -145,15 +149,11 @@
             </div>
           </div>
           
-          <!-- Relocated Model and Segments Info -->
+          <!-- Relocated Model Info -->
           <div class="robot-info" style="display: flex; gap: 12px; align-items: center; border-left: 1px solid var(--panel-border); border-right: 1px solid var(--panel-border); padding: 0 12px; height: 24px;">
             <div class="meta-group" style="display: flex; gap: 6px; align-items: center;">
               <span class="meta-label" style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Model:</span>
               <span class="meta-val monospace" id="meta-robot-model" style="font-size: 0.75rem; color: var(--text-primary);">--</span>
-            </div>
-            <div class="meta-group" style="display: flex; gap: 6px; align-items: center;">
-              <span class="meta-label" style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Segments:</span>
-              <span class="meta-val monospace" id="meta-parts" style="font-size: 0.75rem; color: var(--text-primary);">--</span>
             </div>
           </div>
           
@@ -253,6 +253,6 @@
   </div>
   
   <!-- JavaScript Root Entry Point -->
-  <script type="module" src="app.js?v=31"></script>
+  <script type="module" src="app.js?v=32"></script>
 </body>
 </html>

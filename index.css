@@ -239,6 +239,22 @@ body {
   gap: 10px;
 }
 
+.scale-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 8px;
+  margin-bottom: 2px;
+}
+
+.scale-meta-row .meta-val {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 .scale-slider-row {
   display: flex;
   flex-direction: column;
