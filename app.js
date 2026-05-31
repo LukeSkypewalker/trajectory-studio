@@ -4,9 +4,9 @@
  */
 
 import * as THREE from 'three';
-import { TrajectoryViewer } from './viewer.js?v=23';
-import { TrajectoryChart } from './charts.js?v=23';
-import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=23';
+import { TrajectoryViewer } from './viewer.js?v=28';
+import { TrajectoryChart } from './charts.js?v=28';
+import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=28';
 
 class TrajectoryApp {
   constructor() {

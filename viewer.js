@@ -336,7 +336,9 @@ export class TrajectoryViewer {
       let geo = null;
       if (s.shape_type === 'box') {
         const ext = s.extents;
-        geo = new THREE.BoxGeometry(ext[0], ext[1], ext[2]);
+        // Box extents represent half-extents in physics representations.
+        // In Three.js, BoxGeometry takes full size, so we multiply by 2.
+        geo = new THREE.BoxGeometry(ext[0] * 2, ext[1] * 2, ext[2] * 2);
       } else if (s.shape_type === 'sphere') {
         geo = new THREE.SphereGeometry(s.radius, 32, 32);
       } else if (s.shape_type === 'capsule') {
@@ -407,7 +409,9 @@ export class TrajectoryViewer {
       let geo = null;
       if (s.shape_type === 'box') {
         const ext = s.extents;
-        geo = new THREE.BoxGeometry(ext[0], ext[1], ext[2]);
+        // Box extents represent half-extents in physics representations.
+        // In Three.js, BoxGeometry takes full size, so we multiply by 2.
+        geo = new THREE.BoxGeometry(ext[0] * 2, ext[1] * 2, ext[2] * 2);
       } else if (s.shape_type === 'sphere') {
         geo = new THREE.SphereGeometry(s.radius, 32, 32);
       }
@@ -430,7 +434,7 @@ export class TrajectoryViewer {
           const item = document.createElement('div');
           item.className = 'scene-item';
           const sizeStr = s.shape_type === 'box' 
-            ? `${s.extents[0]}x${s.extents[1]}x${s.extents[2]}m`
+            ? `${(s.extents[0] * 2).toFixed(3)}x${(s.extents[1] * 2).toFixed(3)}x${(s.extents[2] * 2).toFixed(3)}m`
             : `R=${s.radius}m`;
           item.innerHTML = `<span class="scene-item-dot"></span> <span>Obstacle ${idx+1} (${s.shape_type}: ${sizeStr})</span>`;
           containerHtml.appendChild(item);
