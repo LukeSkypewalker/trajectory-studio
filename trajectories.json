@@ -1,1443 +1,13 @@
 [
   {
-    "id": "00b448de8b204abe40b244dfda404ad4936406afd0dd9b8663e1b36153ea293c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.633,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0172ff1371104cd7c358d182bee0ecb709ed9fd144046e8ec1e8dfcb160bc50d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.876,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "01d5d1da4cc20db05eef356472ab045183c642eb6589a07bd7a338ba5531a872",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.193,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "02d32f27dea62a8386fbe110dfeeb58d88c7e1848ecef15a2affd7ab4b6e7536",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0302382238dfea9493e4732141d23979d59c6ad6904cbd4321b0cb5dd4efc92d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.618,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "03636f90d4181ee1438e07690212810c4afbfffb5191a2a20ab1aaf0fdcdb1dd",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.053,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "038385f9f1185fd90a315e3dacd8eeff4d046f7d3bc1b5bca8aebc9231cbee12",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0390c5410f95975e647a386588f1d1e6426ac34e89a86b86b64e622dcd14061f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.613,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0408ae2bbd1a20fae13ba1f9bd02494c01de5c6caa97b560570745b8b1d82497",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.159,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "04276a03342cb61abec6ba0c69e38bb5ea86b15bd1b8f76260d4f542a63a20b2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.853,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0545b9cbcfb67f9556d41edfb0bcf3d4ed6a53332b136f5d1149118e853c9cff",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.537,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0555f76d2023a89e3d00a8e6eace18132978d807cd2c1aed73d80c8423853227",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "060abee1e07df63ff2b9795eaf59841d99b7e85318a542b0757896ed7c3b9d48",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "065884fd8df3a16664bdeb83d29f46b10bb760a0c963211799be0793d023f049",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.863,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0790b7e94d82cec964c43979a8893ec803d5f94d332fa868914e678ca7a9fb04",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.866,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "08096f3c7078aca9d958330112d7a5b7f8885e002a59d0183ba3307b9234e9ec",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "083ecb1751d6f21c2a24944a75f2ac54afdd53b4f1b50a731c7ceedaed756dd4",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.775,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
     "id": "09c77ace4d8ca60a475e47c7ec90e82653ddb6bfc67de321d11a6fc2c08e6603",
     "status": 70,
     "model": "dobot-cr30h",
     "duration": 3.44,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "09e5c52f778de508b852667f896dae2f1e51285d1f29e1c38361d3a16f64077d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0bcd8cc8998131ebd024f5fda735f3dcc8556084bbfc4a56bb120e55a6ccd526",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.678,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0be6992177b7d04ea66c38173bf69b59ade1a7cfae062c7c82644c718b58b453",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.445,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0eebcf522f7877552867fb015e0b5cd24ae09a94ea733190ef4a850d5741766d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.801,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0f09bf6030abe23f3db3ba2a3f923c2c32cafc3770f24d569cab40bff84282a8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "0fcde41445014b69535da271bafb4e8b6ebf78df183b94608dfd9d8d2115da66",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "108412c4da71f37f580061fee5714d6b01f5a1ff5f26f69331fb25691b096c47",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.841,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "10acfb1868f9b68c1c6dbbc9042b27c94539961eb57baa6c79a4de6a19f7757a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "12005c788caec8b9c3732b4f6a49cb2b9de1912def326ed854cd96da2a9082ed",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.499,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "12ff8c648544570d927d317abfa4f8d229186ff167bc63fb49e307611b982124",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.644,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "16c8cbc26ede9ee81465c9cb0c64dfec29b2d6b75b4c58e6c920557dbdffee89",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.549,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "1707dd413e403c188461994b03f254ba15d8d96954b135370fd453b0db491c62",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.929,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "18b4dc53386883188aca22fec6289258a87d2315021bbfa8171807182cd06344",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "18ccdc6b68c25eefdcc36dc684f369312be30f387a0eb48b6226a6fd0d093d29",
-    "status": 50,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": false
-  },
-  {
-    "id": "191bca399edc71230fb85846aa654f4b734e39135429de4bae6e99fc7a49055a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.525,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "1a8e73ad5f9e05aba3cc7bde72aedf59538a9b90fb1846542f55ef19af0001da",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.693,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "1aa1173a5a0b336b5c78aef1d387db8c25019717d2db08705f293be734c49ff7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.906,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "1cfdc4259bbc87a70c56151e7e5e58b989008963c71c8df25d2afca3a4bfabbb",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.549,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "1ee33916f7b3a3d4301632826e7676d1de951ad85f77ffc175250481bd00e55e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2025e51f1d8590531da955f4f23c586b1c8bade6553f7b1721cab13c6ae4d991",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.795,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "217492d12c768d0f8479d9cfda1cc6a8a0638dcfe7ed76e4a4b00a81320cedfd",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.574,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2227ac4ac33c59828934eb068789bae08f778ca9884f70ae0f12cc0a1186fd0f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.611,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "257bc84b84dd762c02a6c48aee027497b8f0928b0f043883e770aee843155f9f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "26b03fe72cbe45e4747842581b6cb4e7be2d3a91d38d568caa412877cf021aea",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.794,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "26d8f98d0e4413a6d2f7b0e5de4661a39543efba99f30ee691ec26ad2a92e70d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.866,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2832522f0bd619821128047b4bcd7a3fc581bbd0d321f6defc973f9ccb25ee79",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.125,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "28413b929d584e666616157e11cab0861442bfd65192af699ec218c2b564f4a1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.468,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "28d5849f56c60032e6b48a23f41ae101defd82e9ac90739ff59ececcff4dbeec",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.278,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "28e5ea821e6e1b77880e78c8dca0817c9bc48c53a4b6657e033ba81833d94217",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "29bf7f2c99c89ea481c5a7ad9d613344fa89a1bc266754ac2320b2349039bc27",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.413,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "29c8879494f782fbb2e6153a247c3623b351ac8743ce902e39cbeed541ce2de5",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.08,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2a4b426e8054a5d6e1602fbed42bf76db554fd4abb500f534d2bbb9effcd77ed",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.644,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2affdbdfd6c76f651bfc018b58f277766b5bf9739767aee0d279c3c245e68c56",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.783,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2b7affa7ee3d78fccf766d176ea7f28fd605d531997d8c7cfe7dfa5e32fc2837",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.808,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2d5ddf638deebe7312ab823a53307e61b35579cc7f7595d34e7e24b19f7185a6",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.727,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2e28dd78922ad01773d2a22dabebde4f2dd19b25ba82f840dacc4d7adf6b2c80",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.148,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "2e6fb98408dc62f097e22770f812c6f855e6a672f2f75fc82a008149e2283ffd",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "2eff3bf22cdac2a0e5398faca8730a1b8b358fe915ac7f6842f7830e032db814",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "303c493a2136e0928e9fcb811726700d4b107d875a1ecaa7d373ada0dfdd9bf6",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.923,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "30c8592785f27326826351deb16cc2ec5339d548d510f6680a11ef64581bc240",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.817,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "30d5ec17d3652fc82d7f57661372eeec0afe55ee5df77b2714d675d2c3eece02",
-    "status": 40,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": false
-  },
-  {
-    "id": "30dd812b8c2da6181d0865b70915e1cb78f2cf711bf135df4d177d7569c5e36a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.137,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "30e0c56220e182ddaecfba6e7eea10a35a0be4442353fc96c587ba9a3e874b4f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.058,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "31a2b5c892032440e5660ba026104ffc79b26e633084687b153ff34e73b78703",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.253,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "321e3235d710bf868f67363dfaf009ad216ff4bc1bf39723febfed5178d6ba44",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.435,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "335b268f790024951b9380606ab689f6f9771b11fcf90068484088cba56cb420",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.599,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3565279ecb6fce9db3a86e6541a91a7c73930e9f94b03417ca2b513bd350a818",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.502,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "365c2606bf2985569bfa62ea2677c718fd11daeaae2170416bf54ecbcd77ebef",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.247,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "36a5ef0f2c39ff56edf7c7fbd3959ef56e26877660adc4ff3390d4e408131e0e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.639,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "375ab16513d6c771acc233bd7b3a171fc532ec5978a5c2fc742b57f10d32a524",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "39c9636c1135b4c34fa6510f3158dbe60e3f999973d1c04babf8735f0b90dd2a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "39cfd71423c97cacb993ff779ef96542be8b9f565bf2a6c7384d2f8696b67e41",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.943,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "39fa281a4b02c28349009eac39740e538dc67d605ce80350136c5386c4350ea8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3a0a11745f900e94176ca5b5400d48f5ead58f5b1e281e0aa4659d3514643213",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.943,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3b71873b9ac367ce91e4413bc50ba5126a6595a648e888b0a188479edb0678b9",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.44,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3cb1a4a89a66b16db7c3c2e01cad794fba8f79b4de30c574c2aee681956affa2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.483,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3cf97abfaf0cb592ab1ff4906f5d2b42fd2a3781f2ca29964a6587808134e2db",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.444,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "3fbdd0c5667751c8cbd0a428228d31894bd67b9984fc1337f64e659f3bcfe827",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4170914bb3dacfca62b0234be9f75a307d1acb94a44756c5a82dd259f08d3c78",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.448,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "41c5dadd0aa52c800320548a920288979ba4ea8c53d0cab0fe8b52b7755e4fe2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.549,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "42075a627fd4f1745c99d313259781a29664300338d8db82255410183526f303",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "426d5d22aa10f28a781d118fd61a3c0240e4ba45b0442218849cd4c79726a584",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.657,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "43113072300ebc10dec5bcce916a50412caf1956017fcd1abaac6084b889acaf",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "447829d70e25896b3254c54e9392d269392b9870ee1322af4c09053fa5c2e30f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.613,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "45818e9531c572d9a2bbe0569b869ea020433833e94822f3617ba620358bc0d7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.551,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "45c1bdb3d292a0c026250d9c943dbcde073a0e4ab56c55956e75a387e3648f05",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.128,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "47259b9751d50e90abb575b8b5c4d0bd5afb379c67c907db33f2c721a217e603",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.549,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4932dc1d4b63b68cd4ee5e4b1e95af7518d3f903f6f0076e2acf89329828a6d4",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4a1c23ef5f486b43d84cf0a8c9591c89a8616b670471763db86f150898249bd1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.989,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4a7bfaf46b0a8b327b313fa00abe3e94d0864bd04698ed0bc7537c3c5a391247",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.954,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4ac0760dbca218fbe47e52ee80fde0a4971378df2bfa190a13588f60f7ed0e9a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.808,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4b7bc470594a144207c654bf11f9cd5256d3ea72fbd586b45633a6aacf1e0fee",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.862,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4d0830d3184fae235aaaeaba9e1fef096acecf00b31a7351f81eb2f151e4ceb8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.012,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4d2e2cf4eec9ff859d9835257fc1e469e4e9f23a4463769d9f2c6930c78adb43",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.923,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4d384aa9be8ae2e9058c7b31c2ca40acf365fbc9237973d28a0798d3c3047a25",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.729,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4ecb5a2089a281a278501ac4865ecd0edad70ad4fe36e99dabc95bea7516ab61",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.626,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4eecd71ccbc1e25de84f15897a0a57135dde9225a0430fe60fe62290166cf3b2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.819,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "4f86f64a1fd29c1c229dedc2f85f1f787c13d8e0ac7223264fa0220f8d9ca65c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "52afe29f62de50413594b5811a7327dcf22791dc03b36030c11871501eca7075",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.381,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "56c33e0a02706a144b2ef317de3c27ad695ac890e403e4362f7ae23317bc0776",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.853,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "57077bfb58a93d78f729eb5298de6feacf301e557015c95866b8b81542c09168",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "58946db55eae7a2b17cea9916746256a3bbb6c923e3edf19382fd173d336bb10",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.794,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "58e2d0fe2be0b6658c7e7b57805ba76b3fd3017829ac291104bd8da6114dbf42",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.574,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "5941329cd087cb7e09e5556d6b5980edbc02f9f8895957acf16789130d7debbb",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.573,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "5996fcd4e328ce8e3ba806c256eb0c46770bf346793e768afb992316bb281b5d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.566,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "59b40c11e046b335f075bf13a67eec732a7e7cb05e77c9442b04ba023f0691f8",
-    "status": 50,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": false
-  },
-  {
-    "id": "5a530e75ab4c1d9efea3a5f2e732b7e0cec7ea55f3891578e0dbc13a3e1e648c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.491,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "5d80a2d9c2c6488d2113eb1ca34f1022967103baabd744469f8473c4f113c613",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "5e6e74d1096b4dd158cc54855e642f5eb82c470d6b45f719df1c068a3b3a2083",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.939,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "5e9ae3543c0b4e59c45de33338fba13b3cac26ae7ccd2811ec8714460849a2db",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.336,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "604901a9e92df2573b129f285eeb42feab4e4836036a5306480846d82a01fa96",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.989,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6049e896162c33a5c7eabf3a09dd9f77dea2873f9d3588e5a96e547a068ed435",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.54,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "62702c99492d31d88ffe907f8ed9b7db9dee2af00f919b3704d66bc304fc6869",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "62b469cd018fe2e551dac8ca6012ae5b940b7cb799e1f05e8563e7a8e3d76a3d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "636f041179aa8db552d164747504fbbbe0524657c00ccc8e12a2fb4b61c83457",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.587,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "63880930e466aab75ed07aaceee68c6fde5849aad053c35800755ccfd9bf3fde",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.235,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "63acd990a439f3f45cf5da6cf4e2b9315009ed3fc25dfd1f928cbfc1c434f14a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "65c380ab0a176c137f1a34e17325ba8ff0eadc435c4d18d6bc807263eb41add8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.844,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "65fc52e12827a2ba88638cfaec3a71354d448a7ab5ed09aa4c70c89d41f80725",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.08,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "667de116e9c4dd661fa9dfa1bbf6569ab321782cc833d8744dc42fc2e12e4b8a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.875,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "66cceb2bfe3778498e6f8110a40c684c3f7a30912c91358549d3e7ea0aaf28a9",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.574,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "671503161c309b36c30039236301f9980343d7769779c93caef542df5253d21c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.018,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "684d25098229d53d89049ec05ff00225dfbea5304e990a3816c5112614d90dca",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.669,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6853d349af095aaa80326c49c8adc91c2900c59d29ac52ed88aa0d477dad1d33",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "68fd802e597440846df9afba94388de96bb8f32b653b1542b4b92872d01fd32c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.44,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6975b9828baea3b8ec023756837caf2732378f285f56b6dda5882f42581e4fb5",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.542,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "69d9ce2eed2299cec9b1248dc955934641df45e57d1074097d384c72900da372",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.162,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6cb7d458cd9e0da037b90c6b031377e7cd2edb9c6aff9bb1d7873d69aeb2d1bb",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6cfbbb60db6a7af1229f28ece667f346ec5c3e8b9e151f8c1c7aecbca36cfcca",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.551,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6d502502d98c1ae130ba9ed564b28b2c12923e78b5dfba8ec8276d2a317539fa",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.626,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6e9758b53c897704d8605e9ccaa618b86ffbf152ac8d34e7f7e63173dfade7a9",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "6f607c2412e0f28bdac31c921b0980dff2a0d01c9e2f410cc4b324f7f26ea4ec",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.052,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "713537eac9f6efcd4057bed8a66d93054a472a6528227aebbbf78aaa9bf9bc97",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.794,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7169c167920febea8fe72dd8928cd05c49a8907f3c13eeb2e59540b007701d83",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.947,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "71c46be6373eaadee88f8256f8de57eddf14a0a5856fb138caaa788621895587",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "71fe661afeb4ef904e66165e77d8f6a3979b43f1f1b4ac77daa49f4e8ff255fe",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.996,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "72f8b98c9e14ac72a352c5d41926bd1444635f09df90e906f9d5a383092c6851",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "731f9406195b20c66c2a940eff812032a9ba54940afa8ed11759c97cc41ef3d2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.742,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "73bc396afd8cb96b4552567bdca81760e9c2f523a4d21de8e4a04ba8c76d53b2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.991,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "750f7dfca72245b1ef509a2f24436098c22b95282863e44f58beb1ab31036c90",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.688,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "7595e6f2c2401d3da07be3d873785e9d9c7363e18495c090a2c8e8065f3e880f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.565,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "760a00d8176567c8da62e83a7999943768f8dc4e49e5741b7db4f85470e296a0",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.817,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "760c5817efb766ec6f24a1c2dae07ee94ee673ccb6539aa1200676b534ce568a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.445,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "77b658640f2edb349dbfefa2810eaa316c51c2e1631937e162204278f979627f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.775,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "780ff2cec46464299262c3854004616c395482e9678dcd94b4c931ecdc7c6aa1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7827d7c2377eae2256f7257cebd64c24be7b8fc447bfaf37fcdf7910d84cd6d8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.868,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "79d22a2ddd2e549be625923bafe64c273d3b3cd93b756ebdcdda75d70209430d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.794,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "79eb8f76590780528b76edc8ff273ef0ee9592d3bb922e9131cd66dc8375631f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.168,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7a6ef2baa285febe16960d53938ce39dabe9e7d438e59f3cb30503863e1e5da8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.697,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7a99ccf4dce47316c1c5dd7db525b434d88c399015977ec98812a54f395ae9af",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.825,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7ac6a90c11f36a115ae1b0bc5dbeaaeccbb7f4abbec21bb6921bb0389d7d89a7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.833,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7adce18b0ce7c23664dc058dc36e9a2f7909fd68ff356b32adc1970c49d05cd0",
-    "status": 40,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": false
-  },
-  {
-    "id": "7d85f4cfa7223eb746f6bf0a4c7e3513c1d3009120634fa71208059e19a5f2ff",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.328,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "7f0f6714d0e1cc874ac35c2ec745ddc10e31aab66b94ac05c663844102c5f57f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.542,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "7f7a1c1e35fa61286735ea965d7ffe28e1fadbaa93f660020aeb598df831c616",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.148,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "80d16d879882a5b95ddd2c54f03a4cb546fa58fcfbd8b1015d514cf57e13d542",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.852,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8171072389a65bf0083226be977fbd779e6b77243a77cc2ad12d779992459bd9",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.875,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "821fe94a8d2ea424eb8423d3ea36b9495dc977153a449da49a002582eceacb07",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.219,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "84943369c4a58142733d5150fb48427105b0980d7a4f38705c4d71b04898842c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "852d6f7b8cfdc82b6115996dbffc3cf8780d7d3d60d24a04206ae5c0dd0c2e3b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.644,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8581544c63b35644537a6d5843d0ff4f5e0ceddad8ebf0e8cc321e0c15cfef9b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "87ce4094e79395923ba1f5ba6064d9e3d1609386bd26b5540515720914784bae",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.381,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
     "id": "88306f034a039c28fbbd09743cbebc405c94d0a1314ce46acea823586231585b",
@@ -1446,484 +16,8 @@
     "duration": 2.011,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8920e787a7b9e6b518dd40c689733e3b4382511a6c07f8e7f2c7151ebf5623f2",
-    "status": 40,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": false
-  },
-  {
-    "id": "8a18c7712544af28906239b2caa48aba7cb32eeac73126269b9d695fe0309d73",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.444,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8a49e7a5d59f90d8d0a26689784857a37666e0082f503e6673a76860c41666bd",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.912,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8a64e5f4bc5cf762020fbb98245313e57356a500f15ec0e0ce9a69e1627ab557",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.916,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8b7b55fd9512b0a0bbb90f285a99471ad642731bb96b13b502b4c2f53d1c8b4d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.502,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8e35323fe5397db4cb9c048e22779a53d43f726cd080d156da2cfe6f75642677",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.669,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8e53f0ff226790c98ae8a96a324a0222f2c31b9183b0599fc16ed01b5885dde3",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.476,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8e5f2d67513cc0067bc221fa0f3f6635a4662f0b25ef77744404d68f38d86575",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.828,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8e8148e3b23007940e9b789340900bbfbb06bc8d57c77ff1df61ca16c6ac8506",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.444,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "8f1143708c4a1bc42857eee4a8217a53ca33f75c7a22998c0bf7031ff5845f5e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.555,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "90cf78a833368e8395f1ec1911bff817cde9399630e39c12c75c4477280986b4",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.097,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "90cfd75de0ad779cbeffb26b629d458d0c290dac4eeb6d6193b03032d51e32d4",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9151529b7fda347427b8e53aa2b05cad7fb1a7cc0d906ca27a4696093b0e6605",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.947,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9178cc8f64fa054a4305380fd2c80c679067a8342a43eafcdbe60cca8fcd72f7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.448,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "94b9d178e7847345fe5e7636734ac0eee93eddbecad085269b01965c5f3eca80",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.723,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "94fa5a303ed8d8f827086abdc8753bd45d664d22f67587000a2814df598ec3ea",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "95360fce20f1772fdf27862ffd080280f716e7746d08efd69ea0a147d1623a7d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.381,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "964537604d33c736ba536f8060513a9335f5043360f405b15248296bc5cb5bfb",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.09,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9864ed970152df2490a4cbf8eb1e2e42e0e785566e5c06a49021ee17c4e1a4f7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.563,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "99418e1b93414899d29d1f673b65ab1a103316b278e2b87a4d2610bddce6c419",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.1,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "9a89adb34f783ce00781438a08840b9f5aff324fb354a34c6e83fd3b7c3319a7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.561,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9b25e8d3157950dace47c804eecb364c56e895cd8c6b03af79b6c30ba10fe620",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.586,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9b4e171aee5215f9e7885c2fc893ca40b3383a65b4d58e16f8053a22c31229f8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.971,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9bc1d5c0fc7743d70e444eb646f70dcdf408508e56d3630425047bf9d677ab30",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.186,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9bfe82102071bb409866be2e6f49e30c5ab380b59047b3043a2081be294ddd0a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.51,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "9cce53699c26b28bd8687cdfe7e171c9141ab86d7e59220e1b070bf6c5de9767",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.15,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9d2dd990f5cd31709aab4c549f2744fdc3a39ee310c4d77c02ea14213cbd52f8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9e6b3eab8f14da214899847a78b09c8f7f058c24bbfecae4c52f9fa760e4fe9f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.923,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "9eba19b5ef32784341fd459d94a05b09e2683c54655b542e69d61748d60605de",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.044,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a0c24a25bfb3e05462e69ddaea7ec0f19e50e7c3ad8bec655c850808c2f253e2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.128,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a187251970acea07065dccf5f8770bb0e06fc9cba32c937ba8fc311861751ec2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.213,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a46e752c57461a2e6e83c0c5f1f896c1f847668803a047dfdce6154368b0113a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a49a0af4fdb51ac42e293f3e5efffd6b9b7f5079d57e36625bfc1be18d2df5bf",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.797,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a5710bd5ec54e29f54fe1640d6b26a4565bda98c2af967fe1c3f6f38ca91d89e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.599,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a59fbddc9de6871a3f5921cce1145780959c2dd10aef2b2ac48f724b0ae6ce33",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.11,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a624dbe0ed79d19c1553bb9a5659d6ea03ad9d5ec53d36887846c79eccf602f7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.631,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a75450b8311c8b43aa8e25e95e7a8936def80bcb1639f2c65e266cf9b1abb364",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.318,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a82098bd560d82d260befde88c1775cba8f4469a4a363d08537f230a8e9fd8b8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.229,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a8bcbf3a6ef8d88d8ccec8ff630f823d94c47c4a7d730df436fba3860d21d9e8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.929,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "a8db83c4a70b2438ca98bd7b0df8bf87a2d02c84f6097e520ee2b159586dd89d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.814,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "abc35ec51b715b0aa7608a1d0d6aabf022d594fd1cea0d2ac77fb4185c3273dd",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.659,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ac15ca7b4d6966a0df31502134e9debf52af25da37fd376834074a201066d6b3",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.915,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ac31fd79538e358ca1007e4b58bac8275ee39c750cef9805c329a48bd416361a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ae113e2ac226304a5e87f01fcd2a5bfae64bfbccf448b79b98a2f964ce7ccc7c",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.965,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "aeb44a40afc70d842b326f4b27bc8b2d3e5a14ffd795602d453942821cb7da09",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.573,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b09f6ffcbaab4ba7c31855c6b1e331e59ee1cccfeb1c8d7a10ad9d013b714fb1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.775,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b17b4ce96c232392676aed28bc828be77f7c675402f76743aecb2023eef94256",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.445,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b19677b213ba1d6adf5c5f22edad5f9ab4cdab7721ec6f21403298122f390808",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.381,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b22214ee6fb5ab64362b0afc15d80e14677fcc87441ef87f3cea42f6f6ef0073",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b3286fca5b036bfafed01e6d1fdb55ec8ef8a1552206b55f90e75980465be02b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.814,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b418ac6cccdaba4f4a1aafeb7296bffdb85e90ff54ee133f350fbcc288566164",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.689,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b42825cc06a3738599d734feea9b6b10e2935ba4d3a696b64eb1929517236b83",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.769,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b4c048bb137dccec300190d78723a83761f8e3fbdf25e152337076cee5770bcf",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
     "id": "b54c5abf7afcbcd1f2019fdbd8d5f753c1e3bb99d95a18356d681a594bd3b168",
@@ -1932,160 +26,8 @@
     "duration": 1.324,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b5dbc912c48352097ed1b089b727ec52bc562ec908df8b8feb7e1c0bbc7f6a8b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.381,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b7a8632ceac5b3d0609b5b897372571782411cf977f15312d5d82b8902589721",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b7e6a7332b013dc37548212f5cbceaff048bc54caf1ff6272127e737c90a96e4",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b83de023da1db0b222bd95c97a3871fbb0195ab2afa18c074acf81b91046571a",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.969,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "b8a88f1c9c52b1cfc08e9b77be9310de91ffe2bed39f6cb25c6eeb809a8eade9",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.814,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ba5033eff955e4544738b77ece2ad9572243b05abe7d75efbb1355a8c8bd28a7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.574,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bae1e54927a2a97b5e155c539581cba8a3d6f3e8339f78d2c1bfaa566f2d4923",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.923,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bc4d7c52b42aed4c77bd5ff3f35f1c8339f225012f6a1e32b655c42585ee9892",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bc554ea13019821e49a2b129e0e819c878655972260d319a451b14a7fd318401",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.844,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bd69630d7e6d60c992fa6c727ce2d4baf47109c818868dc6205d40ee2f852164",
-    "status": 40,
-    "model": "dobot-cr30h",
-    "duration": 0.0,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": false
-  },
-  {
-    "id": "be4a2a2a17e31d5ac7ec9ec88a34007ab2c9042155f7b8cd5826488c4f4f5de2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bf31f7d0c817990fc2f4aca3059cdcbde4edf947a47f6233a38d4bfc250b79a2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.819,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bf416719bb2451d773acb336e9ea7a000ed89103ac042cd46d6a7190899ed5c7",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.901,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bf6912b844839254f52023fd9b3ee9f8ca7a2fa631df994eb0b43e63f8abba63",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.988,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "bfc4b73123bc2f911541577455382a3fefa014a308e1a0255ce281729e60ae52",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.923,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c00eb77d6ca0fd97c1fc373eec2d27571097b1dbbe4e1be6c431d4b1b15d5ba6",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c091036b39c9081030e3fd7dfae992912ccbde53ec68c09581ad2367e2f7fa28",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.947,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
     "id": "c121566acab05a6ad29114d7ff7c285ac71793c2489b47898b431fca81b1ece1",
@@ -2094,7 +36,8 @@
     "duration": 1.639,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
     "id": "c13941dfc920ea55962e910815ac6be8ec067410c78653767abd7032124bf234",
@@ -2103,286 +46,8 @@
     "duration": 3.522,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c16edc3c5b3e914c739ea837c2be7696cf4aa9b7a4c3d4d5355d3600fbefa7b5",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c1cab9417b6e25f3cebcb8af14516d02b3099b2d9e3fc7e29de2732a79ccd05f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.915,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c214377db30074821f1627940553879b67902cbdc29fa2e37962cb73bc75f8fe",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.241,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c240a9d72ad09d7bd33534e7964ba214a32e95c4bf6f73a8d6e28a5d833458c5",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.587,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c3b3da498b2885bd1458c270e625fabb2d5da07ce909e8e99971575690b89e64",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c498cfbc4ca6f5922e7f892350a9e4b0a5744ad3d2b81e1d3f19504ba527658e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c4acc8812d456a3b33c7c87cad880d2dcf1b56019d29110d48750f12a0aa7f6b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.472,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c5af030bcbe63baee023b47f213193bbd233949bd9d4dc93b71d36d3a1c7994e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.613,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c6a5d3e69526673a296101ffb7d3a6419604637c7e9fac5573118bed7775d5b5",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.428,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c72416f34ba81e7fb2b0229d7a1e12a421993a1145ce446cd7dad6ebc7400fa0",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.162,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c771c164089223d9d33f20c9862bf975bce9beaa8d21c8d199ba1e54d75ef299",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.426,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c909abf6bc6442bc77c77eda2ec75536bc94435cef5a7a8df4d021f956560f8e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.769,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c93c27aa38bd81963cfec6bb94a639e0eab7f4411349c6988072cb9ccc14306b",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.613,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c99bcdf9fdb103d38df38a4f909049704821935cbfb702bfb99e8a0ead255072",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.561,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "c9b4280cf862c3cd9d62acff4d5e393887d5d5563e3ca2b41be2022002c9a190",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.817,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "caae76902a8064d493b7e307e9cddd717524e18050e3d08dee8ad22131b39062",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "cdb770f60e1fb0167891df72bbad53cf933c0341ca442b858857c9df15fccdc1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.794,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "cde1c117f9f378bdeb5549b120c5cc5337f5d15b5cacab3bfe951251b31f09cb",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.128,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "cedf6c299c2763d91a97ff5c048f586c554c84d4a79fc920a2b6827aa3335858",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.592,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "cefd59e08c0feef8395b91be409481f59c27ebb2a3e6a475964cafd3a8fe9be0",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "d0e9e2fb1bcdb7fbf13fe5feb1e82a875876ed085be006173d91f8e8a8d1cabe",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.014,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "d620397e1ecc6dfbae49c0b8f7f2e0b15cf5a8473fe4f3141b2a6cea7d4cf60f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 5.377,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "d67a452bdbcbce552bd68455b3699cb710dc28f0dcc0cb8434c37aa306f06a46",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.444,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "d903845344492d555c168ab18b648c95f4df4182031e13ad82bc686b7c0f0506",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "d9840e90302ae3296c7180218baec7cb0eea304d23977245e5a249bec1973298",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "da6a06fad5ebaa5f18ca7e929d4d9399f803e3c8d20b1052b511c0ccc92ecfa8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.801,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "db307c91fb92cecb6a77eebee24d54d04fc8a9746a5cce4f8a6fdb1bdb59c0ce",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.817,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "dbfe291c5a981522aa8e57a950511e5c4627df969616cd3f08f6ad32b4919779",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.927,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "dca27bb7b52e44cf5fa333ac0aaec9eb210cfe3256ac69d25dce215e07d17f24",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.962,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "dd277ef387d2d7df4cb7d2467a22e9f426c1d89e5d2ad4583d5a756f4087fea1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.949,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ddf1f8f21b23506a3138f1f1cdc9ec2cd09562d7492e24055106a312be9b34b2",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.481,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
     "id": "de9c70392a98bbb57514f814bc25c655505dc6230494e32863711f4926e54f6a",
@@ -2391,133 +56,168 @@
     "duration": 2.374,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 7
   },
   {
-    "id": "defcc3df24e54bfa7adbf4cd1289e6cf28abb1d7002fa0fa12d611fbc6b14fbf",
+    "id": "083ecb1751d6f21c2a24944a75f2ac54afdd53b4f1b50a731c7ceedaed756dd4",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 2.574,
+    "duration": 2.775,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "df4b8646476e2f2305131ee69724593bb2e97d185b91b858bc37875598beb54b",
+    "id": "0bcd8cc8998131ebd024f5fda735f3dcc8556084bbfc4a56bb120e55a6ccd526",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 4.193,
+    "duration": 3.678,
     "num_parts": 4,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "df621fb7bd53f5a74ecba0208c00d14de6b6e2d59e386fc03839bc9623358410",
+    "id": "0eebcf522f7877552867fb015e0b5cd24ae09a94ea733190ef4a850d5741766d",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 3.148,
+    "duration": 2.801,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e0291587fc3fe33e2d91a176ba48f54301dae587f017c84326b381ff2f434ba9",
+    "id": "1707dd413e403c188461994b03f254ba15d8d96954b135370fd453b0db491c62",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 2.586,
+    "duration": 2.929,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e0453a125e4f16cfb4a1d43b52e3cd533086b830665b33dc02c14fc2af6cdee7",
+    "id": "2affdbdfd6c76f651bfc018b58f277766b5bf9739767aee0d279c3c245e68c56",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 2.139,
+    "duration": 2.783,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 8
+  },
+  {
+    "id": "2eff3bf22cdac2a0e5398faca8730a1b8b358fe915ac7f6842f7830e032db814",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e0eec26a8e2b8a0255b7b4673298487dddd852410098f5a5c9dd4082343d5d4a",
+    "id": "6f607c2412e0f28bdac31c921b0980dff2a0d01c9e2f410cc4b324f7f26ea4ec",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 3.231,
+    "duration": 3.052,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e1fabb01536cc34de6e061425e43c590f95e15bf1cd3e52ba73c527596482048",
+    "id": "87ce4094e79395923ba1f5ba6064d9e3d1609386bd26b5540515720914784bae",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 1.386,
+    "duration": 3.381,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 8
+  },
+  {
+    "id": "8a18c7712544af28906239b2caa48aba7cb32eeac73126269b9d695fe0309d73",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.444,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e3f5f2d6c2cd5353ca293dc1758eefb9120a0c3e6e1098ebc0efabc0ba8ae2c2",
+    "id": "8e8148e3b23007940e9b789340900bbfbb06bc8d57c77ff1df61ca16c6ac8506",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 1.386,
+    "duration": 1.444,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e4672f2d8e963d87b413acd6843172aea7ee58d701a713374c71a19020e61726",
+    "id": "95360fce20f1772fdf27862ffd080280f716e7746d08efd69ea0a147d1623a7d",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 3.697,
+    "duration": 3.381,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e48397b64f70c645f74ca0d79c67de96306d849606cb372b1c2a8550a3c3f223",
+    "id": "9cce53699c26b28bd8687cdfe7e171c9141ab86d7e59220e1b070bf6c5de9767",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 2.139,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "e7960242594a4435785bac39181d10fe16ed5d8c3378e98405bfd2732f61ec24",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.971,
+    "duration": 2.15,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e7c42c4fe12fa86e542556b7357d4978fa4d93bcb850523b8aae6745ea029793",
+    "id": "a8bcbf3a6ef8d88d8ccec8ff630f823d94c47c4a7d730df436fba3860d21d9e8",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 2.786,
+    "duration": 2.929,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e92b218e95dfe44316962f7f371f8b12886fd00ae9414ddcba53b094ac5600c0",
+    "id": "b5dbc912c48352097ed1b089b727ec52bc562ec908df8b8feb7e1c0bbc7f6a8b",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 3.192,
+    "duration": 3.381,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
-    "id": "e9585f4d3086db09bbf5d0d027de4c447e4058913ec557f5cfea851a81108ada",
+    "id": "da6a06fad5ebaa5f18ca7e929d4d9399f803e3c8d20b1052b511c0ccc92ecfa8",
     "status": 70,
     "model": "dobot-cr30h",
-    "duration": 1.887,
-    "num_parts": 2,
+    "duration": 2.801,
+    "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
+  },
+  {
+    "id": "ddf1f8f21b23506a3138f1f1cdc9ec2cd09562d7492e24055106a312be9b34b2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.481,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
     "id": "e9b3d4e4daaaf5bb962d2cb965dc762c12527965a1b040bc2386e3ef78b9d356",
@@ -2526,43 +226,8 @@
     "duration": 1.444,
     "num_parts": 2,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ea0739fc4bc719f003ef2ef5db386af9ee97470d3d6e452d458e670b7f1e336d",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.875,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "ea8a8fc205a74e4afe8b51505c70aad1fe05e777fed29903916890e4a839ffc1",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "eb145b4680c2e72a1a1d2d1305dc02dca198617580b8327bec8e97a736b298a0",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.611,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "eb8d81fb27fb4e9be9d60534288dee430b69d1da95717db3d32b1cfc468dcbe0",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.656,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
   },
   {
     "id": "ee2ed89ce7026e90f725fb6bd6a2d662f884f96f5d7eb4cb0c608a4a64ce1df8",
@@ -2571,7 +236,8 @@
     "duration": 0.0,
     "num_parts": 4,
     "linear": true,
-    "has_path": false
+    "has_path": false,
+    "num_box_obstacles": 8
   },
   {
     "id": "ee62c5ec8e9c31ff442e7571de856432a372449543782501570a96d262ab6585",
@@ -2580,7 +246,1298 @@
     "duration": 2.801,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 8
+  },
+  {
+    "id": "02d32f27dea62a8386fbe110dfeeb58d88c7e1848ecef15a2affd7ab4b6e7536",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "038385f9f1185fd90a315e3dacd8eeff4d046f7d3bc1b5bca8aebc9231cbee12",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "0390c5410f95975e647a386588f1d1e6426ac34e89a86b86b64e622dcd14061f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.613,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "04276a03342cb61abec6ba0c69e38bb5ea86b15bd1b8f76260d4f542a63a20b2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.853,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "0555f76d2023a89e3d00a8e6eace18132978d807cd2c1aed73d80c8423853227",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "060abee1e07df63ff2b9795eaf59841d99b7e85318a542b0757896ed7c3b9d48",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "08096f3c7078aca9d958330112d7a5b7f8885e002a59d0183ba3307b9234e9ec",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "0f09bf6030abe23f3db3ba2a3f923c2c32cafc3770f24d569cab40bff84282a8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "0fcde41445014b69535da271bafb4e8b6ebf78df183b94608dfd9d8d2115da66",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "10acfb1868f9b68c1c6dbbc9042b27c94539961eb57baa6c79a4de6a19f7757a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "12ff8c648544570d927d317abfa4f8d229186ff167bc63fb49e307611b982124",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.644,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "18ccdc6b68c25eefdcc36dc684f369312be30f387a0eb48b6226a6fd0d093d29",
+    "status": 50,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": false,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "191bca399edc71230fb85846aa654f4b734e39135429de4bae6e99fc7a49055a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.525,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "1aa1173a5a0b336b5c78aef1d387db8c25019717d2db08705f293be734c49ff7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.906,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "1cfdc4259bbc87a70c56151e7e5e58b989008963c71c8df25d2afca3a4bfabbb",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.549,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "1ee33916f7b3a3d4301632826e7676d1de951ad85f77ffc175250481bd00e55e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "2227ac4ac33c59828934eb068789bae08f778ca9884f70ae0f12cc0a1186fd0f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.611,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "257bc84b84dd762c02a6c48aee027497b8f0928b0f043883e770aee843155f9f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "26d8f98d0e4413a6d2f7b0e5de4661a39543efba99f30ee691ec26ad2a92e70d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.866,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "28d5849f56c60032e6b48a23f41ae101defd82e9ac90739ff59ececcff4dbeec",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.278,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "29bf7f2c99c89ea481c5a7ad9d613344fa89a1bc266754ac2320b2349039bc27",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.413,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "29c8879494f782fbb2e6153a247c3623b351ac8743ce902e39cbeed541ce2de5",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.08,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "2a4b426e8054a5d6e1602fbed42bf76db554fd4abb500f534d2bbb9effcd77ed",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.644,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "2d5ddf638deebe7312ab823a53307e61b35579cc7f7595d34e7e24b19f7185a6",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.727,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "2e28dd78922ad01773d2a22dabebde4f2dd19b25ba82f840dacc4d7adf6b2c80",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.148,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "2e6fb98408dc62f097e22770f812c6f855e6a672f2f75fc82a008149e2283ffd",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "30d5ec17d3652fc82d7f57661372eeec0afe55ee5df77b2714d675d2c3eece02",
+    "status": 40,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": false,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "31a2b5c892032440e5660ba026104ffc79b26e633084687b153ff34e73b78703",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.253,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "321e3235d710bf868f67363dfaf009ad216ff4bc1bf39723febfed5178d6ba44",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.435,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "3565279ecb6fce9db3a86e6541a91a7c73930e9f94b03417ca2b513bd350a818",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.502,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "375ab16513d6c771acc233bd7b3a171fc532ec5978a5c2fc742b57f10d32a524",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "39fa281a4b02c28349009eac39740e538dc67d605ce80350136c5386c4350ea8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "3cb1a4a89a66b16db7c3c2e01cad794fba8f79b4de30c574c2aee681956affa2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.483,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "3cf97abfaf0cb592ab1ff4906f5d2b42fd2a3781f2ca29964a6587808134e2db",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.444,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "3fbdd0c5667751c8cbd0a428228d31894bd67b9984fc1337f64e659f3bcfe827",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "42075a627fd4f1745c99d313259781a29664300338d8db82255410183526f303",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "43113072300ebc10dec5bcce916a50412caf1956017fcd1abaac6084b889acaf",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "447829d70e25896b3254c54e9392d269392b9870ee1322af4c09053fa5c2e30f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.613,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "4932dc1d4b63b68cd4ee5e4b1e95af7518d3f903f6f0076e2acf89329828a6d4",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "4a7bfaf46b0a8b327b313fa00abe3e94d0864bd04698ed0bc7537c3c5a391247",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.954,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "4d0830d3184fae235aaaeaba9e1fef096acecf00b31a7351f81eb2f151e4ceb8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.012,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "4f86f64a1fd29c1c229dedc2f85f1f787c13d8e0ac7223264fa0220f8d9ca65c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "52afe29f62de50413594b5811a7327dcf22791dc03b36030c11871501eca7075",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.381,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "57077bfb58a93d78f729eb5298de6feacf301e557015c95866b8b81542c09168",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "58e2d0fe2be0b6658c7e7b57805ba76b3fd3017829ac291104bd8da6114dbf42",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.574,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "5996fcd4e328ce8e3ba806c256eb0c46770bf346793e768afb992316bb281b5d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.566,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "59b40c11e046b335f075bf13a67eec732a7e7cb05e77c9442b04ba023f0691f8",
+    "status": 50,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": false,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "5a530e75ab4c1d9efea3a5f2e732b7e0cec7ea55f3891578e0dbc13a3e1e648c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.491,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "5d80a2d9c2c6488d2113eb1ca34f1022967103baabd744469f8473c4f113c613",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "5e9ae3543c0b4e59c45de33338fba13b3cac26ae7ccd2811ec8714460849a2db",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.336,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "604901a9e92df2573b129f285eeb42feab4e4836036a5306480846d82a01fa96",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.989,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "6049e896162c33a5c7eabf3a09dd9f77dea2873f9d3588e5a96e547a068ed435",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.54,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "62702c99492d31d88ffe907f8ed9b7db9dee2af00f919b3704d66bc304fc6869",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "65fc52e12827a2ba88638cfaec3a71354d448a7ab5ed09aa4c70c89d41f80725",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.08,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "667de116e9c4dd661fa9dfa1bbf6569ab321782cc833d8744dc42fc2e12e4b8a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.875,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "66cceb2bfe3778498e6f8110a40c684c3f7a30912c91358549d3e7ea0aaf28a9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.574,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "6853d349af095aaa80326c49c8adc91c2900c59d29ac52ed88aa0d477dad1d33",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "69d9ce2eed2299cec9b1248dc955934641df45e57d1074097d384c72900da372",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.162,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "6cb7d458cd9e0da037b90c6b031377e7cd2edb9c6aff9bb1d7873d69aeb2d1bb",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "6cfbbb60db6a7af1229f28ece667f346ec5c3e8b9e151f8c1c7aecbca36cfcca",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.551,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "6e9758b53c897704d8605e9ccaa618b86ffbf152ac8d34e7f7e63173dfade7a9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "71c46be6373eaadee88f8256f8de57eddf14a0a5856fb138caaa788621895587",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "71fe661afeb4ef904e66165e77d8f6a3979b43f1f1b4ac77daa49f4e8ff255fe",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.996,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "72f8b98c9e14ac72a352c5d41926bd1444635f09df90e906f9d5a383092c6851",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "73bc396afd8cb96b4552567bdca81760e9c2f523a4d21de8e4a04ba8c76d53b2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.991,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "750f7dfca72245b1ef509a2f24436098c22b95282863e44f58beb1ab31036c90",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.688,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "7595e6f2c2401d3da07be3d873785e9d9c7363e18495c090a2c8e8065f3e880f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.565,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "77b658640f2edb349dbfefa2810eaa316c51c2e1631937e162204278f979627f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.775,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "780ff2cec46464299262c3854004616c395482e9678dcd94b4c931ecdc7c6aa1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "7adce18b0ce7c23664dc058dc36e9a2f7909fd68ff356b32adc1970c49d05cd0",
+    "status": 40,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": false,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "7d85f4cfa7223eb746f6bf0a4c7e3513c1d3009120634fa71208059e19a5f2ff",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.328,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "7f7a1c1e35fa61286735ea965d7ffe28e1fadbaa93f660020aeb598df831c616",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.148,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "80d16d879882a5b95ddd2c54f03a4cb546fa58fcfbd8b1015d514cf57e13d542",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.852,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "8171072389a65bf0083226be977fbd779e6b77243a77cc2ad12d779992459bd9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.875,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "84943369c4a58142733d5150fb48427105b0980d7a4f38705c4d71b04898842c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "8581544c63b35644537a6d5843d0ff4f5e0ceddad8ebf0e8cc321e0c15cfef9b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "8f1143708c4a1bc42857eee4a8217a53ca33f75c7a22998c0bf7031ff5845f5e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.555,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "90cfd75de0ad779cbeffb26b629d458d0c290dac4eeb6d6193b03032d51e32d4",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "94b9d178e7847345fe5e7636734ac0eee93eddbecad085269b01965c5f3eca80",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.723,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "964537604d33c736ba536f8060513a9335f5043360f405b15248296bc5cb5bfb",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.09,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9864ed970152df2490a4cbf8eb1e2e42e0e785566e5c06a49021ee17c4e1a4f7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.563,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "99418e1b93414899d29d1f673b65ab1a103316b278e2b87a4d2610bddce6c419",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.1,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9a89adb34f783ce00781438a08840b9f5aff324fb354a34c6e83fd3b7c3319a7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.561,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9b25e8d3157950dace47c804eecb364c56e895cd8c6b03af79b6c30ba10fe620",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.586,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9bc1d5c0fc7743d70e444eb646f70dcdf408508e56d3630425047bf9d677ab30",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9bfe82102071bb409866be2e6f49e30c5ab380b59047b3043a2081be294ddd0a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.51,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "9d2dd990f5cd31709aab4c549f2744fdc3a39ee310c4d77c02ea14213cbd52f8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "a0c24a25bfb3e05462e69ddaea7ec0f19e50e7c3ad8bec655c850808c2f253e2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.128,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "a46e752c57461a2e6e83c0c5f1f896c1f847668803a047dfdce6154368b0113a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "a59fbddc9de6871a3f5921cce1145780959c2dd10aef2b2ac48f724b0ae6ce33",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.11,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "a624dbe0ed79d19c1553bb9a5659d6ea03ad9d5ec53d36887846c79eccf602f7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.631,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "a75450b8311c8b43aa8e25e95e7a8936def80bcb1639f2c65e266cf9b1abb364",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.318,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "abc35ec51b715b0aa7608a1d0d6aabf022d594fd1cea0d2ac77fb4185c3273dd",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.659,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "ac31fd79538e358ca1007e4b58bac8275ee39c750cef9805c329a48bd416361a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b17b4ce96c232392676aed28bc828be77f7c675402f76743aecb2023eef94256",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.445,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b19677b213ba1d6adf5c5f22edad5f9ab4cdab7721ec6f21403298122f390808",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.381,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b22214ee6fb5ab64362b0afc15d80e14677fcc87441ef87f3cea42f6f6ef0073",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b42825cc06a3738599d734feea9b6b10e2935ba4d3a696b64eb1929517236b83",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.769,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b4c048bb137dccec300190d78723a83761f8e3fbdf25e152337076cee5770bcf",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b7a8632ceac5b3d0609b5b897372571782411cf977f15312d5d82b8902589721",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "b7e6a7332b013dc37548212f5cbceaff048bc54caf1ff6272127e737c90a96e4",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "bae1e54927a2a97b5e155c539581cba8a3d6f3e8339f78d2c1bfaa566f2d4923",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.923,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "bc4d7c52b42aed4c77bd5ff3f35f1c8339f225012f6a1e32b655c42585ee9892",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "bd69630d7e6d60c992fa6c727ce2d4baf47109c818868dc6205d40ee2f852164",
+    "status": 40,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": false,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "be4a2a2a17e31d5ac7ec9ec88a34007ab2c9042155f7b8cd5826488c4f4f5de2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "bfc4b73123bc2f911541577455382a3fefa014a308e1a0255ce281729e60ae52",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.923,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c00eb77d6ca0fd97c1fc373eec2d27571097b1dbbe4e1be6c431d4b1b15d5ba6",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c16edc3c5b3e914c739ea837c2be7696cf4aa9b7a4c3d4d5355d3600fbefa7b5",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c214377db30074821f1627940553879b67902cbdc29fa2e37962cb73bc75f8fe",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.241,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c240a9d72ad09d7bd33534e7964ba214a32e95c4bf6f73a8d6e28a5d833458c5",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.587,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c3b3da498b2885bd1458c270e625fabb2d5da07ce909e8e99971575690b89e64",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c498cfbc4ca6f5922e7f892350a9e4b0a5744ad3d2b81e1d3f19504ba527658e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c6a5d3e69526673a296101ffb7d3a6419604637c7e9fac5573118bed7775d5b5",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.428,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c771c164089223d9d33f20c9862bf975bce9beaa8d21c8d199ba1e54d75ef299",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.426,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "c93c27aa38bd81963cfec6bb94a639e0eab7f4411349c6988072cb9ccc14306b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.613,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "caae76902a8064d493b7e307e9cddd717524e18050e3d08dee8ad22131b39062",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "cde1c117f9f378bdeb5549b120c5cc5337f5d15b5cacab3bfe951251b31f09cb",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.128,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "cedf6c299c2763d91a97ff5c048f586c554c84d4a79fc920a2b6827aa3335858",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.592,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "cefd59e08c0feef8395b91be409481f59c27ebb2a3e6a475964cafd3a8fe9be0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "d620397e1ecc6dfbae49c0b8f7f2e0b15cf5a8473fe4f3141b2a6cea7d4cf60f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 5.377,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "d67a452bdbcbce552bd68455b3699cb710dc28f0dcc0cb8434c37aa306f06a46",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.444,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "d903845344492d555c168ab18b648c95f4df4182031e13ad82bc686b7c0f0506",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "dd277ef387d2d7df4cb7d2467a22e9f426c1d89e5d2ad4583d5a756f4087fea1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.949,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "defcc3df24e54bfa7adbf4cd1289e6cf28abb1d7002fa0fa12d611fbc6b14fbf",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.574,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "df4b8646476e2f2305131ee69724593bb2e97d185b91b858bc37875598beb54b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.193,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "e0eec26a8e2b8a0255b7b4673298487dddd852410098f5a5c9dd4082343d5d4a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.231,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "e3f5f2d6c2cd5353ca293dc1758eefb9120a0c3e6e1098ebc0efabc0ba8ae2c2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "e7960242594a4435785bac39181d10fe16ed5d8c3378e98405bfd2732f61ec24",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.971,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "ea8a8fc205a74e4afe8b51505c70aad1fe05e777fed29903916890e4a839ffc1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "ef22ba1d397e5157a67384b7fd06a84952e750480ca5dd14def08e19742a9454",
@@ -2589,16 +1546,8 @@
     "duration": 3.336,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "ef2449fdc2e5a8fe15d71f5fd97709370441dcfbe3435ec120ad4c90bbb06c3e",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.531,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "efc8bcbab63141b6f0f6d593346c65dc428edf58012a20ff07b2013b97c34e6c",
@@ -2607,61 +1556,8 @@
     "duration": 3.041,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f162b9061819f7afe516b261b3610a12fe14ff7743ab615a5e27e81ae3da2e32",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 3.697,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f171bfc7577d499e19adc79aabed7c92d29f34dc8abf95c39af524fb5a3e5213",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.818,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f181ba34de6cf12f73b9bc9f263bf5f68b2a3643d48d7b5ce77bd28effd8fd76",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f29eea26a17d74b67ce62ae5d76e14954a437390e8cc544a841024bc88383321",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.893,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f30771d8273b2942a6b0bf205f5335de237ba4654e8c8e791521cafd35a60509",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.984,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f3f0124fa816485a132f956535aedcc45ce411dc7b08f4e486184840d96ef415",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.613,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "f440c0d1f1d39d48a4817eeac2526949f48f008d6071922b4cc93467b133c3e4",
@@ -2670,7 +1566,8 @@
     "duration": 2.644,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "f5196e8839c9d3d36093eddb54b70463241bca129b91d11437f7133c670a0311",
@@ -2679,7 +1576,8 @@
     "duration": 3.213,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "f57bd2bec225a8143944292aff1ae5e2d0f44c2b35e9e4bbd466da8da6258f16",
@@ -2688,16 +1586,8 @@
     "duration": 4.186,
     "num_parts": 4,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "f6155dc95e20dacd8e911facae76924b9f268bb39d8feec358945126f666de9f",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 2.55,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "f6628d377204b4b35a0fe1590ba9615f890a98ec8fac0470e4a56103700088f0",
@@ -2706,7 +1596,8 @@
     "duration": 2.613,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "f71e806c11cc178eee5d947c9610b27ed15abac15194c530b0988341b711373f",
@@ -2715,7 +1606,8 @@
     "duration": 0.0,
     "num_parts": 3,
     "linear": true,
-    "has_path": false
+    "has_path": false,
+    "num_box_obstacles": 9
   },
   {
     "id": "f8435b81445f4a03af64e64abc1c2a823da9f3adcec5bd447afd699637dfc400",
@@ -2724,25 +1616,8 @@
     "duration": 1.149,
     "num_parts": 1,
     "linear": false,
-    "has_path": true
-  },
-  {
-    "id": "f959cd13f5efe829d1b23d8877cd4f1643ca7cb1e4781d512c2a7f6cf054eaf8",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 4.283,
-    "num_parts": 4,
-    "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "fa52d6f7369c63a52875644c659eed32eb1e8b1d7a956ab1186385cbd51f6c41",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 1.386,
-    "num_parts": 2,
-    "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "fba6aa014dba0243bc7dbd313b520551e054a4322cb68452d63c5f21b5b95adc",
@@ -2751,7 +1626,8 @@
     "duration": 2.454,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "fd6a73d90c185d3ffaaa7f2ffe8d1970560c6072c5567d2772aea1e1524c0857",
@@ -2760,16 +1636,8 @@
     "duration": 3.923,
     "num_parts": 4,
     "linear": true,
-    "has_path": true
-  },
-  {
-    "id": "fe9916892bc74f49886ff6613d034a6d1d78a0f6bcd3359b0d8c7b8dbcbdec72",
-    "status": 70,
-    "model": "dobot-cr30h",
-    "duration": 0.794,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
   },
   {
     "id": "ff4eb82177e313e3f3764817bbc582cc0d0b462e07abc660ce229eec4d4c9769",
@@ -2778,6 +1646,1447 @@
     "duration": 2.949,
     "num_parts": 3,
     "linear": true,
-    "has_path": true
+    "has_path": true,
+    "num_box_obstacles": 9
+  },
+  {
+    "id": "00b448de8b204abe40b244dfda404ad4936406afd0dd9b8663e1b36153ea293c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.633,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "01d5d1da4cc20db05eef356472ab045183c642eb6589a07bd7a338ba5531a872",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.193,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "0302382238dfea9493e4732141d23979d59c6ad6904cbd4321b0cb5dd4efc92d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.618,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "0408ae2bbd1a20fae13ba1f9bd02494c01de5c6caa97b560570745b8b1d82497",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.159,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "0545b9cbcfb67f9556d41edfb0bcf3d4ed6a53332b136f5d1149118e853c9cff",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.537,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "09e5c52f778de508b852667f896dae2f1e51285d1f29e1c38361d3a16f64077d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "0be6992177b7d04ea66c38173bf69b59ade1a7cfae062c7c82644c718b58b453",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.445,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "12005c788caec8b9c3732b4f6a49cb2b9de1912def326ed854cd96da2a9082ed",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.499,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "16c8cbc26ede9ee81465c9cb0c64dfec29b2d6b75b4c58e6c920557dbdffee89",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.549,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "18b4dc53386883188aca22fec6289258a87d2315021bbfa8171807182cd06344",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "1a8e73ad5f9e05aba3cc7bde72aedf59538a9b90fb1846542f55ef19af0001da",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.693,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "217492d12c768d0f8479d9cfda1cc6a8a0638dcfe7ed76e4a4b00a81320cedfd",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.574,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "28413b929d584e666616157e11cab0861442bfd65192af699ec218c2b564f4a1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.468,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "28e5ea821e6e1b77880e78c8dca0817c9bc48c53a4b6657e033ba81833d94217",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "303c493a2136e0928e9fcb811726700d4b107d875a1ecaa7d373ada0dfdd9bf6",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.923,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "30dd812b8c2da6181d0865b70915e1cb78f2cf711bf135df4d177d7569c5e36a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.137,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "30e0c56220e182ddaecfba6e7eea10a35a0be4442353fc96c587ba9a3e874b4f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.058,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "39c9636c1135b4c34fa6510f3158dbe60e3f999973d1c04babf8735f0b90dd2a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.186,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "39cfd71423c97cacb993ff779ef96542be8b9f565bf2a6c7384d2f8696b67e41",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.943,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "3a0a11745f900e94176ca5b5400d48f5ead58f5b1e281e0aa4659d3514643213",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.943,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "3b71873b9ac367ce91e4413bc50ba5126a6595a648e888b0a188479edb0678b9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.44,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "41c5dadd0aa52c800320548a920288979ba4ea8c53d0cab0fe8b52b7755e4fe2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.549,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "426d5d22aa10f28a781d118fd61a3c0240e4ba45b0442218849cd4c79726a584",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.657,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "45818e9531c572d9a2bbe0569b869ea020433833e94822f3617ba620358bc0d7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.551,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "45c1bdb3d292a0c026250d9c943dbcde073a0e4ab56c55956e75a387e3648f05",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.128,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "47259b9751d50e90abb575b8b5c4d0bd5afb379c67c907db33f2c721a217e603",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.549,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "4a1c23ef5f486b43d84cf0a8c9591c89a8616b670471763db86f150898249bd1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.989,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "4d384aa9be8ae2e9058c7b31c2ca40acf365fbc9237973d28a0798d3c3047a25",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.729,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "5e6e74d1096b4dd158cc54855e642f5eb82c470d6b45f719df1c068a3b3a2083",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.939,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "62b469cd018fe2e551dac8ca6012ae5b940b7cb799e1f05e8563e7a8e3d76a3d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "636f041179aa8db552d164747504fbbbe0524657c00ccc8e12a2fb4b61c83457",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.587,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "63880930e466aab75ed07aaceee68c6fde5849aad053c35800755ccfd9bf3fde",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.235,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "63acd990a439f3f45cf5da6cf4e2b9315009ed3fc25dfd1f928cbfc1c434f14a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "671503161c309b36c30039236301f9980343d7769779c93caef542df5253d21c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.018,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "68fd802e597440846df9afba94388de96bb8f32b653b1542b4b92872d01fd32c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.44,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "760c5817efb766ec6f24a1c2dae07ee94ee673ccb6539aa1200676b534ce568a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.445,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "79eb8f76590780528b76edc8ff273ef0ee9592d3bb922e9131cd66dc8375631f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.168,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "7a6ef2baa285febe16960d53938ce39dabe9e7d438e59f3cb30503863e1e5da8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.697,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "7a99ccf4dce47316c1c5dd7db525b434d88c399015977ec98812a54f395ae9af",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.825,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "7f0f6714d0e1cc874ac35c2ec745ddc10e31aab66b94ac05c663844102c5f57f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.542,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "821fe94a8d2ea424eb8423d3ea36b9495dc977153a449da49a002582eceacb07",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.219,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "852d6f7b8cfdc82b6115996dbffc3cf8780d7d3d60d24a04206ae5c0dd0c2e3b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.644,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "8920e787a7b9e6b518dd40c689733e3b4382511a6c07f8e7f2c7151ebf5623f2",
+    "status": 40,
+    "model": "dobot-cr30h",
+    "duration": 0.0,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": false,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "8b7b55fd9512b0a0bbb90f285a99471ad642731bb96b13b502b4c2f53d1c8b4d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.502,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "8e35323fe5397db4cb9c048e22779a53d43f726cd080d156da2cfe6f75642677",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.669,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "8e53f0ff226790c98ae8a96a324a0222f2c31b9183b0599fc16ed01b5885dde3",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.476,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "90cf78a833368e8395f1ec1911bff817cde9399630e39c12c75c4477280986b4",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.097,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "94fa5a303ed8d8f827086abdc8753bd45d664d22f67587000a2814df598ec3ea",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "9b4e171aee5215f9e7885c2fc893ca40b3383a65b4d58e16f8053a22c31229f8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.971,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "9e6b3eab8f14da214899847a78b09c8f7f058c24bbfecae4c52f9fa760e4fe9f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.923,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "9eba19b5ef32784341fd459d94a05b09e2683c54655b542e69d61748d60605de",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.044,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "a8db83c4a70b2438ca98bd7b0df8bf87a2d02c84f6097e520ee2b159586dd89d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.814,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "ac15ca7b4d6966a0df31502134e9debf52af25da37fd376834074a201066d6b3",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.915,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "ae113e2ac226304a5e87f01fcd2a5bfae64bfbccf448b79b98a2f964ce7ccc7c",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.965,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "b09f6ffcbaab4ba7c31855c6b1e331e59ee1cccfeb1c8d7a10ad9d013b714fb1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.775,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "b3286fca5b036bfafed01e6d1fdb55ec8ef8a1552206b55f90e75980465be02b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.814,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "b8a88f1c9c52b1cfc08e9b77be9310de91ffe2bed39f6cb25c6eeb809a8eade9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.814,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "ba5033eff955e4544738b77ece2ad9572243b05abe7d75efbb1355a8c8bd28a7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.574,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "bf6912b844839254f52023fd9b3ee9f8ca7a2fa631df994eb0b43e63f8abba63",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.988,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "c4acc8812d456a3b33c7c87cad880d2dcf1b56019d29110d48750f12a0aa7f6b",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.472,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "c5af030bcbe63baee023b47f213193bbd233949bd9d4dc93b71d36d3a1c7994e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.613,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "c72416f34ba81e7fb2b0229d7a1e12a421993a1145ce446cd7dad6ebc7400fa0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.162,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "c909abf6bc6442bc77c77eda2ec75536bc94435cef5a7a8df4d021f956560f8e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.769,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "c99bcdf9fdb103d38df38a4f909049704821935cbfb702bfb99e8a0ead255072",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.561,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "d0e9e2fb1bcdb7fbf13fe5feb1e82a875876ed085be006173d91f8e8a8d1cabe",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.014,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "d9840e90302ae3296c7180218baec7cb0eea304d23977245e5a249bec1973298",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "dca27bb7b52e44cf5fa333ac0aaec9eb210cfe3256ac69d25dce215e07d17f24",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.962,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "df621fb7bd53f5a74ecba0208c00d14de6b6e2d59e386fc03839bc9623358410",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.148,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e0291587fc3fe33e2d91a176ba48f54301dae587f017c84326b381ff2f434ba9",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.586,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e0453a125e4f16cfb4a1d43b52e3cd533086b830665b33dc02c14fc2af6cdee7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.139,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e1fabb01536cc34de6e061425e43c590f95e15bf1cd3e52ba73c527596482048",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e48397b64f70c645f74ca0d79c67de96306d849606cb372b1c2a8550a3c3f223",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.139,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e7c42c4fe12fa86e542556b7357d4978fa4d93bcb850523b8aae6745ea029793",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.786,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e92b218e95dfe44316962f7f371f8b12886fd00ae9414ddcba53b094ac5600c0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.192,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "e9585f4d3086db09bbf5d0d027de4c447e4058913ec557f5cfea851a81108ada",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.887,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "ea0739fc4bc719f003ef2ef5db386af9ee97470d3d6e452d458e670b7f1e336d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.875,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "f162b9061819f7afe516b261b3610a12fe14ff7743ab615a5e27e81ae3da2e32",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.697,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "f181ba34de6cf12f73b9bc9f263bf5f68b2a3643d48d7b5ce77bd28effd8fd76",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "f3f0124fa816485a132f956535aedcc45ce411dc7b08f4e486184840d96ef415",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.613,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "f959cd13f5efe829d1b23d8877cd4f1643ca7cb1e4781d512c2a7f6cf054eaf8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.283,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "fe9916892bc74f49886ff6613d034a6d1d78a0f6bcd3359b0d8c7b8dbcbdec72",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 0.794,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 10
+  },
+  {
+    "id": "2832522f0bd619821128047b4bcd7a3fc581bbd0d321f6defc973f9ccb25ee79",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.125,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "365c2606bf2985569bfa62ea2677c718fd11daeaae2170416bf54ecbcd77ebef",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 4.247,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "4170914bb3dacfca62b0234be9f75a307d1acb94a44756c5a82dd259f08d3c78",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.448,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "684d25098229d53d89049ec05ff00225dfbea5304e990a3816c5112614d90dca",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.669,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "731f9406195b20c66c2a940eff812032a9ba54940afa8ed11759c97cc41ef3d2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.742,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "9178cc8f64fa054a4305380fd2c80c679067a8342a43eafcdbe60cca8fcd72f7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.448,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "c1cab9417b6e25f3cebcb8af14516d02b3099b2d9e3fc7e29de2732a79ccd05f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.915,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "e4672f2d8e963d87b413acd6843172aea7ee58d701a713374c71a19020e61726",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.697,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 11
+  },
+  {
+    "id": "fa52d6f7369c63a52875644c659eed32eb1e8b1d7a956ab1186385cbd51f6c41",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.386,
+    "num_parts": 2,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 12
+  },
+  {
+    "id": "a187251970acea07065dccf5f8770bb0e06fc9cba32c937ba8fc311861751ec2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.213,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 114
+  },
+  {
+    "id": "7169c167920febea8fe72dd8928cd05c49a8907f3c13eeb2e59540b007701d83",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.947,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 115
+  },
+  {
+    "id": "eb145b4680c2e72a1a1d2d1305dc02dca198617580b8327bec8e97a736b298a0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.611,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 115
+  },
+  {
+    "id": "79d22a2ddd2e549be625923bafe64c273d3b3cd93b756ebdcdda75d70209430d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.794,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 116
+  },
+  {
+    "id": "f171bfc7577d499e19adc79aabed7c92d29f34dc8abf95c39af524fb5a3e5213",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.818,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 116
+  },
+  {
+    "id": "ef2449fdc2e5a8fe15d71f5fd97709370441dcfbe3435ec120ad4c90bbb06c3e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.531,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 117
+  },
+  {
+    "id": "f30771d8273b2942a6b0bf205f5335de237ba4654e8c8e791521cafd35a60509",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.984,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 117
+  },
+  {
+    "id": "8a64e5f4bc5cf762020fbb98245313e57356a500f15ec0e0ce9a69e1627ab557",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.916,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 118
+  },
+  {
+    "id": "f6155dc95e20dacd8e911facae76924b9f268bb39d8feec358945126f666de9f",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.55,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 118
+  },
+  {
+    "id": "6d502502d98c1ae130ba9ed564b28b2c12923e78b5dfba8ec8276d2a317539fa",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.626,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 119
+  },
+  {
+    "id": "8e5f2d67513cc0067bc221fa0f3f6635a4662f0b25ef77744404d68f38d86575",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.828,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 119
+  },
+  {
+    "id": "0172ff1371104cd7c358d182bee0ecb709ed9fd144046e8ec1e8dfcb160bc50d",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.876,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 120
+  },
+  {
+    "id": "26b03fe72cbe45e4747842581b6cb4e7be2d3a91d38d568caa412877cf021aea",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.794,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 120
+  },
+  {
+    "id": "58946db55eae7a2b17cea9916746256a3bbb6c923e3edf19382fd173d336bb10",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.794,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 121
+  },
+  {
+    "id": "f29eea26a17d74b67ce62ae5d76e14954a437390e8cc544a841024bc88383321",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.893,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 121
+  },
+  {
+    "id": "4b7bc470594a144207c654bf11f9cd5256d3ea72fbd586b45633a6aacf1e0fee",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.862,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 122
+  },
+  {
+    "id": "a82098bd560d82d260befde88c1775cba8f4469a4a363d08537f230a8e9fd8b8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 3.229,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 122
+  },
+  {
+    "id": "4eecd71ccbc1e25de84f15897a0a57135dde9225a0430fe60fe62290166cf3b2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.819,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 123
+  },
+  {
+    "id": "713537eac9f6efcd4057bed8a66d93054a472a6528227aebbbf78aaa9bf9bc97",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.794,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 123
+  },
+  {
+    "id": "5941329cd087cb7e09e5556d6b5980edbc02f9f8895957acf16789130d7debbb",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.573,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 124
+  },
+  {
+    "id": "bf416719bb2451d773acb336e9ea7a000ed89103ac042cd46d6a7190899ed5c7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.901,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 124
+  },
+  {
+    "id": "108412c4da71f37f580061fee5714d6b01f5a1ff5f26f69331fb25691b096c47",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.841,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 125
+  },
+  {
+    "id": "7ac6a90c11f36a115ae1b0bc5dbeaaeccbb7f4abbec21bb6921bb0389d7d89a7",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.833,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 125
+  },
+  {
+    "id": "335b268f790024951b9380606ab689f6f9771b11fcf90068484088cba56cb420",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.599,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 126
+  },
+  {
+    "id": "bf31f7d0c817990fc2f4aca3059cdcbde4edf947a47f6233a38d4bfc250b79a2",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.819,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 126
+  },
+  {
+    "id": "0790b7e94d82cec964c43979a8893ec803d5f94d332fa868914e678ca7a9fb04",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.866,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 127
+  },
+  {
+    "id": "c9b4280cf862c3cd9d62acff4d5e393887d5d5563e3ca2b41be2022002c9a190",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.817,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 127
+  },
+  {
+    "id": "9151529b7fda347427b8e53aa2b05cad7fb1a7cc0d906ca27a4696093b0e6605",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.947,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 128
+  },
+  {
+    "id": "eb8d81fb27fb4e9be9d60534288dee430b69d1da95717db3d32b1cfc468dcbe0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.656,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 128
+  },
+  {
+    "id": "65c380ab0a176c137f1a34e17325ba8ff0eadc435c4d18d6bc807263eb41add8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.844,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 129
+  },
+  {
+    "id": "aeb44a40afc70d842b326f4b27bc8b2d3e5a14ffd795602d453942821cb7da09",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.573,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 129
+  },
+  {
+    "id": "8a49e7a5d59f90d8d0a26689784857a37666e0082f503e6673a76860c41666bd",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.912,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 130
+  },
+  {
+    "id": "cdb770f60e1fb0167891df72bbad53cf933c0341ca442b858857c9df15fccdc1",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.794,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 130
+  },
+  {
+    "id": "03636f90d4181ee1438e07690212810c4afbfffb5191a2a20ab1aaf0fdcdb1dd",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.053,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 131
+  },
+  {
+    "id": "a5710bd5ec54e29f54fe1640d6b26a4565bda98c2af967fe1c3f6f38ca91d89e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.599,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 131
+  },
+  {
+    "id": "065884fd8df3a16664bdeb83d29f46b10bb760a0c963211799be0793d023f049",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.863,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 132
+  },
+  {
+    "id": "2025e51f1d8590531da955f4f23c586b1c8bade6553f7b1721cab13c6ae4d991",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.795,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 132
+  },
+  {
+    "id": "6975b9828baea3b8ec023756837caf2732378f285f56b6dda5882f42581e4fb5",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.542,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 133
+  },
+  {
+    "id": "bc554ea13019821e49a2b129e0e819c878655972260d319a451b14a7fd318401",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.844,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 133
+  },
+  {
+    "id": "760a00d8176567c8da62e83a7999943768f8dc4e49e5741b7db4f85470e296a0",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.817,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 134
+  },
+  {
+    "id": "dbfe291c5a981522aa8e57a950511e5c4627df969616cd3f08f6ad32b4919779",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.927,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 134
+  },
+  {
+    "id": "4ecb5a2089a281a278501ac4865ecd0edad70ad4fe36e99dabc95bea7516ab61",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.626,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 135
+  },
+  {
+    "id": "a49a0af4fdb51ac42e293f3e5efffd6b9b7f5079d57e36625bfc1be18d2df5bf",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.797,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 135
+  },
+  {
+    "id": "2b7affa7ee3d78fccf766d176ea7f28fd605d531997d8c7cfe7dfa5e32fc2837",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.808,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 136
+  },
+  {
+    "id": "7827d7c2377eae2256f7257cebd64c24be7b8fc447bfaf37fcdf7910d84cd6d8",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.868,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 136
+  },
+  {
+    "id": "b418ac6cccdaba4f4a1aafeb7296bffdb85e90ff54ee133f350fbcc288566164",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.689,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 137
+  },
+  {
+    "id": "b83de023da1db0b222bd95c97a3871fbb0195ab2afa18c074acf81b91046571a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.969,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 137
+  },
+  {
+    "id": "30c8592785f27326826351deb16cc2ec5339d548d510f6680a11ef64581bc240",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.817,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 138
+  },
+  {
+    "id": "4ac0760dbca218fbe47e52ee80fde0a4971378df2bfa190a13588f60f7ed0e9a",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.808,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 138
+  },
+  {
+    "id": "36a5ef0f2c39ff56edf7c7fbd3959ef56e26877660adc4ff3390d4e408131e0e",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.639,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 139
+  },
+  {
+    "id": "c091036b39c9081030e3fd7dfae992912ccbde53ec68c09581ad2367e2f7fa28",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.947,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 139
+  },
+  {
+    "id": "56c33e0a02706a144b2ef317de3c27ad695ac890e403e4362f7ae23317bc0776",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.853,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 140
+  },
+  {
+    "id": "db307c91fb92cecb6a77eebee24d54d04fc8a9746a5cce4f8a6fdb1bdb59c0ce",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 2.817,
+    "num_parts": 4,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 140
+  },
+  {
+    "id": "4d2e2cf4eec9ff859d9835257fc1e469e4e9f23a4463769d9f2c6930c78adb43",
+    "status": 70,
+    "model": "dobot-cr30h",
+    "duration": 1.923,
+    "num_parts": 3,
+    "linear": true,
+    "has_path": true,
+    "num_box_obstacles": 141
   }
 ]
