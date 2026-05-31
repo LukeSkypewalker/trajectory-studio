@@ -101,8 +101,8 @@ class TrajectoryApp {
     this.elements['btn-play-pause'].addEventListener('click', () => this.togglePlayPause());
     this.elements['btn-stop'].addEventListener('click', () => this.stopReset());
     this.elements['btn-loop'].addEventListener('click', () => {
-      this.isLooping = !this.isLooping;
-      this.elements['btn-loop'].classList.toggle('active', this.isLooping);
+      this.loopPlayback = !this.loopPlayback;
+      this.elements['btn-loop'].classList.toggle('active', this.loopPlayback);
     });
 
     // Scale Tools
