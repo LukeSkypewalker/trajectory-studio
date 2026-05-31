@@ -70,7 +70,7 @@ body {
 /* Primary Layout Structure */
 #app-container {
   display: grid;
-  grid-template-columns: 320px 1fr 720px;
+  grid-template-columns: clamp(280px, 18vw, 360px) 1fr clamp(500px, 38vw, 800px);
   height: 100%;
   width: 100%;
   max-height: 100vh;
@@ -92,6 +92,8 @@ body {
   overflow: hidden;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  min-width: 0;
+  min-height: 0;
 }
 
 /* -------------------------------------------------------------
@@ -347,6 +349,8 @@ body {
   flex-direction: column;
   gap: 12px;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 
 /* Info Bar */
@@ -439,6 +443,8 @@ body {
   border: 1px solid var(--panel-border);
   position: relative;
   overflow: hidden;
+  min-height: 0;
+  min-width: 0;
 }
 
 #three-canvas {
@@ -841,10 +847,11 @@ body {
   font-weight: 600;
 }
 
-/* Chart Canvas Area */
 .chart-container {
-  height: 440px;
+  flex: 1.2;
   position: relative;
+  min-height: 0;
+  min-width: 0;
   padding: 12px;
   border-bottom: 1px solid var(--panel-border);
 }
@@ -862,6 +869,8 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
+  min-width: 0;
 }
 
 .section-title-row {
@@ -956,9 +965,10 @@ body {
   border-radius: 6px;
   padding: 6px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 2px;
+  justify-content: space-between;
+  padding: 6px 10px;
 }
 
 .tcp-label {

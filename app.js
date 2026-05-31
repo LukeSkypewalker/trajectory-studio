@@ -4,9 +4,9 @@
  */
 
 import * as THREE from 'three';
-import { TrajectoryViewer } from './viewer.js?v=18';
-import { TrajectoryChart } from './charts.js?v=18';
-import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=18';
+import { TrajectoryViewer } from './viewer.js?v=22';
+import { TrajectoryChart } from './charts.js?v=22';
+import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=22';
 
 class TrajectoryApp {
   constructor() {
@@ -74,7 +74,7 @@ class TrajectoryApp {
       'timeline-slider', 'timeline-progress-bar', 'time-current', 'time-total',
       'btn-play-pause', 'btn-stop', 'btn-loop',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
-      'tcp-x', 'tcp-y', 'tcp-z', 'tcp-rot'
+      'tcp-x', 'tcp-y', 'tcp-z'
     ];
     
     ids.forEach(id => {
@@ -426,10 +426,6 @@ class TrajectoryApp {
     this.elements['tcp-x'].innerText = `${T_flange_base[3].toFixed(3)} m`;
     this.elements['tcp-y'].innerText = `${T_flange_base[7].toFixed(3)} m`;
     this.elements['tcp-z'].innerText = `${T_flange_base[11].toFixed(3)} m`;
-    
-    const rotQuat = this.viewer.currentTcpMarker.quaternion; // Base rotation
-    const flQuat = matrixToQuat(T_flange_base);
-    this.elements['tcp-rot'].innerText = `[${flQuat[0].toFixed(3)}, ${flQuat[1].toFixed(3)}, ${flQuat[2].toFixed(3)}, ${flQuat[3].toFixed(3)}]`;
     
     // 6. Update vertical line cursor in graphs
     this.chart.setCursor(t);
