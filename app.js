@@ -26,7 +26,7 @@ class TrajectoryApp {
     this.currentTime = 0.0;
     this.totalDuration = 0.0;
     this.speedMultiplier = 1.0;
-    this.loopPlayback = true;
+    this.loopPlayback = false;
     
     // Graph state
     this.activeTab = 'position'; // 'position', 'velocity', 'acceleration', 'jerk'
@@ -72,7 +72,7 @@ class TrajectoryApp {
       'active-trajectory-id', 'copy-id-btn', 'meta-robot-model', 'meta-duration', 'meta-parts', 'meta-interpolation',
       'canvas-loader', 'loader-text', 'failed-trajectory-overlay', 'warning-status-code',
       'timeline-slider', 'timeline-progress-bar', 'time-current', 'time-total',
-      'btn-play-pause', 'btn-stop', 'btn-loop',
+      'btn-play-pause', 'btn-loop',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
       'time-scale-slider', 'time-scale-val', 'btn-save-scaled'
@@ -99,7 +99,6 @@ class TrajectoryApp {
     
     // Playback Buttons
     this.elements['btn-play-pause'].addEventListener('click', () => this.togglePlayPause());
-    this.elements['btn-stop'].addEventListener('click', () => this.stopReset());
     this.elements['btn-loop'].addEventListener('click', () => {
       this.loopPlayback = !this.loopPlayback;
       this.elements['btn-loop'].classList.toggle('toggled', this.loopPlayback);
