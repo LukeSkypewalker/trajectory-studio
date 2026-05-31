@@ -4,9 +4,9 @@
  */
 
 import * as THREE from 'three';
-import { TrajectoryViewer } from './viewer.js?v=22';
-import { TrajectoryChart } from './charts.js?v=22';
-import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=22';
+import { TrajectoryViewer } from './viewer.js?v=23';
+import { TrajectoryChart } from './charts.js?v=23';
+import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=23';
 
 class TrajectoryApp {
   constructor() {
@@ -74,7 +74,8 @@ class TrajectoryApp {
       'timeline-slider', 'timeline-progress-bar', 'time-current', 'time-total',
       'btn-play-pause', 'btn-stop', 'btn-loop',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
-      'tcp-x', 'tcp-y', 'tcp-z'
+      'tcp-x', 'tcp-y', 'tcp-z',
+      'time-scale-slider', 'time-scale-val', 'btn-save-scaled'
     ];
     
     ids.forEach(id => {
@@ -100,10 +101,55 @@ class TrajectoryApp {
     this.elements['btn-play-pause'].addEventListener('click', () => this.togglePlayPause());
     this.elements['btn-stop'].addEventListener('click', () => this.stopReset());
     this.elements['btn-loop'].addEventListener('click', () => {
-      this.loopPlayback = !this.loopPlayback;
-      this.elements['btn-loop'].classList.toggle('toggled', this.loopPlayback);
+      this.isLooping = !this.isLooping;
+      this.elements['btn-loop'].classList.toggle('active', this.isLooping);
     });
-    
+
+    // Scale Tools
+    this.elements['time-scale-slider'].addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      this.elements['time-scale-val'].innerText = val > 0 ? `+${val}%` : `${val}%`;
+      const scale = Math.max(0.05, 1.0 + (val / 100.0));
+      this.applyTimeScaleToActiveTraj(scale);
+    });
+
+    this.elements['btn-save-scaled'].addEventListener('click', async () => {
+      if (!this.selectedTraj) return;
+      const val = parseFloat(this.elements['time-scale-slider'].value);
+      const scale = Math.max(0.05, 1.0 + (val / 100.0));
+      
+      this.elements['btn-save-scaled'].disabled = true;
+      this.elements['btn-save-scaled'].innerText = 'Saving...';
+      
+      try {
+        const response = await fetch('/api/scale', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: this.selectedTraj, scale: scale })
+        });
+        
+        if (response.ok) {
+          this.elements['btn-save-scaled'].innerText = 'Saved!';
+          this.originalTraj = JSON.parse(JSON.stringify(this.activeTraj));
+          this.elements['time-scale-slider'].value = 0;
+          this.elements['time-scale-val'].innerText = '0%';
+          setTimeout(() => {
+            this.elements['btn-save-scaled'].innerText = 'Save Scaled';
+            this.elements['btn-save-scaled'].disabled = false;
+          }, 2000);
+        } else {
+          throw new Error('Server returned ' + response.status);
+        }
+      } catch (err) {
+        console.error(err);
+        this.elements['btn-save-scaled'].innerText = 'Error';
+        setTimeout(() => {
+          this.elements['btn-save-scaled'].innerText = 'Save Scaled';
+          this.elements['btn-save-scaled'].disabled = false;
+        }, 2000);
+      }
+    });
+
     // Timeline slider
     this.elements['timeline-slider'].addEventListener('input', (e) => {
       const sliderVal = parseFloat(e.target.value);
@@ -273,9 +319,13 @@ class TrajectoryApp {
         fetch(reprUrl),
         fetch(trajUrl)
       ]);
-      
       this.activeRepr = await reprResponse.json();
-      this.activeTraj = await trajResponse.json();
+      this.originalTraj = await trajResponse.json();
+      this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
+      
+      // Reset scale UI on new load
+      this.elements['time-scale-slider'].value = 0;
+      this.elements['time-scale-val'].innerText = '0%';
       
       this.updateActiveMetadata();
       
@@ -348,6 +398,60 @@ class TrajectoryApp {
     
     const linearMovement = this.activeRepr.parts ? any(this.activeRepr.parts, p => p.linear) : false;
     this.elements['meta-interpolation'].innerText = linearMovement ? "Linear (Cartesian)" : "Joint Space";
+  }
+
+  applyTimeScaleToActiveTraj(scale) {
+    if (!this.originalTraj) return;
+    
+    // Deep clone the original trajectory
+    this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
+    
+    if (this.activeTraj.parts && scale !== 1.0) {
+      this.activeTraj.parts.forEach(part => {
+        const timeKey = part.knots ? 'knots' : (part.nodes ? 'nodes' : null);
+        if (timeKey && part[timeKey]) {
+          part[timeKey] = part[timeKey].map(t => t * scale);
+        }
+        if (part.coeffs) {
+          const d1 = scale * scale * scale;
+          const d2 = scale * scale;
+          const d3 = scale;
+          for (let dof = 0; dof < part.coeffs.length; dof++) {
+            for (let seg = 0; seg < part.coeffs[dof][0].length; seg++) {
+              part.coeffs[dof][0][seg] /= d1;
+              part.coeffs[dof][1][seg] /= d2;
+              part.coeffs[dof][2][seg] /= d3;
+            }
+          }
+        }
+      });
+    }
+    
+    // Recompute duration
+    let duration = 0.0;
+    const parts = this.activeTraj.parts;
+    if (parts && parts.length > 0) {
+      const lastPart = parts[parts.length - 1];
+      if (lastPart.knots && lastPart.knots.length > 0) {
+        duration = lastPart.knots[lastPart.knots.length - 1];
+      }
+    }
+    
+    // Maintain relative progress
+    const ratio = this.totalDuration > 0 ? this.currentTime / this.totalDuration : 0;
+    
+    this.totalDuration = duration;
+    this.elements['timeline-slider'].disabled = (duration === 0);
+    this.elements['time-total'].innerText = `${duration.toFixed(2)}s`;
+    
+    if (this.activeTraj.status === 70 && duration > 0) {
+      this.computeAndDraw3dPath();
+    }
+    this.chart.update(this.activeTraj, this.activeTab);
+    
+    this.currentTime = isNaN(ratio) ? 0 : ratio * this.totalDuration;
+    if (this.currentTime > this.totalDuration) this.currentTime = this.totalDuration;
+    this.updatePlaybackState(this.currentTime);
   }
 
   computeAndDraw3dPath() {

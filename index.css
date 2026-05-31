@@ -229,6 +229,110 @@ body {
   padding: 8px;
 }
 
+/* Scale Tools Panel */
+.scale-tools-panel {
+  padding: 12px;
+  border-top: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scale-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scale-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+#time-scale-val {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.scale-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 18px;
+}
+
+#time-scale-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+#time-scale-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5), 0 0 0 0px var(--accent-glow);
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+#time-scale-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--accent-color);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.5), 0 0 0 4px var(--accent-glow);
+}
+
+.scale-slider-zero-marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 18px;
+  background: var(--accent-color);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 3;
+  border-radius: 1px;
+  box-shadow: 0 0 4px var(--accent-glow);
+}
+
+.action-btn {
+  background: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+  opacity: 0.85;
+}
+
+.action-btn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+}
+
 .styled-list {
   list-style: none;
   display: flex;
