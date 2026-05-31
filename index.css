@@ -70,7 +70,7 @@ body {
 /* Primary Layout Structure */
 #app-container {
   display: grid;
-  grid-template-columns: 320px 1fr 360px;
+  grid-template-columns: 320px 1fr 720px;
   height: 100%;
   width: 100%;
   max-height: 100vh;
@@ -236,9 +236,10 @@ body {
 
 .list-item {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 10px 12px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid transparent;
   border-radius: 8px;
@@ -842,7 +843,7 @@ body {
 
 /* Chart Canvas Area */
 .chart-container {
-  height: 220px;
+  height: 440px;
   position: relative;
   padding: 12px;
   border-bottom: 1px solid var(--panel-border);

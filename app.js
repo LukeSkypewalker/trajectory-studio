@@ -4,9 +4,9 @@
  */
 
 import * as THREE from 'three';
-import { TrajectoryViewer } from './viewer.js?v=6';
-import { TrajectoryChart } from './charts.js?v=6';
-import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=6';
+import { TrajectoryViewer } from './viewer.js?v=18';
+import { TrajectoryChart } from './charts.js?v=18';
+import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=18';
 
 class TrajectoryApp {
   constructor() {
@@ -73,7 +73,6 @@ class TrajectoryApp {
       'canvas-loader', 'loader-text', 'failed-trajectory-overlay', 'warning-status-code',
       'timeline-slider', 'timeline-progress-bar', 'time-current', 'time-total',
       'btn-play-pause', 'btn-stop', 'btn-loop',
-      'btn-toggle-grid', 'btn-toggle-robot', 'btn-toggle-obstacles',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z', 'tcp-rot'
     ];
@@ -122,19 +121,7 @@ class TrajectoryApp {
       });
     });
     
-    // View settings buttons
-    this.elements['btn-toggle-grid'].addEventListener('click', () => {
-      const active = this.elements['btn-toggle-grid'].classList.toggle('active');
-      this.viewer.setGridVisible(active);
-    });
-    this.elements['btn-toggle-robot'].addEventListener('click', () => {
-      const active = this.elements['btn-toggle-robot'].classList.toggle('active');
-      this.viewer.setRobotXRay(active);
-    });
-    this.elements['btn-toggle-obstacles'].addEventListener('click', () => {
-      const active = this.elements['btn-toggle-obstacles'].classList.toggle('active');
-      this.viewer.setObstaclesVisible(active);
-    });
+    // Toggle buttons removed
     
     // Graph Tabs
     const tabButtons = document.querySelectorAll('.graph-tabs .tab-btn');
@@ -203,27 +190,15 @@ class TrajectoryApp {
       li.setAttribute('data-id', t.id);
       
       const shortId = `${t.id.slice(0, 8)}...${t.id.slice(-8)}`;
-      const statusText = t.status === 70 ? 'success' : t.status === 40 ? 'failed-40' : 'failed-50';
-      const statusBadgeClass = t.status === 70 ? 'badge-success' : t.status === 40 ? 'badge-danger' : 'badge-warning';
+      const statusColor = t.status === 70 ? 'var(--success-color)' : t.status === 40 ? 'var(--danger-color)' : 'var(--warning-color)';
       const statusLabel = t.status === 70 ? 'Planned' : t.status === 40 ? 'Collided' : 'Timeout';
       
-      const motionLabel = t.linear ? 'Linear' : 'Joint-space';
-      
       li.innerHTML = `
-        <div class="list-item-title-row">
-          <span class="item-id monospace">${shortId}</span>
-          <span class="item-badge ${statusBadgeClass}">${statusLabel}</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${statusColor}; box-shadow: 0 0 4px ${statusColor};" title="${statusLabel}"></div>
+          <span class="item-id monospace" style="font-size: 0.75rem;">${shortId}</span>
         </div>
-        <div class="list-item-meta-row">
-          <span class="meta-group">
-            <i data-lucide="clock" class="meta-group-icon"></i>
-            <span>${t.duration.toFixed(2)}s</span>
-          </span>
-          <span class="meta-group">
-            <i data-lucide="move" class="meta-group-icon"></i>
-            <span>${motionLabel}</span>
-          </span>
-        </div>
+        <span style="font-size: 0.7rem; color: var(--text-muted);">${t.duration.toFixed(2)}s</span>
       `;
       
       li.addEventListener('click', () => this.selectTrajectory(t.id));
@@ -239,7 +214,7 @@ class TrajectoryApp {
     const total = this.trajectories.length;
     const showing = this.filteredTrajectories.length;
     const success = this.trajectories.filter(t => t.status === 70).length;
-    this.elements['db-stats-summary'].innerText = `Showing ${showing} of ${total} paths (${success} planned)`;
+    this.elements['db-stats-summary'].innerText = `${showing} of ${total} paths (${success} planned)`;
   }
 
   applyFilters() {

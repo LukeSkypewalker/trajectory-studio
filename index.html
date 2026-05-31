@@ -35,15 +35,7 @@
     
     <!-- LEFT SIDEBAR: Trajectory List -->
     <aside id="sidebar-left" class="glass-panel">
-      <header class="sidebar-header">
-        <div class="logo-area">
-          <i data-lucide="cpu" class="logo-icon animate-pulse"></i>
-          <h1>Trajectory Studio</h1>
-        </div>
-        <div class="db-stats" id="db-stats-summary">
-          Loading trajectories...
-        </div>
-      </header>
+      <!-- Header removed per user request -->
       
       <div class="search-filter-box">
         <div class="search-wrapper">
@@ -52,14 +44,17 @@
         </div>
         
         <div class="filters-row">
-          <div class="filter-group">
-            <span class="filter-label">Status</span>
+          <div class="filter-group" style="display: flex; align-items: center; gap: 8px;">
             <div class="filter-badges" id="status-filters">
               <button class="badge-btn active" data-filter="status" data-val="all" id="filter-status-all">All</button>
               <button class="badge-btn" data-filter="status" data-val="70" id="filter-status-success">Success</button>
               <button class="badge-btn" data-filter="status" data-val="fail" id="filter-status-fail">Failed</button>
             </div>
           </div>
+        </div>
+        
+        <div class="db-stats" id="db-stats-summary" style="font-size: 0.7rem; color: var(--text-muted); margin-top: 8px; text-align: left;">
+          Loading...
         </div>
       </div>
       
@@ -72,38 +67,6 @@
     
     <!-- CENTER VIEW: 3D Scene and Playback Controls -->
     <main id="main-viewer">
-      
-      <!-- Top info bar -->
-      <section id="trajectory-info-bar" class="glass-panel">
-        <div class="active-title-area">
-          <span class="info-label">Active Trajectory</span>
-          <div class="title-copy-wrapper">
-            <h2 id="active-trajectory-id" class="monospace">No Trajectory Selected</h2>
-            <button id="copy-id-btn" class="icon-btn" title="Copy Trajectory ID" aria-label="Copy Trajectory ID">
-              <i data-lucide="copy"></i>
-            </button>
-          </div>
-        </div>
-        
-        <div class="active-metadata-grid">
-          <div class="meta-item">
-            <span class="meta-label">Robot Model</span>
-            <span class="meta-val monospace" id="meta-robot-model">--</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Total Duration</span>
-            <span class="meta-val monospace" id="meta-duration">--</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Spline Segments</span>
-            <span class="meta-val monospace" id="meta-parts">--</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Interpolation</span>
-            <span class="meta-val" id="meta-interpolation">--</span>
-          </div>
-        </div>
-      </section>
       
       <!-- 3D Canvas Area -->
       <div id="canvas-container">
@@ -129,6 +92,15 @@
       
       <!-- Playback Control Bar -->
       <footer id="playback-bar" class="glass-panel">
+        
+        <!-- Hidden elements to prevent app.js errors -->
+        <div style="display: none;">
+          <span id="active-trajectory-id">None</span>
+          <button id="copy-id-btn"></button>
+          <span id="meta-duration"></span>
+          <span id="meta-interpolation"></span>
+        </div>
+        
         <div class="timeline-row">
           <span class="time-label monospace" id="time-current">0.00s</span>
           <div class="slider-wrapper">
@@ -161,21 +133,26 @@
             </div>
           </div>
           
-          <div class="view-settings">
-            <button id="btn-toggle-grid" class="badge-btn active" title="Toggle Grid" aria-label="Toggle Grid Helper">Grid</button>
-            <button id="btn-toggle-robot" class="badge-btn active" title="Toggle Robot Material" aria-label="Toggle Robot Solid/Transparent">X-Ray</button>
-            <button id="btn-toggle-obstacles" class="badge-btn active" title="Toggle Obstacles Visibility" aria-label="Toggle Obstacles Visibility">Obstacles</button>
+          <!-- Relocated Model and Segments Info -->
+          <div class="robot-info" style="display: flex; gap: 12px; align-items: center; border-left: 1px solid var(--panel-border); border-right: 1px solid var(--panel-border); padding: 0 12px; height: 24px;">
+            <div class="meta-group" style="display: flex; gap: 6px; align-items: center;">
+              <span class="meta-label" style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Model:</span>
+              <span class="meta-val monospace" id="meta-robot-model" style="font-size: 0.75rem; color: var(--text-primary);">--</span>
+            </div>
+            <div class="meta-group" style="display: flex; gap: 6px; align-items: center;">
+              <span class="meta-label" style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Segments:</span>
+              <span class="meta-val monospace" id="meta-parts" style="font-size: 0.75rem; color: var(--text-primary);">--</span>
+            </div>
           </div>
+          
+          <!-- View settings removed per user request -->
         </div>
       </footer>
     </main>
     
     <!-- RIGHT SIDEBAR: Joint Graph and Joint Details -->
     <aside id="sidebar-right" class="glass-panel">
-      <header class="sidebar-header">
-        <i data-lucide="activity" class="analytics-icon"></i>
-        <h2>Motion Analytics</h2>
-      </header>
+      <!-- Motion Analytics header removed to save space -->
       
       <!-- Graph Metric Selector Tabs -->
       <nav class="graph-tabs" aria-label="Metric tabs">
@@ -192,10 +169,7 @@
       
       <!-- Joint Values Table -->
       <section class="joint-table-section">
-        <div class="section-title-row">
-          <h3>Real-time Joint States</h3>
-          <span class="unit-indicator" id="joint-units">Units: rad, rad/s, rad/s², rad/s³</span>
-        </div>
+        <!-- Removed section-title-row to save space -->
         
         <div class="table-container">
           <table id="joint-states-table">
@@ -245,7 +219,7 @@
       
       <!-- TCP Position Display -->
       <section class="tcp-display-section">
-        <h3>Flange Pose (relative to base)</h3>
+        <!-- Removed h3 to save space -->
         <div class="tcp-grid">
           <div class="tcp-cell">
             <span class="tcp-label">X</span>
@@ -270,6 +244,6 @@
   </div>
   
   <!-- JavaScript Root Entry Point -->
-  <script type="module" src="app.js?v=6"></script>
+  <script type="module" src="app.js?v=18"></script>
 </body>
 </html>
