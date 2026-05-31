@@ -102,7 +102,7 @@ class TrajectoryApp {
     this.elements['btn-stop'].addEventListener('click', () => this.stopReset());
     this.elements['btn-loop'].addEventListener('click', () => {
       this.loopPlayback = !this.loopPlayback;
-      this.elements['btn-loop'].classList.toggle('active', this.loopPlayback);
+      this.elements['btn-loop'].classList.toggle('toggled', this.loopPlayback);
     });
 
     // Scale Tools
