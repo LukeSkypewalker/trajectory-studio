@@ -5,8 +5,8 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { quatToMatrix } from './robot.js?v=34';
-import { getRobotConfig } from './robots/factory.js?v=34';
+import { quatToMatrix } from './robot.js?v=35';
+import { getRobotConfig } from './robots/factory.js?v=35';
 
 export class TrajectoryViewer {
   constructor(canvasId) {
