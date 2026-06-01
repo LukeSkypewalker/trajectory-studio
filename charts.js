@@ -3,7 +3,7 @@
  * Joint graphs management using Chart.js.
  */
 
-import { evaluateSpline } from './robot.js?v=3';
+import { evaluateSpline } from './robot.js?v=34';
 
 // Custom plugin to draw a vertical timeline cursor line
 const verticalCursorPlugin = {

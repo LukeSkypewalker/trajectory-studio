@@ -5,7 +5,8 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { quatToMatrix } from './robot.js?v=23';
+import { quatToMatrix } from './robot.js?v=34';
+import { getRobotConfig } from './robots/factory.js?v=34';
 
 export class TrajectoryViewer {
   constructor(canvasId) {
@@ -296,6 +297,8 @@ export class TrajectoryViewer {
     const pos = equipment.position || [0, 0, 0];
     const quat = equipment.quaternion || [1, 0, 0, 0];
     const dh = equipment.dh_parameters;
+    const modelName = equipment.model_name || "generic";
+    const config = getRobotConfig(modelName);
     
     // Keep robotGroup at identity, as transforms in linkTransforms already include the base transform.
     // Setting position/quaternion here would apply base transforms twice!
@@ -303,7 +306,7 @@ export class TrajectoryViewer {
     this.robotGroup.quaternion.set(0, 0, 0, 1);
     
     // Draw base pedestal cylinder (from ground z=0 to z=1.2 base height)
-    const baseCylGeo = new THREE.CylinderGeometry(0.12, 0.12, pos[2], 32);
+    const baseCylGeo = new THREE.CylinderGeometry(config.pedestalRadius, config.pedestalRadius, pos[2], 32);
     baseCylGeo.rotateX(Math.PI / 2); // Make it align along Z axis
     const baseCyl = new THREE.Mesh(baseCylGeo, this.robotMaterials.joint);
     baseCyl.position.set(0, 0, -pos[2] / 2);
@@ -314,7 +317,7 @@ export class TrajectoryViewer {
     // Draw visual cylinder representing Link 1 column (height = d[0] = 0.386)
     if (dh && dh.d && dh.d[0]) {
       const colHeight = dh.d[0];
-      const columnGeo = new THREE.CylinderGeometry(0.1, 0.1, colHeight, 32);
+      const columnGeo = new THREE.CylinderGeometry(config.columnRadius, config.columnRadius, colHeight, 32);
       // In Link 1's DH frame, the shoulder column lies along the Y axis,
       // which matches Three.js CylinderGeometry's default alignment.
       const column = new THREE.Mesh(columnGeo, this.robotMaterials.solid);
@@ -379,7 +382,9 @@ export class TrajectoryViewer {
       // Render simple joint connector rings at the actual joint axes.
       // The axis of Joint i is the Z-axis of Link i-1.
       for (let i = 1; i <= 6; i++) {
-        const ringGeo = new THREE.CylinderGeometry(0.075, 0.075, 0.08, 24);
+        const r = config.jointRingRadii[i - 1];
+        const h = config.jointRingHeights[i - 1];
+        const ringGeo = new THREE.CylinderGeometry(r, r, h, 24);
         ringGeo.rotateX(Math.PI / 2);
         const ring = new THREE.Mesh(ringGeo, this.robotMaterials.joint);
         ring.name = 'joint-decor';
