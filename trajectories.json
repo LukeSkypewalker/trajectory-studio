@@ -1,5 +1,49 @@
 [
   {
+    "id": "0306fa7574a899b482cc7ae6ea939694",
+    "status": 70,
+    "model": "dobot-cr20a",
+    "duration": 0.51,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 0,
+    "format": "csv"
+  },
+  {
+    "id": "2b020a42c7250213e5b0ae2e1f12b27c",
+    "status": 70,
+    "model": "dobot-cr20a",
+    "duration": 1.19,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 0,
+    "format": "csv"
+  },
+  {
+    "id": "76dab1c395e60652686506388a4f4699",
+    "status": 70,
+    "model": "dobot-cr20a",
+    "duration": 0.49,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 0,
+    "format": "csv"
+  },
+  {
+    "id": "84e9190cb46a5a07495d9bbb0e4f1b1d",
+    "status": 70,
+    "model": "dobot-cr20a",
+    "duration": 0.4,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 0,
+    "format": "csv"
+  },
+  {
     "id": "b5e4773ca4be47898ce823dc75ff3fbc",
     "status": 70,
     "model": "dobot-cr20a",
@@ -9,17 +53,6 @@
     "has_path": true,
     "num_box_obstacles": 0,
     "format": "csv"
-  },
-  {
-    "id": "0a1ed57b6bef67b5e3f021d00e590688d0e631c7fb49de05ac33d1aaf63ac38b",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 1.925,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true,
-    "num_box_obstacles": 13,
-    "format": "traj"
   },
   {
     "id": "00e54c9a4cfe95d21cf0f5d4a98f18a8bbfa3043432ce9d9bb67436ec9a36341",
@@ -33,39 +66,6 @@
     "format": "traj"
   },
   {
-    "id": "0a8a1a737bcfa7a2835c68ae86081f4f9407276a77dbc4ea69cba61da29629f0",
-    "status": 40,
-    "model": "aubo-is25",
-    "duration": 0.0,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": false,
-    "num_box_obstacles": 14,
-    "format": "traj"
-  },
-  {
-    "id": "0bbcfee0fe3dc28ad9c2ef1e47c09e64f5e4ce88d5e64a854597c914a0d2a958",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 1.925,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true,
-    "num_box_obstacles": 17,
-    "format": "traj"
-  },
-  {
-    "id": "0b21665e9269f47cb1cdf3356cc2f03e679d881fd497f515c2114b6afdac499b",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 1.925,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true,
-    "num_box_obstacles": 18,
-    "format": "traj"
-  },
-  {
     "id": "00ec13fd8d695ec600981e34a7a7b8ecce12598b624b3c89a977a654dbbb1cbc",
     "status": 70,
     "model": "aubo-is25",
@@ -74,28 +74,6 @@
     "linear": false,
     "has_path": true,
     "num_box_obstacles": 19,
-    "format": "traj"
-  },
-  {
-    "id": "0a722210d492bfe706584a4cf3831d2bc0b242cab91fe986b310219ceebb063c",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 1.925,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true,
-    "num_box_obstacles": 22,
-    "format": "traj"
-  },
-  {
-    "id": "0a430aa16f18396eff91ff9dcb0e75f54d33e419bf5e2605ac0560d29591435f",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 2.223,
-    "num_parts": 3,
-    "linear": true,
-    "has_path": true,
-    "num_box_obstacles": 25,
     "format": "traj"
   }
 ]

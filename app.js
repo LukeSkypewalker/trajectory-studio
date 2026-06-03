@@ -210,7 +210,7 @@ class TrajectoryApp {
   async loadTrajectoryIndex() {
     this.showLoader("Loading database index...");
     try {
-      const response = await fetch('trajectories.json');
+      const response = await fetch(`trajectories.json?v=${Date.now()}`);
       this.trajectories = await response.json();
       this.filteredTrajectories = [...this.trajectories];
       this.renderSidebarList();
@@ -321,8 +321,8 @@ class TrajectoryApp {
       const trajMeta = this.trajectories.find(t => t.id === id) || {};
       const format = trajMeta.format || 'traj';
       
-      const reprUrl = `Trajectories/${id}.repr`;
-      const fileUrl = `Trajectories/${id}.${format}`;
+      const reprUrl = `Trajectories/${id}.repr?v=${Date.now()}`;
+      const fileUrl = `Trajectories/${id}.${format}?v=${Date.now()}`;
       
       let reprData = null;
       let trajData = null;
