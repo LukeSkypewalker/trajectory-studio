@@ -76,7 +76,7 @@ class TrajectoryApp {
 
   cacheElements() {
     const ids = [
-      'search-input', 'trajectory-list', 'db-stats-summary',
+      'search-input', 'trajectory-list',
       'active-trajectory-id', 'copy-id-btn', 'meta-robot-model', 'meta-duration', 'meta-parts', 'meta-interpolation',
       'canvas-loader', 'loader-text', 'failed-trajectory-overlay', 'warning-status-code',
       'timeline-slider', 'timeline-progress-bar', 'time-current', 'time-total',
@@ -335,10 +335,26 @@ class TrajectoryApp {
   }
 
   updateSidebarStats() {
-    const total = this.trajectories.length;
-    const showing = this.filteredTrajectories.length;
-    const success = this.trajectories.filter(t => t.status === 70).length;
-    this.elements['db-stats-summary'].innerText = `${showing} of ${total} paths (${success} planned)`;
+    const searchVal = this.elements['search-input'] ? this.elements['search-input'].value.toLowerCase() : '';
+    
+    // Count based on active mode (format) and search query
+    const modeTrajectories = this.trajectories.filter(t => {
+      const matchesMode = t.format === this.activeMode;
+      const matchesSearch = t.id.toLowerCase().includes(searchVal);
+      return matchesMode && matchesSearch;
+    });
+    
+    const totalCount = modeTrajectories.length;
+    const successCount = modeTrajectories.filter(t => t.status === 70).length;
+    const failCount = totalCount - successCount;
+    
+    const btnAll = document.getElementById('filter-status-all');
+    const btnSuccess = document.getElementById('filter-status-success');
+    const btnFail = document.getElementById('filter-status-fail');
+    
+    if (btnAll) btnAll.innerText = `All (${totalCount})`;
+    if (btnSuccess) btnSuccess.innerText = `Success (${successCount})`;
+    if (btnFail) btnFail.innerText = `Failed (${failCount})`;
   }
 
   applyFilters() {
