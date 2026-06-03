@@ -706,53 +706,122 @@ class TrajectoryApp {
     this.chart.setCursor(t);
   }
 
+  getRobotSpeedLimits(modelName) {
+    const name = (modelName || '').toLowerCase();
+    if (name.includes('cr20a') || name.includes('cr20')) {
+      // CR20A J1-J2: 120°/s, J3: 150°/s, J4-J6: 180°/s
+      return [
+        120 * Math.PI / 180,
+        120 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else if (name.includes('cr30') || name.includes('dobot')) {
+      // CR30H J1-J6: 300°/s
+      return Array(6).fill(300 * Math.PI / 180);
+    } else if (name.includes('aubo-is25') || name.includes('is25')) {
+      // Aubo iS25 standard velocity limits
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else {
+      // Standard default collaborative robot speed limits: 150°/s
+      return Array(6).fill(150 * Math.PI / 180);
+    }
+  }
+
   updateJointTableUI(state, dh) {
     const limits = this.activeRepr.equipment_model.range_limits || [];
+    const modelName = this.activeRepr.equipment_model.model_name || "generic";
+    const speedLimits = this.getRobotSpeedLimits(modelName);
     
     for (let j = 0; j < 6; j++) {
       const qVal = state.q[j];
       const qDeg = (qVal * 180 / Math.PI).toFixed(1);
       
       const vVal = state.v[j];
+      const vDeg = (vVal * 180 / Math.PI).toFixed(1);
+      
       const aVal = state.a[j];
-      const jVal = state.j[j];
       
       const row = document.getElementById(`joint-row-${j+1}`);
       if (!row) continue;
       
-      // Update cell content
       const valCell = row.querySelector('.val-cell');
       const velCell = row.querySelector('.vel-cell');
       const accelCell = row.querySelector('.accel-cell');
       
-      // Check limits
-      let isExceeded = false;
+      // 1. Position limit checking & visualization
       const limit = limits.find(l => l.joint_id === j);
+      let isPosExceeded = false;
+      let posMinDeg = -180;
+      let posMaxDeg = 180;
+      let posPct = 50;
+      
       if (limit) {
+        posMinDeg = Math.round(limit.min_value * 180 / Math.PI);
+        posMaxDeg = Math.round(limit.max_value * 180 / Math.PI);
         if (qVal < limit.min_value || qVal > limit.max_value) {
-          isExceeded = true;
+          isPosExceeded = true;
         }
+        posPct = ((qVal - limit.min_value) / (limit.max_value - limit.min_value)) * 100;
+        posPct = Math.max(0, Math.min(100, posPct));
       }
       
-      // Style cells
-      if (isExceeded) {
-        valCell.style.color = 'var(--danger-color)';
-        valCell.style.fontWeight = 'bold';
-      } else {
-        valCell.style.color = 'var(--text-primary)';
-        valCell.style.fontWeight = 'normal';
+      const posExceededClass = isPosExceeded ? 'exceeded' : '';
+      const posColorStyle = isPosExceeded ? 'color: var(--danger-color); font-weight: bold;' : '';
+      
+      valCell.innerHTML = `
+        <div class="limit-container">
+          <span class="limit-min">${posMinDeg}°</span>
+          <div class="limit-track-wrapper">
+            <span class="current-value" style="${posColorStyle}">${qDeg}°</span>
+            <div class="limit-track">
+              <div class="limit-marker ${posExceededClass}" style="left: ${posPct}%;"></div>
+            </div>
+          </div>
+          <span class="limit-max">${posMaxDeg}°</span>
+        </div>
+      `;
+      
+      // 2. Velocity limit checking & visualization
+      const maxSpeed = speedLimits[j];
+      const minSpeed = -maxSpeed;
+      const speedMinDeg = Math.round(minSpeed * 180 / Math.PI);
+      const speedMaxDeg = Math.round(maxSpeed * 180 / Math.PI);
+      
+      let isVelExceeded = false;
+      if (Math.abs(vVal) > maxSpeed) {
+        isVelExceeded = true;
       }
       
-      // Find limits label to show min/max
-      const maxLimDeg = limit ? (limit.max_value * 180 / Math.PI).toFixed(0) : '';
-      const minLimDeg = limit ? (limit.min_value * 180 / Math.PI).toFixed(0) : '';
-      const limitStr = limit ? `[${minLimDeg}°, ${maxLimDeg}°]` : '';
+      let velPct = ((vVal - minSpeed) / (maxSpeed - minSpeed)) * 100;
+      velPct = Math.max(0, Math.min(100, velPct));
       
-      // Set content
-      valCell.innerHTML = `<span class="j-val">${qDeg}°</span> <span class="j-lim">${limitStr}</span>`;
+      const velExceededClass = isVelExceeded ? 'exceeded' : '';
+      const velColorStyle = isVelExceeded ? 'color: var(--danger-color); font-weight: bold;' : '';
       
-      // Update motion details
-      velCell.innerText = vVal.toFixed(2);
+      velCell.innerHTML = `
+        <div class="limit-container">
+          <span class="limit-min">${speedMinDeg}°/s</span>
+          <div class="limit-track-wrapper">
+            <span class="current-value" style="${velColorStyle}">${vDeg}°/s</span>
+            <div class="limit-track">
+              <div class="limit-marker ${velExceededClass}" style="left: ${velPct}%;"></div>
+            </div>
+          </div>
+          <span class="limit-max">${speedMaxDeg}°/s</span>
+        </div>
+      `;
+      
+      // 3. Acceleration display
       accelCell.innerText = aVal.toFixed(2);
     }
   }

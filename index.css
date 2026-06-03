@@ -1336,3 +1336,73 @@ body {
   padding: 6px 10px;
   font-size: 0.72rem;
 }
+
+/* Joint limits visual tracks */
+#joint-states-table td.val-cell,
+#joint-states-table td.vel-cell {
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.limit-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+}
+
+.limit-min, .limit-max {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 32px;
+}
+
+.limit-min {
+  text-align: left;
+}
+
+.limit-max {
+  text-align: right;
+}
+
+.limit-track-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 3px;
+  min-width: 40px;
+}
+
+.current-value {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.01em;
+}
+
+.limit-track {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1.5px;
+}
+
+.limit-marker {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  top: -1.5px;
+  transform: translateX(-50%);
+  transition: left 0.1s ease, background-color 0.15s ease;
+}
+
+.limit-marker.exceeded {
+  background: var(--danger-color);
+  box-shadow: 0 0 6px var(--danger-color);
+}
