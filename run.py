@@ -83,8 +83,34 @@ def open_browser():
     time.sleep(1.0)
     webbrowser.open(f"http://localhost:{PORT}")
 
+def watch_trajectories_dir():
+    import generate_index
+    last_files = set()
+    while True:
+        try:
+            if os.path.exists("Trajectories"):
+                # Get both file names and modification times to detect overwrites
+                current_files = {}
+                for f in os.listdir("Trajectories"):
+                    if f.endswith(".csv") or f.endswith(".traj") or f.endswith(".repr"):
+                        path = os.path.join("Trajectories", f)
+                        current_files[f] = os.path.getmtime(path)
+                
+                # Check if there is any difference in files list or modification times
+                current_files_set = set(current_files.items())
+                if current_files_set != last_files:
+                    print("Trajectories folder change detected. Re-indexing...")
+                    generate_index.generate_index()
+                    last_files = current_files_set
+        except Exception as e:
+            print(f"Error in directory watcher: {e}")
+        time.sleep(1.0)
+
 if __name__ == "__main__":
     ensure_index()
+    
+    # Start trajectories folder watcher in a background thread
+    threading.Thread(target=watch_trajectories_dir, daemon=True).start()
     
     # Start browser in a background thread
     threading.Thread(target=open_browser, daemon=True).start()

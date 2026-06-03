@@ -61,6 +61,9 @@ class TrajectoryApp {
       this.selectTrajectory(this.filteredTrajectories[0].id);
     }
     
+    // 7. Start polling database changes once per second
+    this.startIndexPolling();
+    
     // Trigger Lucide icons replacing
     if (window.lucide) {
       window.lucide.createIcons();
@@ -221,6 +224,44 @@ class TrajectoryApp {
     } finally {
       this.hideLoader();
     }
+  }
+
+  startIndexPolling() {
+    setInterval(async () => {
+      try {
+        const response = await fetch(`trajectories.json?v=${Date.now()}`);
+        if (!response.ok) return;
+        const newTrajectories = await response.json();
+        
+        // Check if there is any difference in content
+        if (this.checkIndexDifference(this.trajectories, newTrajectories)) {
+          console.log("Trajectories database changed, reloading sidebar...");
+          this.trajectories = newTrajectories;
+          this.applyFilters();
+          
+          // Fallback selection if active is lost or none selected
+          if (this.filteredTrajectories.length > 0 && (!this.selectedTraj || !this.trajectories.some(t => t.id === this.selectedTraj))) {
+            this.selectTrajectory(this.filteredTrajectories[0].id);
+          }
+        }
+      } catch (e) {
+        // Ignore silent polling network errors
+      }
+    }, 1000);
+  }
+
+  checkIndexDifference(arr1, arr2) {
+    if (!arr1 || !arr2 || arr1.length !== arr2.length) return true;
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i].id !== arr2[i].id || 
+          arr1[i].duration !== arr2[i].duration ||
+          arr1[i].status !== arr2[i].status ||
+          arr1[i].model !== arr2[i].model ||
+          arr1[i].format !== arr2[i].format) {
+        return true;
+      }
+    }
+    return false;
   }
 
   renderSidebarList() {
