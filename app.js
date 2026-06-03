@@ -783,7 +783,7 @@ class TrajectoryApp {
       }
       
       const posExceededClass = isPosExceeded ? 'exceeded' : '';
-      const posColorStyle = isPosExceeded ? 'color: var(--danger-color); font-weight: bold;' : '';
+      const posColorStyle = isPosExceeded ? 'color: var(--danger-color);' : '';
       
       valCell.innerHTML = `
         <div class="limit-container">
@@ -813,7 +813,7 @@ class TrajectoryApp {
       velPct = Math.max(0, Math.min(100, velPct));
       
       const velExceededClass = isVelExceeded ? 'exceeded' : '';
-      const velColorStyle = isVelExceeded ? 'color: var(--danger-color); font-weight: bold;' : '';
+      const velColorStyle = isVelExceeded ? 'color: var(--danger-color);' : '';
       
       velCell.innerHTML = `
         <div class="limit-container">
