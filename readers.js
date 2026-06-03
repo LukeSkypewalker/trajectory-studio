@@ -53,23 +53,53 @@ export function parseCSV(csvText, dt = 0.01) {
     knots.push(k * dt);
   }
   
-  // Estimate velocities at each knot using finite differences
-  const velocities = []; // velocities[k][joint]
-  for (let k = 0; k < N; k++) {
-    const vJoints = new Array(numJoints).fill(0);
-    for (let j = 0; j < numJoints; j++) {
-      if (k === 0) {
-        // Forward difference at start
-        vJoints[j] = (jointRows[1][j] - jointRows[0][j]) / dt;
-      } else if (k === N - 1) {
-        // Backward difference at end
-        vJoints[j] = (jointRows[N - 1][j] - jointRows[N - 2][j]) / dt;
-      } else {
-        // Central difference for interior points
-        vJoints[j] = (jointRows[k + 1][j] - jointRows[k - 1][j]) / (2 * dt);
-      }
+  // Solve for velocities using a Natural Cubic Spline (C2 continuity)
+  // This guarantees continuous joint velocities and accelerations, eliminating sawtooth artifacts.
+  const velocities = Array.from({ length: N }, () => new Array(numJoints).fill(0));
+  
+  for (let j = 0; j < numJoints; j++) {
+    // Set up the tridiagonal system: A * v = B
+    const alpha = new Array(N).fill(1); // sub-diagonal
+    const beta = new Array(N).fill(4);  // main diagonal
+    const gamma = new Array(N).fill(1); // super-diagonal
+    const delta = new Array(N).fill(0); // right-hand side
+    
+    // Boundary conditions for Natural Spline (second derivative = 0 at ends)
+    beta[0] = 2;
+    gamma[0] = 1;
+    delta[0] = (3.0 / dt) * (jointRows[1][j] - jointRows[0][j]);
+    
+    for (let k = 1; k < N - 1; k++) {
+      alpha[k] = 1;
+      beta[k] = 4;
+      gamma[k] = 1;
+      delta[k] = (3.0 / dt) * (jointRows[k + 1][j] - jointRows[k - 1][j]);
     }
-    velocities.push(vJoints);
+    
+    alpha[N - 1] = 1;
+    beta[N - 1] = 2;
+    delta[N - 1] = (3.0 / dt) * (jointRows[N - 1][j] - jointRows[N - 2][j]);
+    
+    // Thomas Algorithm (forward sweep)
+    const cPrime = new Array(N).fill(0);
+    const dPrime = new Array(N).fill(0);
+    
+    cPrime[0] = gamma[0] / beta[0];
+    dPrime[0] = delta[0] / beta[0];
+    
+    for (let k = 1; k < N; k++) {
+      const denom = beta[k] - alpha[k] * cPrime[k - 1];
+      if (k < N - 1) {
+        cPrime[k] = gamma[k] / denom;
+      }
+      dPrime[k] = (delta[k] - alpha[k] * dPrime[k - 1]) / denom;
+    }
+    
+    // Thomas Algorithm (back substitution)
+    velocities[N - 1][j] = dPrime[N - 1];
+    for (let k = N - 2; k >= 0; k--) {
+      velocities[k][j] = dPrime[k] - cPrime[k] * velocities[k + 1][j];
+    }
   }
   
   // Compute cubic spline coefficients for each joint and interval
