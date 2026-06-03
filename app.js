@@ -713,7 +713,7 @@ function createDobotCR20ARepr(id) {
     },
     equipment_model: {
       model_name: "dobot-cr20a",
-      position: [0.0, 0.0, 0.0],
+      position: [0.0, 0.0, 0.8],
       quaternion: [1.0, 0.0, 0.0, 0.0],
       hitbox: [
         // Link 1
@@ -732,7 +732,7 @@ function createDobotCR20ARepr(id) {
           link: 2,
           shape: {
             shape_type: "capsule",
-            position: [-0.375, 0, 0],
+            position: [0.375, 0, 0],
             quaternion: [0.7071, 0, 0.7071, 0],
             radius: 0.11,
             height: 0.75
@@ -751,7 +751,7 @@ function createDobotCR20ARepr(id) {
           link: 2,
           shape: {
             shape_type: "sphere",
-            position: [-0.75, 0, 0],
+            position: [0.75, 0, 0],
             quaternion: [1, 0, 0, 0],
             radius: 0.11
           }
@@ -761,7 +761,7 @@ function createDobotCR20ARepr(id) {
           link: 3,
           shape: {
             shape_type: "capsule",
-            position: [-0.35, 0, 0],
+            position: [0.35, 0, 0],
             quaternion: [0.7071, 0, 0.7071, 0],
             radius: 0.09,
             height: 0.70
@@ -780,7 +780,7 @@ function createDobotCR20ARepr(id) {
           link: 3,
           shape: {
             shape_type: "sphere",
-            position: [-0.70, 0, 0],
+            position: [0.70, 0, 0],
             quaternion: [1, 0, 0, 0],
             radius: 0.085
           }
