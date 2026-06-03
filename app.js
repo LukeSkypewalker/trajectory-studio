@@ -313,16 +313,16 @@ class TrajectoryApp {
       li.setAttribute('role', 'option');
       li.setAttribute('data-id', t.id);
       
-      const shortId = t.id.length > 27 ? `${t.id.slice(0, 12)}...${t.id.slice(-12)}` : t.id;
+      const shortId = t.id.length > 33 ? `${t.id.slice(0, 15)}...${t.id.slice(-15)}` : t.id;
       const statusColor = t.status === 70 ? 'var(--success-color)' : t.status === 40 ? 'var(--danger-color)' : 'var(--warning-color)';
       const statusLabel = t.status === 70 ? 'Planned' : t.status === 40 ? 'Collided' : 'Timeout';
       
       li.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${statusColor}; box-shadow: 0 0 4px ${statusColor};" title="${statusLabel}"></div>
-          <span class="item-id monospace" style="font-size: 0.75rem;">${shortId}</span>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; margin-right: 8px;">
+          <div style="width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background-color: ${statusColor}; box-shadow: 0 0 4px ${statusColor};" title="${statusLabel}"></div>
+          <span class="item-id monospace" style="font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${shortId}</span>
         </div>
-        <span style="font-size: 0.7rem; color: var(--text-muted);">${t.duration.toFixed(2)}s</span>
+        <span style="font-size: 0.7rem; color: var(--text-muted); flex-shrink: 0;">${t.duration.toFixed(2)}s</span>
       `;
       
       li.addEventListener('click', () => this.selectTrajectory(t.id));

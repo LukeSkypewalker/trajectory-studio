@@ -52,17 +52,11 @@
           </select>
         </div>
         <div class="config-row-inline">
-          <div class="config-col flex-2">
-            <label for="csv-timing-mode" class="config-label">Timing Mode</label>
-            <select id="csv-timing-mode" class="config-select">
-              <option value="hz">Frequency (Hz)</option>
-              <option value="step">Time Step (s)</option>
-            </select>
-          </div>
-          <div class="config-col flex-1">
-            <label for="csv-timing-val" class="config-label">Value</label>
-            <input type="number" id="csv-timing-val" class="config-input" value="100" min="0.0001" step="any">
-          </div>
+          <select id="csv-timing-mode" class="config-select flex-2">
+            <option value="hz">Frequency (Hz)</option>
+            <option value="step">Time Step (s)</option>
+          </select>
+          <input type="number" id="csv-timing-val" class="config-input flex-1" value="100" min="0.0001" step="any">
         </div>
       </div>
 
