@@ -723,6 +723,8 @@ class TrajectoryApp {
       // Update cell content
       const valCell = row.querySelector('.val-cell');
       const velCell = row.querySelector('.vel-cell');
+      const accelCell = row.querySelector('.accel-cell');
+      const jerkCell = row.querySelector('.jerk-cell');
       
       // Check limits
       let isExceeded = false;
@@ -750,16 +752,10 @@ class TrajectoryApp {
       // Set content
       valCell.innerHTML = `<span class="j-val">${qDeg}°</span> <span class="j-lim">${limitStr}</span>`;
       
-      // Show requested tab value in the third column
-      if (this.activeTab === 'position') {
-        velCell.innerText = `${qVal.toFixed(3)} rad`;
-      } else if (this.activeTab === 'velocity') {
-        velCell.innerText = `${vVal.toFixed(2)} rad/s`;
-      } else if (this.activeTab === 'acceleration') {
-        velCell.innerText = `${aVal.toFixed(2)} rad/s²`;
-      } else if (this.activeTab === 'jerk') {
-        velCell.innerText = `${jVal.toFixed(1)} rad/s³`;
-      }
+      // Update motion details
+      velCell.innerText = vVal.toFixed(2);
+      accelCell.innerText = aVal.toFixed(2);
+      jerkCell.innerText = jVal.toFixed(2);
     }
   }
 

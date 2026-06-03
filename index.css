@@ -1165,7 +1165,7 @@ body {
 }
 
 .chart-container {
-  flex: 1.2;
+  flex: 1;
   position: relative;
   min-height: 0;
   min-width: 0;
@@ -1181,8 +1181,8 @@ body {
 /* Joint States Table */
 .joint-table-section {
   padding: 16px;
-  border-bottom: 1px solid var(--panel-border);
-  flex: 1;
+  border-bottom: none;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1256,7 +1256,7 @@ body {
   font-size: 0.7rem;
 }
 
-.vel-cell {
+.vel-cell, .accel-cell, .jerk-cell {
   text-align: right;
   color: var(--text-secondary);
 }
