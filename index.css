@@ -978,6 +978,19 @@ body {
   gap: 12px;
 }
 
+#timeline-controls-row .controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#btn-play-pause {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+}
+
 #timeline-controls-row .time-display {
   display: flex;
   align-items: center;
