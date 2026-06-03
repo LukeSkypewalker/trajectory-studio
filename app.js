@@ -313,18 +313,14 @@ class TrajectoryApp {
       li.setAttribute('role', 'option');
       li.setAttribute('data-id', t.id);
       
-      const shortId = `${t.id.slice(0, 8)}...${t.id.slice(-8)}`;
+      const shortId = t.id.length > 27 ? `${t.id.slice(0, 12)}...${t.id.slice(-12)}` : t.id;
       const statusColor = t.status === 70 ? 'var(--success-color)' : t.status === 40 ? 'var(--danger-color)' : 'var(--warning-color)';
       const statusLabel = t.status === 70 ? 'Planned' : t.status === 40 ? 'Collided' : 'Timeout';
-      
-      const isCsv = t.format === 'csv';
-      const badgeHtml = isCsv ? `<span style="font-size: 0.6rem; font-weight: bold; background-color: rgba(6, 182, 212, 0.15); color: #06b6d4; padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(6, 182, 212, 0.3); margin-left: 6px;">CSV</span>` : '';
       
       li.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
           <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${statusColor}; box-shadow: 0 0 4px ${statusColor};" title="${statusLabel}"></div>
           <span class="item-id monospace" style="font-size: 0.75rem;">${shortId}</span>
-          ${badgeHtml}
         </div>
         <span style="font-size: 0.7rem; color: var(--text-muted);">${t.duration.toFixed(2)}s</span>
       `;

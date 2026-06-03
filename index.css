@@ -384,6 +384,26 @@ body {
   gap: 6px;
 }
 
+.config-row-inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.config-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 .config-label {
   font-size: 0.75rem;
   color: var(--text-secondary);
