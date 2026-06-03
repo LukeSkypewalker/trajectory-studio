@@ -42,8 +42,28 @@ const verticalCursorPlugin = {
   }
 };
 
-// Register the custom plugin
-Chart.register(verticalCursorPlugin);
+// Custom plugin to align the play slider with the chart's vertical grid edges
+const alignSliderPlugin = {
+  id: 'alignSlider',
+  afterLayout: (chart) => {
+    if (!chart.chartArea) return;
+    const left = chart.chartArea.left;
+    const right = chart.width - chart.chartArea.right;
+    const elementsToAlign = [
+      document.getElementById('timeline-slider-wrapper'),
+      document.getElementById('timeline-time-display')
+    ];
+    elementsToAlign.forEach(el => {
+      if (el) {
+        el.style.marginLeft = `${left}px`;
+        el.style.marginRight = `${right}px`;
+      }
+    });
+  }
+};
+
+// Register custom plugins
+Chart.register(verticalCursorPlugin, alignSliderPlugin);
 
 export class TrajectoryChart {
   constructor(canvasId) {

@@ -698,9 +698,9 @@ class TrajectoryApp {
     // To do this simply, we can run computeForwardKinematics with base=Identity
     const T_flange_base = computeForwardKinematics(state.q, dh, [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1])[6];
     
-    this.elements['tcp-x'].innerText = `${T_flange_base[3].toFixed(3)} m`;
-    this.elements['tcp-y'].innerText = `${T_flange_base[7].toFixed(3)} m`;
-    this.elements['tcp-z'].innerText = `${T_flange_base[11].toFixed(3)} m`;
+    this.elements['tcp-x'].innerText = T_flange_base[3].toFixed(3);
+    this.elements['tcp-y'].innerText = T_flange_base[7].toFixed(3);
+    this.elements['tcp-z'].innerText = T_flange_base[11].toFixed(3);
     
     // 6. Update vertical line cursor in graphs
     this.chart.setCursor(t);

@@ -108,19 +108,39 @@
           </div>
         </div>
 
-        <!-- Floating TCP Position Panel (Bottom Right) -->
+        <!-- Floating TCP Position Panel (Bottom Left) -->
         <div id="scene-tcp-panel" class="scene-tcp-panel glass-panel">
           <div class="tcp-coord">
-            <span class="tcp-label">X</span>
-            <span class="tcp-val monospace" id="tcp-x">0.000 m</span>
+            <span class="tcp-label" style="color: #ef4444;">X</span>
+            <span class="tcp-val monospace" id="tcp-x">0.000</span>
           </div>
           <div class="tcp-coord">
-            <span class="tcp-label">Y</span>
-            <span class="tcp-val monospace" id="tcp-y">0.000 m</span>
+            <span class="tcp-label" style="color: #22c55e;">Y</span>
+            <span class="tcp-val monospace" id="tcp-y">0.000</span>
           </div>
           <div class="tcp-coord">
-            <span class="tcp-label">Z</span>
-            <span class="tcp-val monospace" id="tcp-z">0.000 m</span>
+            <span class="tcp-label" style="color: #3b82f6;">Z</span>
+            <span class="tcp-val monospace" id="tcp-z">0.000</span>
+          </div>
+        </div>
+
+        <!-- Floating Playback Control Panel (Bottom Right) -->
+        <div id="scene-playback-panel" class="scene-playback-panel glass-panel">
+          <div class="speed-control">
+            <div class="speed-badges">
+              <button class="speed-btn" data-speed="0.25">0.25x</button>
+              <button class="speed-btn" data-speed="0.5">0.5x</button>
+              <button class="speed-btn active" data-speed="1.0">1x</button>
+              <button class="speed-btn" data-speed="2.0">2x</button>
+            </div>
+          </div>
+          <div class="playback-buttons">
+            <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
+              <i data-lucide="play" id="play-icon"></i>
+            </button>
+            <button id="btn-loop" class="playback-btn" title="Toggle Loop" aria-label="Toggle loop playback">
+              <i data-lucide="repeat"></i>
+            </button>
           </div>
         </div>
         
@@ -139,50 +159,6 @@
           <span id="loader-text">Loading trajectory data...</span>
         </div>
       </div>
-      
-      <!-- Playback Control Bar -->
-      <footer id="playback-bar" class="glass-panel">
-        
-        <!-- Hidden elements to prevent app.js errors -->
-        <div style="display: none;">
-          <span id="active-trajectory-id">None</span>
-          <button id="copy-id-btn"></button>
-          <span id="meta-duration"></span>
-          <span id="meta-interpolation"></span>
-        </div>
-        
-        <div class="timeline-row">
-          <span class="time-label monospace" id="time-current">0.00s</span>
-          <div class="slider-wrapper">
-            <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.01" aria-label="Trajectory timeline slider">
-            <div id="timeline-progress-bar"></div>
-          </div>
-          <span class="time-label monospace" id="time-total">0.00s</span>
-        </div>
-        
-        <div class="controls-row">
-          <div class="playback-buttons">
-            <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
-              <i data-lucide="play" id="play-icon"></i>
-            </button>
-            <button id="btn-loop" class="playback-btn" title="Toggle Loop" aria-label="Toggle loop playback">
-              <i data-lucide="repeat"></i>
-            </button>
-          </div>
-          
-          <div class="speed-control">
-            <span class="control-label">Speed</span>
-            <div class="speed-badges">
-              <button class="speed-btn" data-speed="0.25">0.25x</button>
-              <button class="speed-btn" data-speed="0.5">0.5x</button>
-              <button class="speed-btn active" data-speed="1.0">1x</button>
-              <button class="speed-btn" data-speed="2.0">2x</button>
-            </div>
-          </div>
-
-          <!-- View settings removed per user request -->
-        </div>
-      </footer>
     </main>
     
     <!-- RIGHT SIDEBAR: Joint Graph and Joint Details -->
@@ -200,6 +176,16 @@
       <!-- Chart Canvas Wrapper -->
       <div class="chart-container">
         <canvas id="motion-chart"></canvas>
+        <div id="timeline-slider-container">
+          <div id="timeline-slider-wrapper">
+            <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.01" aria-label="Trajectory timeline slider">
+            <div id="timeline-progress-bar"></div>
+          </div>
+          <div id="timeline-time-display">
+            <span id="time-current" class="monospace">0.00s</span>
+            <span id="time-total" class="monospace">0.00s</span>
+          </div>
+        </div>
       </div>
       
       <!-- Joint Values Table -->
@@ -269,6 +255,14 @@
     
   </div>
   
+  <!-- Hidden elements to prevent app.js errors -->
+  <div style="display: none;">
+    <span id="active-trajectory-id">None</span>
+    <button id="copy-id-btn"></button>
+    <span id="meta-duration"></span>
+    <span id="meta-interpolation"></span>
+  </div>
+
   <!-- JavaScript Root Entry Point -->
   <script type="module" src="app.js?v=36"></script>
 </body>

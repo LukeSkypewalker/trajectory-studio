@@ -758,7 +758,7 @@ body {
 .scene-tcp-panel {
   position: absolute;
   bottom: 16px;
-  right: 16px;
+  left: 16px;
   z-index: 10;
   padding: 10px 14px;
   border-radius: 8px;
@@ -941,31 +941,28 @@ body {
   pointer-events: none;
 }
 
-/* Playback Control Bar */
-#playback-bar {
-  padding: 16px 20px;
-  gap: 16px;
-}
-
-.timeline-row {
+/* Playback Controls & Slider in Right Panel */
+#timeline-slider-container {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
   width: 100%;
+  margin-top: 4px;
 }
 
-.time-label {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  min-width: 45px;
-}
-
-.slider-wrapper {
-  flex: 1;
+#timeline-slider-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   height: 18px;
+  min-width: 0;
+}
+
+#timeline-time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
 }
 
 #timeline-slider {
@@ -1012,11 +1009,17 @@ body {
   width: 0%;
 }
 
-.controls-row {
+.scene-playback-panel {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 8px 12px;
+  border-radius: 8px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
+  gap: 12px;
 }
 
 .playback-buttons {
@@ -1028,8 +1031,8 @@ body {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--panel-border);
   color: var(--text-primary);
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1039,8 +1042,8 @@ body {
 }
 
 .playback-btn i {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .playback-btn:hover {
@@ -1076,12 +1079,6 @@ body {
   gap: 8px;
 }
 
-.control-label {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
 .speed-badges {
   display: flex;
   background: rgba(255, 255, 255, 0.03);
@@ -1094,8 +1091,8 @@ body {
   background: transparent;
   border: none;
   color: var(--text-secondary);
-  font-size: 0.72rem;
-  padding: 4px 10px;
+  font-size: 0.7rem;
+  padding: 3px 8px;
   border-radius: 15px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1110,11 +1107,6 @@ body {
   background: rgba(255, 255, 255, 0.08);
   color: var(--accent-color);
   font-weight: 600;
-}
-
-.view-settings {
-  display: flex;
-  gap: 6px;
 }
 
 /* -------------------------------------------------------------
@@ -1171,11 +1163,15 @@ body {
   min-width: 0;
   padding: 12px;
   border-bottom: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 #motion-chart {
   width: 100%;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Joint States Table */
