@@ -984,14 +984,14 @@ body {
   gap: 12px;
 }
 
-#btn-play-pause {
+#timeline-controls-row #btn-play-pause {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 11;
 }
 
-#btn-play-pause:hover {
+#timeline-controls-row #btn-play-pause:hover {
   transform: translateX(-50%) scale(1.08);
 }
 
