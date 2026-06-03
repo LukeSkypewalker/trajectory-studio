@@ -991,6 +991,10 @@ body {
   z-index: 11;
 }
 
+#btn-play-pause:hover {
+  transform: translateX(-50%) scale(1.08);
+}
+
 #timeline-controls-row .time-display {
   display: flex;
   align-items: center;
