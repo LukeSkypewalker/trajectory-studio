@@ -758,21 +758,26 @@ body {
 .scene-tcp-panel {
   position: absolute;
   bottom: 16px;
-  left: 16px;
+  right: 16px;
   z-index: 10;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 120px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 
 .tcp-coord {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 0.8rem;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.tcp-coord:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 12px;
 }
 
 .tcp-coord .tcp-label {
