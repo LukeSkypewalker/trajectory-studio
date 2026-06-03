@@ -941,28 +941,29 @@ body {
   pointer-events: none;
 }
 
-/* Playback Controls & Slider in Right Panel */
-#timeline-slider-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 4px;
-}
-
+/* Playback Controls & Slider inside Chart Container */
 #timeline-slider-wrapper {
-  position: relative;
+  position: absolute;
+  z-index: 10;
   display: flex;
   align-items: center;
   height: 18px;
   min-width: 0;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
 }
 
 #timeline-time-display {
+  position: absolute;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   font-size: 0.65rem;
   color: var(--text-secondary);
-  margin-top: 2px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 #timeline-slider {
@@ -1161,17 +1162,20 @@ body {
   position: relative;
   min-height: 0;
   min-width: 0;
-  padding: 12px;
+  padding: 0;
   border-bottom: 1px solid var(--panel-border);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 #motion-chart {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 100%;
+}
+
+.chart-container #btn-play-pause {
+  position: absolute;
+  z-index: 10;
+  width: 28px;
+  height: 28px;
 }
 
 /* Joint States Table */

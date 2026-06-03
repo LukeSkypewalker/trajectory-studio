@@ -185,6 +185,26 @@ export class TrajectoryViewer {
     floor.position.z = -0.001; // Just below grid
     this.scene.add(floor);
     
+    // Custom X (Red) and Y (Green) axes, 1m long, 0.005m radius
+    const axesGroup = new THREE.Group();
+    
+    // X axis (Red) - rotated to lie along X, centered at x = 0.5
+    const xAxisGeo = new THREE.CylinderGeometry(0.005, 0.005, 1.0, 8);
+    xAxisGeo.rotateZ(-Math.PI / 2);
+    const xAxisMat = new THREE.MeshBasicMaterial({ color: 0xef4444 });
+    const xAxis = new THREE.Mesh(xAxisGeo, xAxisMat);
+    xAxis.position.set(0.5, 0, 0.001); // offset Z slightly to avoid Z-fighting with grid
+    axesGroup.add(xAxis);
+    
+    // Y axis (Green) - lying along Y, centered at y = 0.5
+    const yAxisGeo = new THREE.CylinderGeometry(0.005, 0.005, 1.0, 8);
+    const yAxisMat = new THREE.MeshBasicMaterial({ color: 0x22c55e });
+    const yAxis = new THREE.Mesh(yAxisGeo, yAxisMat);
+    yAxis.position.set(0, 0.5, 0.001); // offset Z slightly to avoid Z-fighting with grid
+    axesGroup.add(yAxis);
+    
+    this.scene.add(axesGroup);
+    
     // 7. Groups setup
     this.robotGroup = new THREE.Group();
     this.scene.add(this.robotGroup);

@@ -49,16 +49,30 @@ const alignSliderPlugin = {
     if (!chart.chartArea) return;
     const left = chart.chartArea.left;
     const right = chart.width - chart.chartArea.right;
-    const elementsToAlign = [
-      document.getElementById('timeline-slider-wrapper'),
-      document.getElementById('timeline-time-display')
-    ];
-    elementsToAlign.forEach(el => {
-      if (el) {
-        el.style.marginLeft = `${left}px`;
-        el.style.marginRight = `${right}px`;
-      }
-    });
+    const bottom = chart.chartArea.bottom;
+    
+    // Position play button to be centered inside the left margin space
+    const playBtn = document.getElementById('btn-play-pause');
+    if (playBtn) {
+      const btnWidth = 28;
+      const btnLeft = Math.max(8, (left - btnWidth) / 2);
+      playBtn.style.left = `${btnLeft}px`;
+      playBtn.style.top = `${bottom - 14}px`; // Centered vertically on x-axis line
+    }
+    
+    const sliderWrapper = document.getElementById('timeline-slider-wrapper');
+    if (sliderWrapper) {
+      sliderWrapper.style.left = `${left}px`;
+      sliderWrapper.style.right = `${right}px`;
+      sliderWrapper.style.top = `${bottom - 9}px`; // Center directly on bottom x-axis line
+    }
+
+    const timeDisplay = document.getElementById('timeline-time-display');
+    if (timeDisplay) {
+      timeDisplay.style.left = `${left}px`;
+      timeDisplay.style.right = `${right}px`;
+      timeDisplay.style.top = `${bottom + 10}px`; // Below grid x-axis ticks
+    }
   }
 };
 
@@ -104,6 +118,14 @@ export class TrajectoryChart {
           point: { radius: 0 }, // Hide points, only show lines
           line: { borderDelta: 0, tension: 0.1, borderWidth: 1.8 }
         },
+        layout: {
+          padding: {
+            left: 10,
+            right: 15,
+            top: 15,
+            bottom: 25
+          }
+        },
         scales: {
           x: {
             type: 'linear',
@@ -117,6 +139,9 @@ export class TrajectoryChart {
             ticks: { color: '#94a3b8', font: { size: 9 } }
           },
           y: {
+            afterFit: (scale) => {
+              scale.width = 60;
+            },
             title: {
               display: true,
               text: 'Value',

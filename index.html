@@ -104,7 +104,7 @@
               <option value="hz">Frequency (Hz)</option>
               <option value="step">Time Step (s)</option>
             </select>
-            <input type="number" id="csv-timing-val" class="config-input" value="100" min="0.0001" step="any" style="width: 70px; text-align: right;">
+            <input type="number" id="csv-timing-val" class="config-input" value="50" min="0.0001" step="any" style="width: 70px; text-align: right;">
           </div>
         </div>
 
@@ -135,9 +135,6 @@
             </div>
           </div>
           <div class="playback-buttons">
-            <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
-              <i data-lucide="play" id="play-icon"></i>
-            </button>
             <button id="btn-loop" class="playback-btn" title="Toggle Loop" aria-label="Toggle loop playback">
               <i data-lucide="repeat"></i>
             </button>
@@ -176,15 +173,16 @@
       <!-- Chart Canvas Wrapper -->
       <div class="chart-container">
         <canvas id="motion-chart"></canvas>
-        <div id="timeline-slider-container">
-          <div id="timeline-slider-wrapper">
-            <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.01" aria-label="Trajectory timeline slider">
-            <div id="timeline-progress-bar"></div>
-          </div>
-          <div id="timeline-time-display">
-            <span id="time-current" class="monospace">0.00s</span>
-            <span id="time-total" class="monospace">0.00s</span>
-          </div>
+        <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
+          <i data-lucide="play" id="play-icon"></i>
+        </button>
+        <div id="timeline-slider-wrapper">
+          <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.01" aria-label="Trajectory timeline slider">
+          <div id="timeline-progress-bar"></div>
+        </div>
+        <div id="timeline-time-display">
+          <span id="time-current" class="monospace">0.00s</span>
+          <span id="time-total" class="monospace">0.00s</span>
         </div>
       </div>
       
