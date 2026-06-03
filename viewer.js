@@ -38,7 +38,7 @@ export class TrajectoryViewer {
     // Materials
     this.robotMaterials = {
       solid: new THREE.MeshStandardMaterial({
-        color: 0x334155, // slate-700
+        color: 0x94a3b8, // slate-400 (bright silver-grey)
         metalness: 0.8,
         roughness: 0.25,
         transparent: true,
@@ -53,7 +53,7 @@ export class TrajectoryViewer {
         wireframe: false
       }),
       joint: new THREE.MeshStandardMaterial({
-        color: 0x475569, // slate-600
+        color: 0x64748b, // slate-500 (contrasting metallic joint rings)
         metalness: 0.9,
         roughness: 0.15
       })
