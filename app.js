@@ -79,7 +79,8 @@ class TrajectoryApp {
       'btn-play-pause', 'btn-loop',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
-      'time-scale-slider', 'time-scale-val', 'btn-save-scaled'
+      'time-scale-slider', 'time-scale-val', 'btn-save-scaled',
+      'scale-tools-panel', 'csv-config-panel', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val'
     ];
     
     ids.forEach(id => {
@@ -151,6 +152,24 @@ class TrajectoryApp {
           this.elements['btn-save-scaled'].disabled = false;
         }, 2000);
       }
+    });
+
+    // CSV configuration listeners
+    this.elements['csv-robot-select'].addEventListener('change', () => {
+      this.reloadCSVTrajectory();
+    });
+
+    this.elements['csv-timing-mode'].addEventListener('change', (e) => {
+      const val = parseFloat(this.elements['csv-timing-val'].value);
+      if (!isNaN(val) && val > 0) {
+        const converted = 1.0 / val;
+        this.elements['csv-timing-val'].value = Number(converted.toFixed(5)).toString();
+      }
+      this.reloadCSVTrajectory();
+    });
+
+    this.elements['csv-timing-val'].addEventListener('input', () => {
+      this.reloadCSVTrajectory();
     });
 
     // Timeline slider
@@ -385,11 +404,31 @@ class TrajectoryApp {
       
       if (format === 'csv') {
         const csvText = await fileResponse.text();
+        this.rawCSVText = csvText;
+        
+        // Toggle panels
+        this.elements['scale-tools-panel'].classList.add('hidden');
+        this.elements['csv-config-panel'].classList.remove('hidden');
+        
+        // Determine default model
+        const activeModel = (reprData && reprData.equipment_model && reprData.equipment_model.model_name) || 'dobot-cr20a';
+        this.elements['csv-robot-select'].value = activeModel;
+        this.elements['csv-timing-mode'].value = 'hz';
+        this.elements['csv-timing-val'].value = '100';
+        
         trajData = parseCSV(csvText, 0.01);
         if (!reprData) {
-          reprData = createDobotCR20ARepr(id);
+          if (activeModel === 'dobot-cr30h') {
+            reprData = createDobotCR30hRepr(id);
+          } else {
+            reprData = createDobotCR20ARepr(id);
+          }
         }
       } else {
+        this.rawCSVText = null;
+        this.elements['scale-tools-panel'].classList.remove('hidden');
+        this.elements['csv-config-panel'].classList.add('hidden');
+        
         const trajJson = await fileResponse.json();
         trajData = parseTraj(trajJson);
       }
@@ -692,6 +731,81 @@ class TrajectoryApp {
     }
   }
 
+  reloadCSVTrajectory() {
+    if (!this.selectedTraj || !this.rawCSVText) return;
+
+    const robotModel = this.elements['csv-robot-select'].value;
+    const timingMode = this.elements['csv-timing-mode'].value;
+    const timingVal = parseFloat(this.elements['csv-timing-val'].value);
+
+    if (isNaN(timingVal) || timingVal <= 0) {
+      return; // Do nothing for invalid inputs
+    }
+
+    let dt = 0.01;
+    if (timingMode === 'hz') {
+      dt = 1.0 / timingVal;
+    } else {
+      dt = timingVal;
+    }
+
+    try {
+      // Re-parse CSV with new dt
+      this.originalTraj = parseCSV(this.rawCSVText, dt);
+      this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
+
+      // Re-create representation with selected model
+      let reprData = null;
+      if (robotModel === 'dobot-cr30h') {
+        reprData = createDobotCR30hRepr(this.selectedTraj);
+      } else {
+        reprData = createDobotCR20ARepr(this.selectedTraj);
+      }
+      this.activeRepr = reprData;
+
+      // Reset playback scaling if any
+      this.elements['time-scale-slider'].value = 0;
+      this.elements['time-scale-val'].innerText = '0%';
+
+      // Rebuild UI and 3D scene
+      this.updateActiveMetadata();
+      this.viewer.buildRobot(this.activeRepr);
+      this.viewer.buildSceneObstacles(this.activeRepr);
+
+      // Recompute duration
+      let duration = 0.0;
+      const parts = this.activeTraj.parts;
+      if (parts && parts.length > 0) {
+        const lastPart = parts[parts.length - 1];
+        if (lastPart.knots && lastPart.knots.length > 0) {
+          duration = lastPart.knots[lastPart.knots.length - 1];
+        }
+      }
+      this.totalDuration = duration;
+
+      this.elements['timeline-slider'].value = 0;
+      this.elements['timeline-slider'].disabled = (duration === 0);
+      this.elements['time-total'].innerText = `${duration.toFixed(2)}s`;
+
+      if (this.activeTraj.status === 70 && duration > 0) {
+        this.computeAndDraw3dPath();
+      } else {
+        this.viewer.drawTrajectoryPath([]);
+      }
+
+      this.chart.update(this.activeTraj, this.activeTab);
+
+      // Clamp current playback time to new duration
+      if (this.currentTime > this.totalDuration) {
+        this.currentTime = this.totalDuration;
+      }
+      this.updatePlaybackState(this.currentTime);
+
+    } catch (err) {
+      console.error("Error reloading CSV configuration:", err);
+    }
+  }
+
   stopReset() {
     this.isPlaying = false;
     this.currentTime = 0.0;
@@ -875,6 +989,168 @@ function createDobotCR20ARepr(id) {
         { type: "Static", joint_id: 3, min_value: -6.28318, max_value: 6.28318 },
         { type: "Static", joint_id: 4, min_value: -6.28318, max_value: 6.28318 },
         { type: "Static", joint_id: 5, min_value: -6.28318, max_value: 6.28318 }
+      ]
+    }
+  };
+}
+
+// Helper to construct fallback .repr for Dobot CR30H
+function createDobotCR30hRepr(id) {
+  return {
+    parts: [
+      {
+        start: { position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
+        target: { position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
+        wrist_down: false,
+        linear: false,
+        ignore_collisions: false,
+        start_tcp_position: [0, 0, 0],
+        start_tcp_rotation: [1, 0, 0, 0],
+        target_tcp_position: [0, 0, 0],
+        target_tcp_rotation: [1, 0, 0, 0]
+      }
+    ],
+    scene: {
+      shapes: []
+    },
+    equipment_model: {
+      model_name: "dobot-cr30h",
+      position: [0.0, 0.0, 1.2],
+      quaternion: [0.7254, 0.0, 0.0, -0.6884],
+      hitbox: [
+        {
+          link: 1,
+          shape: {
+            shape_type: "capsule",
+            position: [0.0, -0.09, 0.0],
+            quaternion: [0.7071, -0.7071, 0.0, 0.0],
+            radius: 0.115,
+            height: 0.08
+          }
+        },
+        {
+          link: 1,
+          shape: {
+            shape_type: "capsule",
+            position: [0.0, 0.0, 0.09],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.115,
+            height: 0.08
+          }
+        },
+        {
+          link: 2,
+          shape: {
+            shape_type: "capsule",
+            position: [0.005, 0.0, 0.27],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.1,
+            height: 0.105
+          }
+        },
+        {
+          link: 2,
+          shape: {
+            shape_type: "capsule",
+            position: [0.43, 0.0, 0.378],
+            quaternion: [0.7071, 0, 0.7071, 0],
+            radius: 0.1,
+            height: 0.77
+          }
+        },
+        {
+          link: 2,
+          shape: {
+            shape_type: "capsule",
+            position: [0.84, 0.0, 0.27],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.115,
+            height: 0.115
+          }
+        },
+        {
+          link: 3,
+          shape: {
+            shape_type: "capsule",
+            position: [0.0, 0.0, 0.12],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.065,
+            height: 0.12
+          }
+        },
+        {
+          link: 3,
+          shape: {
+            shape_type: "capsule",
+            position: [0.36, 0.0, 0.057],
+            quaternion: [0.7071, 0, 0.7071, 0],
+            radius: 0.07,
+            height: 0.6
+          }
+        },
+        {
+          link: 3,
+          shape: {
+            shape_type: "sphere",
+            position: [0.73, 0.0, 0.09],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.1
+          }
+        },
+        {
+          link: 4,
+          shape: {
+            shape_type: "capsule",
+            position: [0.0, 0.0, 0.07],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.065,
+            height: 0.14
+          }
+        },
+        {
+          link: 5,
+          shape: {
+            shape_type: "capsule",
+            position: [0.0, 0.0, 0.03],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.06,
+            height: 0.06
+          }
+        },
+        {
+          link: 6,
+          shape: {
+            shape_type: "box",
+            position: [0.0, 0.0, 0.158],
+            quaternion: [0.9239, 0.0, 0.0, -0.3827],
+            extents: [0.13, 0.18, 0.05]
+          }
+        },
+        {
+          link: 6,
+          shape: {
+            shape_type: "sphere",
+            position: [0.0, 0.0, -0.01],
+            quaternion: [1.0, 0.0, 0.0, 0.0],
+            radius: 0.065
+          }
+        }
+      ],
+      rigid_bodies: [],
+      dh_parameters: {
+        a: [0.0, -0.84, -0.74, 0.0, 0.0, 0.0],
+        d: [0.386, 0.0, 0.0, 0.275, 0.22, 0.211],
+        alpha: [1.57079637, 0.0, 0.0, 1.57079637, -1.57079637, 0.0],
+        theta: [-1.57079637, -1.57079637, 0.0, -1.57079637, 0.0, 0.0],
+        joint_type: ["Revolute", "Revolute", "Revolute", "Revolute", "Revolute", "Revolute"]
+      },
+      range_limits: [
+        { type: "Static", joint_id: 0, min_value: -1.5359, max_value: 4.5728 },
+        { type: "Static", joint_id: 1, min_value: -6.2832, max_value: 6.2832 },
+        { type: "Static", joint_id: 2, min_value: -2.7751, max_value: 2.7751 },
+        { type: "Static", joint_id: 3, min_value: -6.2832, max_value: 6.2832 },
+        { type: "Static", joint_id: 4, min_value: -6.2832, max_value: 6.2832 },
+        { type: "Static", joint_id: 5, min_value: -3.3161, max_value: 3.3161 }
       ]
     }
   };
