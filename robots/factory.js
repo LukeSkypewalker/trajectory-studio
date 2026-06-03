@@ -6,10 +6,13 @@ import { BaseRobot } from './base.js';
 import { DobotCR30h } from './dobot.js';
 import { AuboIS20 } from './aubo.js';
 import { AuboIS25 } from './aubo_is25.js';
+import { DobotCR20A } from './dobot_cr20a.js';
 
 export function getRobotConfig(modelName) {
   const name = (modelName || '').toLowerCase();
-  if (name.includes('dobot')) {
+  if (name.includes('cr20a') || name.includes('cr20')) {
+    return new DobotCR20A();
+  } else if (name.includes('dobot')) {
     return new DobotCR30h();
   } else if (name.includes('aubo-is25') || name.includes('is25')) {
     return new AuboIS25();

@@ -4,9 +4,10 @@
  */
 
 import * as THREE from 'three';
-import { TrajectoryViewer } from './viewer.js?v=35';
-import { TrajectoryChart } from './charts.js?v=35';
-import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=35';
+import { TrajectoryViewer } from './viewer.js?v=36';
+import { TrajectoryChart } from './charts.js?v=36';
+import { evaluateSpline, computeForwardKinematics, quatToMatrix } from './robot.js?v=36';
+import { parseTraj, parseCSV } from './readers.js?v=36';
 
 class TrajectoryApp {
   constructor() {
@@ -241,10 +242,14 @@ class TrajectoryApp {
       const statusColor = t.status === 70 ? 'var(--success-color)' : t.status === 40 ? 'var(--danger-color)' : 'var(--warning-color)';
       const statusLabel = t.status === 70 ? 'Planned' : t.status === 40 ? 'Collided' : 'Timeout';
       
+      const isCsv = t.format === 'csv';
+      const badgeHtml = isCsv ? `<span style="font-size: 0.6rem; font-weight: bold; background-color: rgba(6, 182, 212, 0.15); color: #06b6d4; padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(6, 182, 212, 0.3); margin-left: 6px;">CSV</span>` : '';
+      
       li.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
           <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${statusColor}; box-shadow: 0 0 4px ${statusColor};" title="${statusLabel}"></div>
           <span class="item-id monospace" style="font-size: 0.75rem;">${shortId}</span>
+          ${badgeHtml}
         </div>
         <span style="font-size: 0.7rem; color: var(--text-muted);">${t.duration.toFixed(2)}s</span>
       `;
@@ -313,16 +318,43 @@ class TrajectoryApp {
     this.showLoader(`Loading trajectory data...`);
     
     try {
-      const reprUrl = `Trajectories/${id}.repr`;
-      const trajUrl = `Trajectories/${id}.traj`;
+      const trajMeta = this.trajectories.find(t => t.id === id) || {};
+      const format = trajMeta.format || 'traj';
       
-      // Fetch both files concurrently
-      const [reprResponse, trajResponse] = await Promise.all([
-        fetch(reprUrl),
-        fetch(trajUrl)
-      ]);
-      this.activeRepr = await reprResponse.json();
-      this.originalTraj = await trajResponse.json();
+      const reprUrl = `Trajectories/${id}.repr`;
+      const fileUrl = `Trajectories/${id}.${format}`;
+      
+      let reprData = null;
+      let trajData = null;
+      
+      // Try to load repr if it exists, otherwise fallback to dobot-cr20a
+      try {
+        const reprResponse = await fetch(reprUrl);
+        if (reprResponse.ok) {
+          reprData = await reprResponse.json();
+        }
+      } catch (err) {
+        console.warn("Could not fetch repr file, using fallback:", err);
+      }
+      
+      const fileResponse = await fetch(fileUrl);
+      if (!fileResponse.ok) {
+        throw new Error(`Failed to load trajectory file: ${fileUrl}`);
+      }
+      
+      if (format === 'csv') {
+        const csvText = await fileResponse.text();
+        trajData = parseCSV(csvText, 0.01);
+        if (!reprData) {
+          reprData = createDobotCR20ARepr(id);
+        }
+      } else {
+        const trajJson = await fileResponse.json();
+        trajData = parseTraj(trajJson);
+      }
+      
+      this.activeRepr = reprData;
+      this.originalTraj = trajData;
       this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
       
       // Reset scale UI on new load
@@ -658,6 +690,153 @@ class TrajectoryApp {
   hideLoader() {
     this.elements['canvas-loader'].classList.add('hidden');
   }
+}
+
+// Helper to construct fallback .repr for Dobot CR20A
+function createDobotCR20ARepr(id) {
+  return {
+    parts: [
+      {
+        start: { position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
+        target: { position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
+        wrist_down: false,
+        linear: false,
+        ignore_collisions: false,
+        start_tcp_position: [0, 0, 0],
+        start_tcp_rotation: [1, 0, 0, 0],
+        target_tcp_position: [0, 0, 0],
+        target_tcp_rotation: [1, 0, 0, 0]
+      }
+    ],
+    scene: {
+      shapes: []
+    },
+    equipment_model: {
+      model_name: "dobot-cr20a",
+      position: [0.0, 0.0, 0.0],
+      quaternion: [1.0, 0.0, 0.0, 0.0],
+      hitbox: [
+        // Link 1
+        {
+          link: 1,
+          shape: {
+            shape_type: "capsule",
+            position: [0, 0, 0],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.13,
+            height: 0.25
+          }
+        },
+        // Link 2 (Shoulder/Upper arm)
+        {
+          link: 2,
+          shape: {
+            shape_type: "capsule",
+            position: [-0.375, 0, 0],
+            quaternion: [0.7071, 0, 0.7071, 0],
+            radius: 0.11,
+            height: 0.75
+          }
+        },
+        {
+          link: 2,
+          shape: {
+            shape_type: "sphere",
+            position: [0, 0, 0],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.13
+          }
+        },
+        {
+          link: 2,
+          shape: {
+            shape_type: "sphere",
+            position: [-0.75, 0, 0],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.11
+          }
+        },
+        // Link 3 (Forearm)
+        {
+          link: 3,
+          shape: {
+            shape_type: "capsule",
+            position: [-0.35, 0, 0],
+            quaternion: [0.7071, 0, 0.7071, 0],
+            radius: 0.09,
+            height: 0.70
+          }
+        },
+        {
+          link: 3,
+          shape: {
+            shape_type: "sphere",
+            position: [0, 0, 0],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.095
+          }
+        },
+        {
+          link: 3,
+          shape: {
+            shape_type: "sphere",
+            position: [-0.70, 0, 0],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.085
+          }
+        },
+        // Link 4
+        {
+          link: 4,
+          shape: {
+            shape_type: "capsule",
+            position: [0, 0, 0.09],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.08,
+            height: 0.18
+          }
+        },
+        // Link 5
+        {
+          link: 5,
+          shape: {
+            shape_type: "capsule",
+            position: [0, 0, 0.065],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.08,
+            height: 0.13
+          }
+        },
+        // Link 6
+        {
+          link: 6,
+          shape: {
+            shape_type: "capsule",
+            position: [0, 0, 0.055],
+            quaternion: [1, 0, 0, 0],
+            radius: 0.08,
+            height: 0.11
+          }
+        }
+      ],
+      rigid_bodies: [],
+      dh_parameters: {
+        a: [0.0, -0.75, -0.70, 0.0, 0.0, 0.0],
+        d: [0.25, 0.0, 0.0, 0.18, 0.13, 0.11],
+        alpha: [1.5707963267948966, 0.0, 0.0, 1.5707963267948966, -1.5707963267948966, 0.0],
+        theta: [-1.5707963267948966, -1.5707963267948966, 0.0, -1.5707963267948966, 0.0, 0.0],
+        joint_type: ["Revolute", "Revolute", "Revolute", "Revolute", "Revolute", "Revolute"]
+      },
+      range_limits: [
+        { type: "Static", joint_id: 0, min_value: -6.28318, max_value: 6.28318 },
+        { type: "Static", joint_id: 1, min_value: -6.28318, max_value: 6.28318 },
+        { type: "Static", joint_id: 2, min_value: -6.28318, max_value: 6.28318 },
+        { type: "Static", joint_id: 3, min_value: -6.28318, max_value: 6.28318 },
+        { type: "Static", joint_id: 4, min_value: -6.28318, max_value: 6.28318 },
+        { type: "Static", joint_id: 5, min_value: -6.28318, max_value: 6.28318 }
+      ]
+    }
+  };
 }
 
 // Utility check helper
