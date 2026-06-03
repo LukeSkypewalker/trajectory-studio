@@ -456,18 +456,6 @@
     "num_rows": 89
   },
   {
-    "id": "00e54c9a4cfe95d21cf0f5d4a98f18a8bbfa3043432ce9d9bb67436ec9a36341",
-    "status": 70,
-    "model": "aubo-is25",
-    "duration": 1.925,
-    "num_parts": 1,
-    "linear": false,
-    "has_path": true,
-    "num_box_obstacles": 14,
-    "format": "traj",
-    "num_rows": 0
-  },
-  {
     "id": "00ec13fd8d695ec600981e34a7a7b8ecce12598b624b3c89a977a654dbbb1cbc",
     "status": 70,
     "model": "aubo-is25",

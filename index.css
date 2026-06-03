@@ -954,22 +954,129 @@ body {
   pointer-events: auto;
 }
 
-#timeline-time-display {
+#timeline-controls-row {
   position: absolute;
+  bottom: 29px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
-  font-size: 0.65rem;
-  color: var(--text-secondary);
+  align-items: center;
   left: 0;
   right: 0;
-  pointer-events: none;
+  pointer-events: auto;
+  font-size: 0.7rem;
+}
+
+#timeline-controls-row .controls-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#timeline-controls-row .time-display {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+#timeline-controls-row .time-display .divider {
+  color: var(--text-muted);
+  margin: 0 4px;
+}
+
+#timeline-controls-row .speed-badges {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 1px;
+}
+
+#timeline-controls-row .speed-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+#timeline-controls-row .speed-btn:hover {
+  color: var(--text-primary);
+}
+
+#timeline-controls-row .speed-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+#timeline-controls-row .playback-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-border);
+  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#timeline-controls-row .playback-btn i,
+#timeline-controls-row .playback-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+#timeline-controls-row .playback-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+#timeline-controls-row .playback-btn.primary {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+#timeline-controls-row .playback-btn.primary:hover {
+  background: var(--accent-primary-hover);
+  color: var(--bg-color);
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.45);
+}
+
+#timeline-controls-row .playback-btn.toggled {
+  color: var(--accent-color);
+  border-color: rgba(6, 182, 212, 0.3);
+  background: rgba(6, 182, 212, 0.08);
+}
+
+#timeline-controls-row .graph-axis-title {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
 }
 
 #timeline-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 100%;
+  width: calc(100% + 14px);
+  margin-left: -7px;
+  margin-right: -7px;
   height: 6px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
@@ -1010,105 +1117,7 @@ body {
   width: 0%;
 }
 
-.scene-playback-panel {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 10;
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-}
 
-.playback-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.playback-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--panel-border);
-  color: var(--text-primary);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.playback-btn i {
-  width: 14px;
-  height: 14px;
-}
-
-.playback-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: var(--accent-color);
-  transform: scale(1.05);
-}
-
-.playback-btn.primary {
-  background: var(--accent-color);
-  color: var(--bg-color);
-  border: none;
-  box-shadow: 0 0 12px var(--accent-glow);
-}
-
-.playback-btn.primary:hover {
-  background: var(--accent-primary-hover);
-  color: var(--bg-color);
-  transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(6, 182, 212, 0.45);
-}
-
-.playback-btn.toggled {
-  color: var(--accent-color);
-  border-color: rgba(6, 182, 212, 0.3);
-  background: rgba(6, 182, 212, 0.08);
-}
-
-.speed-control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.speed-badges {
-  display: flex;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--panel-border);
-  border-radius: 20px;
-  padding: 2px;
-}
-
-.speed-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.speed-btn:hover {
-  color: var(--text-primary);
-}
-
-.speed-btn.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--accent-color);
-  font-weight: 600;
-}
 
 /* -------------------------------------------------------------
  * RIGHT SIDEBAR: Motion Analytics
@@ -1171,16 +1180,10 @@ body {
   height: 100%;
 }
 
-.chart-container #btn-play-pause {
-  position: absolute;
-  z-index: 10;
-  width: 28px;
-  height: 28px;
-}
 
 /* Joint States Table */
 .joint-table-section {
-  padding: 16px;
+  padding: 0px 16px 14px 16px;
   border-bottom: none;
   flex: 0 0 auto;
   display: flex;

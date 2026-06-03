@@ -51,15 +51,6 @@ const alignSliderPlugin = {
     const right = chart.width - chart.chartArea.right;
     const bottom = chart.chartArea.bottom;
     
-    // Position play button to be centered inside the left margin space
-    const playBtn = document.getElementById('btn-play-pause');
-    if (playBtn) {
-      const btnWidth = 28;
-      const btnLeft = Math.max(8, (left - btnWidth) / 2);
-      playBtn.style.left = `${btnLeft}px`;
-      playBtn.style.top = `${bottom - 14}px`; // Centered vertically on x-axis line
-    }
-    
     const sliderWrapper = document.getElementById('timeline-slider-wrapper');
     if (sliderWrapper) {
       sliderWrapper.style.left = `${left}px`;
@@ -67,11 +58,10 @@ const alignSliderPlugin = {
       sliderWrapper.style.top = `${bottom - 9}px`; // Center directly on bottom x-axis line
     }
 
-    const timeDisplay = document.getElementById('timeline-time-display');
-    if (timeDisplay) {
-      timeDisplay.style.left = `${left}px`;
-      timeDisplay.style.right = `${right}px`;
-      timeDisplay.style.top = `${bottom + 10}px`; // Below grid x-axis ticks
+    const controlsRow = document.getElementById('timeline-controls-row');
+    if (controlsRow) {
+      controlsRow.style.left = `${left}px`;
+      controlsRow.style.right = `${right}px`;
     }
   }
 };
@@ -123,17 +113,14 @@ export class TrajectoryChart {
             left: 10,
             right: 15,
             top: 15,
-            bottom: 25
+            bottom: 90
           }
         },
         scales: {
           x: {
             type: 'linear',
             title: {
-              display: true,
-              text: 'Time (seconds)',
-              color: '#94a3b8',
-              font: { size: 10, family: 'Inter' }
+              display: false
             },
             grid: { color: 'rgba(255, 255, 255, 0.03)' },
             ticks: { color: '#94a3b8', font: { size: 9 } }

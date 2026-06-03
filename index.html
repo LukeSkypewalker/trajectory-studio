@@ -124,22 +124,7 @@
           </div>
         </div>
 
-        <!-- Floating Playback Control Panel (Bottom Right) -->
-        <div id="scene-playback-panel" class="scene-playback-panel glass-panel">
-          <div class="speed-control">
-            <div class="speed-badges">
-              <button class="speed-btn" data-speed="0.25">0.25x</button>
-              <button class="speed-btn" data-speed="0.5">0.5x</button>
-              <button class="speed-btn active" data-speed="1.0">1x</button>
-              <button class="speed-btn" data-speed="2.0">2x</button>
-            </div>
-          </div>
-          <div class="playback-buttons">
-            <button id="btn-loop" class="playback-btn" title="Toggle Loop" aria-label="Toggle loop playback">
-              <i data-lucide="repeat"></i>
-            </button>
-          </div>
-        </div>
+
         
         <!-- Warning Overlay for Failed Trajectories -->
         <div id="failed-trajectory-overlay" class="hidden">
@@ -173,16 +158,33 @@
       <!-- Chart Canvas Wrapper -->
       <div class="chart-container">
         <canvas id="motion-chart"></canvas>
-        <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
-          <i data-lucide="play" id="play-icon"></i>
-        </button>
         <div id="timeline-slider-wrapper">
           <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.01" aria-label="Trajectory timeline slider">
           <div id="timeline-progress-bar"></div>
         </div>
-        <div id="timeline-time-display">
-          <span id="time-current" class="monospace">0.00s</span>
-          <span id="time-total" class="monospace">0.00s</span>
+        
+        <!-- Controls row at the bottom line of the chart container, matching ticks/label line -->
+        <div id="timeline-controls-row">
+          <div class="controls-left">
+            <button id="btn-play-pause" class="playback-btn primary" title="Play / Pause" aria-label="Play or Pause animation">
+              <i data-lucide="play" id="play-icon"></i>
+            </button>
+            <button id="btn-loop" class="playback-btn" title="Toggle Loop" aria-label="Toggle loop playback">
+              <i data-lucide="repeat"></i>
+            </button>
+            <div class="time-display monospace">
+              <span id="time-current">0.00s</span>
+              <span class="divider">/</span>
+              <span id="time-total">0.00s</span>
+            </div>
+            <div class="speed-badges">
+              <button class="speed-btn" data-speed="0.25">0.25x</button>
+              <button class="speed-btn" data-speed="0.5">0.5x</button>
+              <button class="speed-btn active" data-speed="1.0">1x</button>
+              <button class="speed-btn" data-speed="2.0">2x</button>
+            </div>
+          </div>
+          <span class="graph-axis-title">Time (seconds)</span>
         </div>
       </div>
       

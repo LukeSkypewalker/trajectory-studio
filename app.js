@@ -985,7 +985,7 @@ function createDobotCR20ARepr(id) {
     equipment_model: {
       model_name: "dobot-cr20a",
       position: [0.0, 0.0, 1.0],
-      quaternion: [1.0, 0.0, 0.0, 0.0],
+      quaternion: [0.7071, 0.0, 0.0, -0.7071],
       hitbox: [
         // Link 1
         {
@@ -1132,7 +1132,7 @@ function createDobotCR30hRepr(id) {
     equipment_model: {
       model_name: "dobot-cr30h",
       position: [0.0, 0.0, 1.0],
-      quaternion: [1.0, 0.0, 0.0, 0.0],
+      quaternion: [0.7071, 0.0, 0.0, -0.7071],
       hitbox: [
         {
           link: 1,
