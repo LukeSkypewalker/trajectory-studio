@@ -84,7 +84,7 @@ class TrajectoryApp {
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
       'time-scale-slider', 'time-scale-val', 'btn-save-scaled',
-      'scale-tools-panel', 'csv-config-panel', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val',
+      'scale-tools-panel', 'scene-csv-controls', 'scene-model-text', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val',
       'mode-btn-traj', 'mode-btn-csv', 'mode-btn-mcap'
     ];
     
@@ -449,7 +449,8 @@ class TrajectoryApp {
         
         // Toggle panels
         this.elements['scale-tools-panel'].classList.add('hidden');
-        this.elements['csv-config-panel'].classList.remove('hidden');
+        this.elements['scene-csv-controls'].classList.remove('hidden');
+        this.elements['scene-model-text'].classList.add('hidden');
         
         // Apply global configuration values to inputs
         this.elements['csv-robot-select'].value = this.globalCSVRobot;
@@ -474,14 +475,16 @@ class TrajectoryApp {
       } else if (format === 'mcap') {
         this.rawCSVText = null;
         this.elements['scale-tools-panel'].classList.add('hidden');
-        this.elements['csv-config-panel'].classList.add('hidden');
+        this.elements['scene-csv-controls'].classList.add('hidden');
+        this.elements['scene-model-text'].classList.remove('hidden');
         
         const trajJson = await fileResponse.json();
         trajData = parseTraj(trajJson);
       } else {
         this.rawCSVText = null;
         this.elements['scale-tools-panel'].classList.remove('hidden');
-        this.elements['csv-config-panel'].classList.add('hidden');
+        this.elements['scene-csv-controls'].classList.add('hidden');
+        this.elements['scene-model-text'].classList.remove('hidden');
         
         const trajJson = await fileResponse.json();
         trajData = parseTraj(trajJson);
@@ -771,13 +774,16 @@ class TrajectoryApp {
     // Toggle panels visibility based on mode
     if (mode === 'csv') {
       this.elements['scale-tools-panel'].classList.add('hidden');
-      this.elements['csv-config-panel'].classList.remove('hidden');
+      this.elements['scene-csv-controls'].classList.remove('hidden');
+      this.elements['scene-model-text'].classList.add('hidden');
     } else if (mode === 'traj') {
       this.elements['scale-tools-panel'].classList.remove('hidden');
-      this.elements['csv-config-panel'].classList.add('hidden');
+      this.elements['scene-csv-controls'].classList.add('hidden');
+      this.elements['scene-model-text'].classList.remove('hidden');
     } else { // mcap
       this.elements['scale-tools-panel'].classList.add('hidden');
-      this.elements['csv-config-panel'].classList.add('hidden');
+      this.elements['scene-csv-controls'].classList.add('hidden');
+      this.elements['scene-model-text'].classList.remove('hidden');
     }
 
     // Update active state class on mode buttons
@@ -984,7 +990,7 @@ function createDobotCR20ARepr(id) {
     },
     equipment_model: {
       model_name: "dobot-cr20a",
-      position: [0.0, 0.0, 0.8],
+      position: [0.0, 0.0, 1.0],
       quaternion: [1.0, 0.0, 0.0, 0.0],
       hitbox: [
         // Link 1
@@ -1131,7 +1137,7 @@ function createDobotCR30hRepr(id) {
     },
     equipment_model: {
       model_name: "dobot-cr30h",
-      position: [0.0, 0.0, 1.2],
+      position: [0.0, 0.0, 1.0],
       quaternion: [1.0, 0.0, 0.0, 0.0],
       hitbox: [
         {

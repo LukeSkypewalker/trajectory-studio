@@ -42,23 +42,6 @@
         <button class="mode-btn" data-mode="mcap" id="mode-btn-mcap" disabled>MCAP</button>
       </div>
 
-      <!-- CSV Configuration Panel -->
-      <div id="csv-config-panel" class="csv-config-panel hidden">
-        <div class="config-row">
-          <label for="csv-robot-select" class="config-label">Robot Model</label>
-          <select id="csv-robot-select" class="config-select">
-            <option value="dobot-cr20a">Dobot CR20A</option>
-            <option value="dobot-cr30h">Dobot CR30H</option>
-          </select>
-        </div>
-        <div class="config-row-inline">
-          <select id="csv-timing-mode" class="config-select flex-2">
-            <option value="hz">Frequency (Hz)</option>
-            <option value="step">Time Step (s)</option>
-          </select>
-          <input type="number" id="csv-timing-val" class="config-input flex-1" value="100" min="0.0001" step="any">
-        </div>
-      </div>
 
       <div class="search-filter-box">
         <div class="search-wrapper">
@@ -103,11 +86,47 @@
     <!-- CENTER VIEW: 3D Scene and Playback Controls -->
     <main id="main-viewer">
       
-      <!-- 3D Canvas Area -->
       <div id="canvas-container">
         <canvas id="three-canvas"></canvas>
         
+        <!-- Floating Scene Control Panel (Top Left) -->
+        <div id="scene-control-panel" class="scene-control-panel glass-panel">
+          <div id="scene-model-text" class="scene-model-text">
+            <span class="meta-label">Model:</span>
+            <span id="meta-robot-model" class="meta-val monospace">--</span>
+          </div>
+          <div id="scene-csv-controls" class="scene-csv-controls hidden">
+            <div class="config-row-inline" style="gap: 8px; width: 100%;">
+              <select id="csv-robot-select" class="config-select flex-1">
+                <option value="dobot-cr20a">Dobot CR20A</option>
+                <option value="dobot-cr30h">Dobot CR30H</option>
+              </select>
+            </div>
+            <div class="config-row-inline" style="gap: 8px; width: 100%; margin-top: 6px;">
+              <select id="csv-timing-mode" class="config-select flex-2">
+                <option value="hz">Frequency (Hz)</option>
+                <option value="step">Time Step (s)</option>
+              </select>
+              <input type="number" id="csv-timing-val" class="config-input flex-1" value="100" min="0.0001" step="any" style="text-align: right;">
+            </div>
+          </div>
+        </div>
 
+        <!-- Floating TCP Position Panel (Bottom Right) -->
+        <div id="scene-tcp-panel" class="scene-tcp-panel glass-panel">
+          <div class="tcp-coord">
+            <span class="tcp-label">X</span>
+            <span class="tcp-val monospace" id="tcp-x">0.000 m</span>
+          </div>
+          <div class="tcp-coord">
+            <span class="tcp-label">Y</span>
+            <span class="tcp-val monospace" id="tcp-y">0.000 m</span>
+          </div>
+          <div class="tcp-coord">
+            <span class="tcp-label">Z</span>
+            <span class="tcp-val monospace" id="tcp-z">0.000 m</span>
+          </div>
+        </div>
         
         <!-- Warning Overlay for Failed Trajectories -->
         <div id="failed-trajectory-overlay" class="hidden">
@@ -164,15 +183,7 @@
               <button class="speed-btn" data-speed="2.0">2x</button>
             </div>
           </div>
-          
-          <!-- Relocated Model Info -->
-          <div class="robot-info" style="display: flex; gap: 12px; align-items: center; border-left: 1px solid var(--panel-border); border-right: 1px solid var(--panel-border); padding: 0 12px; height: 24px;">
-            <div class="meta-group" style="display: flex; gap: 6px; align-items: center;">
-              <span class="meta-label" style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Model:</span>
-              <span class="meta-val monospace" id="meta-robot-model" style="font-size: 0.75rem; color: var(--text-primary);">--</span>
-            </div>
-          </div>
-          
+
           <!-- View settings removed per user request -->
         </div>
       </footer>
@@ -243,26 +254,6 @@
             </tbody>
           </table>
         </div>
-      </section>
-      
-      <!-- TCP Position Display -->
-      <section class="tcp-display-section">
-        <!-- Removed h3 to save space -->
-        <div class="tcp-grid">
-          <div class="tcp-cell">
-            <span class="tcp-label">X</span>
-            <span class="tcp-val monospace" id="tcp-x">0.000 m</span>
-          </div>
-          <div class="tcp-cell">
-            <span class="tcp-label">Y</span>
-            <span class="tcp-val monospace" id="tcp-y">0.000 m</span>
-          </div>
-          <div class="tcp-cell">
-            <span class="tcp-label">Z</span>
-            <span class="tcp-val monospace" id="tcp-z">0.000 m</span>
-          </div>
-        </div>
-        <!-- Quaternion display removed per user request -->
       </section>
     </aside>
     
