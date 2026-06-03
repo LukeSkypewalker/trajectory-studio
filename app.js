@@ -719,8 +719,15 @@ class TrajectoryApp {
         180 * Math.PI / 180
       ];
     } else if (name.includes('cr30') || name.includes('dobot')) {
-      // CR30H J1-J6: 300°/s
-      return Array(6).fill(300 * Math.PI / 180);
+      // CR30H J1-J2: 150°/s, J3: 200°/s, J4-J6: 300°/s
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        200 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180
+      ];
     } else if (name.includes('aubo-is25') || name.includes('is25')) {
       // Aubo iS25 standard velocity limits
       return [

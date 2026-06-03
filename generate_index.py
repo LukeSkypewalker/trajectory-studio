@@ -68,7 +68,7 @@ def generate_index():
                     num_rows = sum(1 for line in lines if line.strip()) - 1
                 status = 70 # Success state for standalone CSVs
                 has_parts = True
-                duration = max(0.0, num_rows * 0.01) # Default 100Hz frequency
+                duration = max(0.0, num_rows * 0.02) # Default 50Hz frequency
             except Exception as e:
                 print(f"Error loading {file_path}: {e}")
                 continue
