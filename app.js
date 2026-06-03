@@ -783,6 +783,17 @@ class TrajectoryApp {
       }
       this.totalDuration = duration;
 
+      // Update duration in the trajectory list objects and redraw left panel sidebar list
+      const trajObj = this.trajectories.find(x => x.id === this.selectedTraj);
+      if (trajObj) {
+        trajObj.duration = duration;
+      }
+      const filteredTrajObj = this.filteredTrajectories.find(x => x.id === this.selectedTraj);
+      if (filteredTrajObj) {
+        filteredTrajObj.duration = duration;
+      }
+      this.renderSidebarList();
+
       this.elements['timeline-slider'].value = 0;
       this.elements['timeline-slider'].disabled = (duration === 0);
       this.elements['time-total'].innerText = `${duration.toFixed(2)}s`;
