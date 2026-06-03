@@ -1252,7 +1252,7 @@ body {
   font-size: 0.7rem;
 }
 
-.vel-cell, .accel-cell, .jerk-cell {
+.vel-cell, .accel-cell {
   text-align: right;
   color: var(--text-secondary);
 }

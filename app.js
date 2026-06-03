@@ -724,7 +724,6 @@ class TrajectoryApp {
       const valCell = row.querySelector('.val-cell');
       const velCell = row.querySelector('.vel-cell');
       const accelCell = row.querySelector('.accel-cell');
-      const jerkCell = row.querySelector('.jerk-cell');
       
       // Check limits
       let isExceeded = false;
@@ -755,7 +754,6 @@ class TrajectoryApp {
       // Update motion details
       velCell.innerText = vVal.toFixed(2);
       accelCell.innerText = aVal.toFixed(2);
-      jerkCell.innerText = jVal.toFixed(2);
     }
   }
 
