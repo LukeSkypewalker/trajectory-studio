@@ -328,14 +328,50 @@ body {
   box-shadow: 0 0 4px var(--accent-glow);
 }
 
+/* Segmented Mode Switch Container */
+.mode-switch-container {
+  display: flex;
+  margin: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 2px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
+}
+
+.mode-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 0;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.mode-btn.active {
+  background: var(--accent-color);
+  color: #000;
+  box-shadow: 0 2px 8px var(--accent-glow);
+  font-weight: 700;
+}
+
 /* CSV Configuration Panel */
 .csv-config-panel {
   padding: 12px;
-  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
   background: rgba(255, 255, 255, 0.01);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 8px;
 }
 
 .csv-config-panel.hidden {

@@ -44,8 +44,8 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 if not traj_id or scale <= 0:
                     raise ValueError("Invalid id or scale")
 
-                src_path = Path("Trajectories") / f"{traj_id}.traj"
-                dest_path = Path("Trajectories") / "export" / f"{traj_id}.traj"
+                src_path = Path("Trajectories") / "traj" / f"{traj_id}.traj"
+                dest_path = Path("Trajectories") / "traj" / "export" / f"{traj_id}.traj"
 
                 scale_traj_time.scale_traj_file(src_path, dest_path, scale)
 
@@ -91,10 +91,12 @@ def watch_trajectories_dir():
             if os.path.exists("Trajectories"):
                 # Get both file names and modification times to detect overwrites
                 current_files = {}
-                for f in os.listdir("Trajectories"):
-                    if f.endswith(".csv") or f.endswith(".traj") or f.endswith(".repr"):
-                        path = os.path.join("Trajectories", f)
-                        current_files[f] = os.path.getmtime(path)
+                for root, dirs, files in os.walk("Trajectories"):
+                    for f in files:
+                        if f.endswith(".csv") or f.endswith(".traj") or f.endswith(".repr") or f.endswith(".mcap"):
+                            path = os.path.join(root, f)
+                            rel_path = os.path.relpath(path, "Trajectories")
+                            current_files[rel_path] = os.path.getmtime(path)
                 
                 # Check if there is any difference in files list or modification times
                 current_files_set = set(current_files.items())

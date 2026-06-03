@@ -18,6 +18,10 @@ class TrajectoryApp {
     this.trajectories = [];
     this.filteredTrajectories = [];
     this.selectedTraj = null;
+    this.activeMode = 'traj'; // 'traj', 'csv', 'mcap'
+    this.globalCSVRobot = 'dobot-cr20a';
+    this.globalCSVTimingMode = 'hz';
+    this.globalCSVTimingVal = 100;
     
     this.activeRepr = null;
     this.activeTraj = null;
@@ -80,7 +84,8 @@ class TrajectoryApp {
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
       'time-scale-slider', 'time-scale-val', 'btn-save-scaled',
-      'scale-tools-panel', 'csv-config-panel', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val'
+      'scale-tools-panel', 'csv-config-panel', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val',
+      'mode-btn-traj', 'mode-btn-csv', 'mode-btn-mcap'
     ];
     
     ids.forEach(id => {
@@ -152,6 +157,16 @@ class TrajectoryApp {
           this.elements['btn-save-scaled'].disabled = false;
         }, 2000);
       }
+    });
+
+    // Segmented Mode Switcher
+    const modeButtons = document.querySelectorAll('.mode-switch-container .mode-btn');
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        modeButtons.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        this.switchMode(e.target.dataset.mode);
+      });
     });
 
     // CSV configuration listeners
@@ -335,8 +350,22 @@ class TrajectoryApp {
     
     // Status filter
     const activeStatusBtn = document.querySelector('#status-filters .badge-btn.active');
-    const statusVal = activeStatusBtn.dataset.val; // 'all', '70', 'fail'
+    const statusVal = activeStatusBtn ? activeStatusBtn.dataset.val : 'all'; // 'all', '70', 'fail'
     
+    // Recalculate CSV durations globally before filtering
+    let dt = 0.01;
+    if (this.globalCSVTimingMode === 'hz') {
+      dt = 1.0 / this.globalCSVTimingVal;
+    } else {
+      dt = this.globalCSVTimingVal;
+    }
+    this.trajectories.forEach(t => {
+      if (t.format === 'csv') {
+        const rows = t.num_rows || 0;
+        t.duration = rows * dt;
+      }
+    });
+
     this.filteredTrajectories = this.trajectories.filter(t => {
       // 1. Search filter (match full ID or parts of it)
       const matchesSearch = t.id.toLowerCase().includes(searchVal);
@@ -349,7 +378,10 @@ class TrajectoryApp {
         matchesStatus = t.status !== 70;
       }
       
-      return matchesSearch && matchesStatus;
+      // 3. Format/Mode filter
+      const matchesMode = t.format === this.activeMode;
+      
+      return matchesSearch && matchesStatus && matchesMode;
     });
     
     this.renderSidebarList();
@@ -381,8 +413,8 @@ class TrajectoryApp {
       const trajMeta = this.trajectories.find(t => t.id === id) || {};
       const format = trajMeta.format || 'traj';
       
-      const reprUrl = `Trajectories/${id}.repr?v=${Date.now()}`;
-      const fileUrl = `Trajectories/${id}.${format}?v=${Date.now()}`;
+      const reprUrl = `Trajectories/${format}/${id}.repr?v=${Date.now()}`;
+      const fileUrl = `Trajectories/${format}/${id}.${format}?v=${Date.now()}`;
       
       let reprData = null;
       let trajData = null;
@@ -410,20 +442,33 @@ class TrajectoryApp {
         this.elements['scale-tools-panel'].classList.add('hidden');
         this.elements['csv-config-panel'].classList.remove('hidden');
         
-        // Determine default model
-        const activeModel = (reprData && reprData.equipment_model && reprData.equipment_model.model_name) || 'dobot-cr20a';
-        this.elements['csv-robot-select'].value = activeModel;
-        this.elements['csv-timing-mode'].value = 'hz';
-        this.elements['csv-timing-val'].value = '100';
+        // Apply global configuration values to inputs
+        this.elements['csv-robot-select'].value = this.globalCSVRobot;
+        this.elements['csv-timing-mode'].value = this.globalCSVTimingMode;
+        this.elements['csv-timing-val'].value = this.globalCSVTimingVal;
         
-        trajData = parseCSV(csvText, 0.01);
+        let dt = 0.01;
+        if (this.globalCSVTimingMode === 'hz') {
+          dt = 1.0 / this.globalCSVTimingVal;
+        } else {
+          dt = this.globalCSVTimingVal;
+        }
+        
+        trajData = parseCSV(csvText, dt);
         if (!reprData) {
-          if (activeModel === 'dobot-cr30h') {
+          if (this.globalCSVRobot === 'dobot-cr30h') {
             reprData = createDobotCR30hRepr(id);
           } else {
             reprData = createDobotCR20ARepr(id);
           }
         }
+      } else if (format === 'mcap') {
+        this.rawCSVText = null;
+        this.elements['scale-tools-panel'].classList.add('hidden');
+        this.elements['csv-config-panel'].classList.add('hidden');
+        
+        const trajJson = await fileResponse.json();
+        trajData = parseTraj(trajJson);
       } else {
         this.rawCSVText = null;
         this.elements['scale-tools-panel'].classList.remove('hidden');
@@ -706,6 +751,62 @@ class TrajectoryApp {
     }
   }
 
+  switchMode(mode) {
+    if (this.activeMode === mode) return;
+    this.activeMode = mode;
+    
+    // Stop playback
+    this.isPlaying = false;
+    this.updatePlayPauseButtonUI();
+
+    // Toggle panels visibility based on mode
+    if (mode === 'csv') {
+      this.elements['scale-tools-panel'].classList.add('hidden');
+      this.elements['csv-config-panel'].classList.remove('hidden');
+    } else if (mode === 'traj') {
+      this.elements['scale-tools-panel'].classList.remove('hidden');
+      this.elements['csv-config-panel'].classList.add('hidden');
+    } else { // mcap
+      this.elements['scale-tools-panel'].classList.add('hidden');
+      this.elements['csv-config-panel'].classList.add('hidden');
+    }
+
+    // Update active state class on mode buttons
+    const modeButtons = document.querySelectorAll('.mode-switch-container .mode-btn');
+    modeButtons.forEach(btn => {
+      if (btn.dataset.mode === mode) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Re-apply filters which will filter files in list based on mode
+    this.applyFilters();
+
+    // Select the first trajectory in the new filtered list if available
+    if (this.filteredTrajectories.length > 0) {
+      this.selectTrajectory(this.filteredTrajectories[0].id);
+    } else {
+      // Clear visualizer and chart
+      this.activeTraj = null;
+      this.activeRepr = null;
+      this.selectedTraj = null;
+      this.viewer.drawTrajectoryPath([]);
+      this.chart.clear();
+      // Clear current trajectory stats
+      this.elements['active-trajectory-id'].innerText = 'None';
+      this.elements['meta-robot-model'].innerText = '--';
+      this.elements['meta-parts'].innerText = '--';
+      this.elements['meta-interpolation'].innerText = '--';
+      this.elements['time-current'].innerText = '0.00s';
+      this.elements['time-total'].innerText = '0.00s';
+      this.elements['timeline-slider'].value = 0;
+      this.elements['timeline-slider'].disabled = true;
+      this.elements['timeline-progress-bar'].style.width = '0%';
+    }
+  }
+
   // Playback control functions
   togglePlayPause() {
     if (!this.isPlaying && this.totalDuration > 0 && this.currentTime >= this.totalDuration - 0.001) {
@@ -732,8 +833,6 @@ class TrajectoryApp {
   }
 
   reloadCSVTrajectory() {
-    if (!this.selectedTraj || !this.rawCSVText) return;
-
     const robotModel = this.elements['csv-robot-select'].value;
     const timingMode = this.elements['csv-timing-mode'].value;
     const timingVal = parseFloat(this.elements['csv-timing-val'].value);
@@ -742,78 +841,75 @@ class TrajectoryApp {
       return; // Do nothing for invalid inputs
     }
 
-    let dt = 0.01;
-    if (timingMode === 'hz') {
-      dt = 1.0 / timingVal;
-    } else {
-      dt = timingVal;
-    }
+    // Update global variables
+    this.globalCSVRobot = robotModel;
+    this.globalCSVTimingMode = timingMode;
+    this.globalCSVTimingVal = timingVal;
 
-    try {
-      // Re-parse CSV with new dt
-      this.originalTraj = parseCSV(this.rawCSVText, dt);
-      this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
+    // Recalculate durations and redraw left panel sidebar list
+    this.applyFilters();
 
-      // Re-create representation with selected model
-      let reprData = null;
-      if (robotModel === 'dobot-cr30h') {
-        reprData = createDobotCR30hRepr(this.selectedTraj);
-      } else {
-        reprData = createDobotCR20ARepr(this.selectedTraj);
-      }
-      this.activeRepr = reprData;
+    // If active trajectory is CSV, recompute kinematics, paths, and graphs
+    if (this.selectedTraj) {
+      const activeMeta = this.trajectories.find(t => t.id === this.selectedTraj);
+      if (activeMeta && activeMeta.format === 'csv') {
+        let dt = 0.01;
+        if (timingMode === 'hz') {
+          dt = 1.0 / timingVal;
+        } else {
+          dt = timingVal;
+        }
 
-      // Reset playback scaling if any
-      this.elements['time-scale-slider'].value = 0;
-      this.elements['time-scale-val'].innerText = '0%';
+        try {
+          if (this.rawCSVText) {
+            // Re-parse CSV with new dt
+            this.originalTraj = parseCSV(this.rawCSVText, dt);
+            this.activeTraj = JSON.parse(JSON.stringify(this.originalTraj));
 
-      // Rebuild UI and 3D scene
-      this.updateActiveMetadata();
-      this.viewer.buildRobot(this.activeRepr);
-      this.viewer.buildSceneObstacles(this.activeRepr);
+            // Re-create representation with selected global model
+            let reprData = null;
+            if (robotModel === 'dobot-cr30h') {
+              reprData = createDobotCR30hRepr(this.selectedTraj);
+            } else {
+              reprData = createDobotCR20ARepr(this.selectedTraj);
+            }
+            this.activeRepr = reprData;
 
-      // Recompute duration
-      let duration = 0.0;
-      const parts = this.activeTraj.parts;
-      if (parts && parts.length > 0) {
-        const lastPart = parts[parts.length - 1];
-        if (lastPart.knots && lastPart.knots.length > 0) {
-          duration = lastPart.knots[lastPart.knots.length - 1];
+            // Reset playback scaling if any
+            this.elements['time-scale-slider'].value = 0;
+            this.elements['time-scale-val'].innerText = '0%';
+
+            // Rebuild UI and 3D scene
+            this.updateActiveMetadata();
+            this.viewer.buildRobot(this.activeRepr);
+            this.viewer.buildSceneObstacles(this.activeRepr);
+
+            // Recompute duration
+            const duration = activeMeta.duration;
+            this.totalDuration = duration;
+
+            this.elements['timeline-slider'].value = 0;
+            this.elements['timeline-slider'].disabled = (duration === 0);
+            this.elements['time-total'].innerText = `${duration.toFixed(2)}s`;
+
+            if (this.activeTraj.status === 70 && duration > 0) {
+              this.computeAndDraw3dPath();
+            } else {
+              this.viewer.drawTrajectoryPath([]);
+            }
+
+            this.chart.update(this.activeTraj, this.activeTab);
+
+            // Clamp current playback time to new duration
+            if (this.currentTime > this.totalDuration) {
+              this.currentTime = this.totalDuration;
+            }
+            this.updatePlaybackState(this.currentTime);
+          }
+        } catch (err) {
+          console.error("Error reloading active CSV configuration:", err);
         }
       }
-      this.totalDuration = duration;
-
-      // Update duration in the trajectory list objects and redraw left panel sidebar list
-      const trajObj = this.trajectories.find(x => x.id === this.selectedTraj);
-      if (trajObj) {
-        trajObj.duration = duration;
-      }
-      const filteredTrajObj = this.filteredTrajectories.find(x => x.id === this.selectedTraj);
-      if (filteredTrajObj) {
-        filteredTrajObj.duration = duration;
-      }
-      this.renderSidebarList();
-
-      this.elements['timeline-slider'].value = 0;
-      this.elements['timeline-slider'].disabled = (duration === 0);
-      this.elements['time-total'].innerText = `${duration.toFixed(2)}s`;
-
-      if (this.activeTraj.status === 70 && duration > 0) {
-        this.computeAndDraw3dPath();
-      } else {
-        this.viewer.drawTrajectoryPath([]);
-      }
-
-      this.chart.update(this.activeTraj, this.activeTab);
-
-      // Clamp current playback time to new duration
-      if (this.currentTime > this.totalDuration) {
-        this.currentTime = this.totalDuration;
-      }
-      this.updatePlaybackState(this.currentTime);
-
-    } catch (err) {
-      console.error("Error reloading CSV configuration:", err);
     }
   }
 
