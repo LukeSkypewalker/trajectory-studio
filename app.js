@@ -249,12 +249,9 @@ class TrajectoryApp {
     try {
       const response = await fetch(`trajectories.json?v=${Date.now()}`);
       this.trajectories = await response.json();
-      this.filteredTrajectories = [...this.trajectories];
-      this.renderSidebarList();
-      this.updateSidebarStats();
+      this.applyFilters();
     } catch (e) {
       console.error("Error loading index:", e);
-      this.elements['db-stats-summary'].innerText = "Error loading index database.";
     } finally {
       this.hideLoader();
     }
