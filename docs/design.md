@@ -229,10 +229,12 @@ The 3D environment is rendered via Three.js with basic geometries representing l
   - Around each joint cap (elevated at `h / 2 + 0.005` with radius `r * 1.25`), a dashed circle (`THREE.Line` with `THREE.LineDashedMaterial`) is created during `buildRobot()`.
   - These circles are hidden by default.
   - During the `updatePose(linkTransforms, q, v)` call, each joint's position $q_j$ and velocity $v_j$ are evaluated against its range limits and speed limits.
-  - The indicator is made visible if:
+  - The indicator is made visible using exclusively red color (`0xef4444`) if:
     - **Position Approach/Violation**: $q_j$ is within $20^\circ$ (0.35 rad) or $15\%$ of the total range from either minimum or maximum limit, or exceeds them.
     - **Velocity Approach/Violation**: $|v_j|$ is $\ge 75\%$ of the joint's maximum speed limit, or exceeds it.
-  - The dashed circle's material color updates dynamically:
-    - On violation (exceeding position or velocity limits), it turns bright red (`0xef4444`).
-    - On approach (warning but not exceeding), it displays the joint's unique color convention (J1-J6).
-    - Otherwise, it is hidden.
+- **Chart.js Limit Lines (`charts.js`)**:
+  - Implemented a custom Chart.js plugin `horizontalLimitsPlugin` that draws horizontal dashed red lines (`#ef4444`) at specified limit values, with clear JetBrains Mono labels on the left side of the chart.
+  - During `update` and `showStaticPlot`, the chart evaluates all points of the computed trajectories for each of the 6 joints:
+    - **Position Limits Check**: If any joint position is within 5% of its position limit range (`0.05 * (max_value - min_value)`), a dashed red line is drawn at that position limit.
+    - **Velocity Limits Check**: If any joint absolute velocity is within 5% of its speed limit (`0.05 * maxSpeed`, which corresponds to speed $\ge 95\%$ of max speed), a dashed red line is drawn at that speed limit.
+  - The Chart.js Y-axis scale min/max bounds are dynamically expanded to include these limit values (with an extra 8% padding) so that the limit lines and their labels are fully visible and not clipped.

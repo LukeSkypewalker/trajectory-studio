@@ -437,7 +437,7 @@ export class TrajectoryViewer {
         const circleGeo = new THREE.BufferGeometry().setFromPoints(points);
         const jointColor = jointHexColors[j];
         const circleMat = new THREE.LineDashedMaterial({
-          color: jointColor,
+          color: 0xef4444, // Always red
           dashSize: 0.015,
           gapSize: 0.01,
           linewidth: 2
@@ -609,12 +609,9 @@ export class TrajectoryViewer {
         const isWarningVel = (Math.abs(vVal) >= 0.75 * maxSpeed);
         const isWarning = isWarningPos || isWarningVel;
 
-        if (isViolation) {
+        if (isViolation || isWarning) {
           indicator.dashedCircle.visible = true;
-          indicator.dashedCircle.material.color.setHex(0xef4444); // red
-        } else if (isWarning) {
-          indicator.dashedCircle.visible = true;
-          indicator.dashedCircle.material.color.setHex(indicator.jointColor);
+          indicator.dashedCircle.material.color.setHex(0xef4444); // Always red
         } else {
           indicator.dashedCircle.visible = false;
         }

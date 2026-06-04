@@ -66,8 +66,42 @@ const alignSliderPlugin = {
   }
 };
 
+// Custom plugin to draw horizontal joint limit lines when approached within 5%
+const horizontalLimitsPlugin = {
+  id: 'horizontalLimits',
+  afterDraw: (chart) => {
+    const limits = chart.options.plugins.horizontalLimits;
+    if (limits && limits.lines && limits.lines.length > 0) {
+      const ctx = chart.ctx;
+      const xAxis = chart.scales.x;
+      const yAxis = chart.scales.y;
+      
+      ctx.save();
+      ctx.strokeStyle = '#ef4444'; // Always red
+      ctx.lineWidth = 1.0;
+      ctx.setLineDash([4, 4]); // Dashed line
+      
+      limits.lines.forEach(line => {
+        const yPixel = yAxis.getPixelForValue(line.value);
+        if (yPixel >= yAxis.top && yPixel <= yAxis.bottom) {
+          ctx.beginPath();
+          ctx.moveTo(xAxis.left, yPixel);
+          ctx.lineTo(xAxis.right, yPixel);
+          ctx.stroke();
+          
+          // Draw text label near the line (left-aligned above the line)
+          ctx.fillStyle = '#ef4444';
+          ctx.font = '9px "JetBrains Mono", monospace';
+          ctx.fillText(line.label, xAxis.left + 8, yPixel - 4);
+        }
+      });
+      ctx.restore();
+    }
+  }
+};
+
 // Register custom plugins
-Chart.register(verticalCursorPlugin, alignSliderPlugin);
+Chart.register(verticalCursorPlugin, alignSliderPlugin, horizontalLimitsPlugin);
 
 export class TrajectoryChart {
   constructor(canvasId) {
@@ -157,6 +191,9 @@ export class TrajectoryChart {
           },
           verticalCursor: {
             timeVal: 0.0 // Value managed by app
+          },
+          horizontalLimits: {
+            lines: [] // List of active limit lines to draw
           }
         }
       }
@@ -167,8 +204,9 @@ export class TrajectoryChart {
    * Evaluates the active trajectory splines and updates chart lines
    * @param {Object} trajData - Spline trajectory JSON data
    * @param {string} metric - 'position', 'velocity', 'acceleration', 'jerk'
+   * @param {Object} [reprData] - Optional robot representation configuration for limits
    */
-  update(trajData, metric = 'position') {
+  update(trajData, metric = 'position', reprData = null) {
     this.activeTrajData = trajData;
     this.currentMetric = metric;
     
@@ -189,7 +227,7 @@ export class TrajectoryChart {
     
     // Fallback if it is a failed or static pose trajectory (duration = 0)
     if (duration === 0.0) {
-      this.showStaticPlot(trajData, metric);
+      this.showStaticPlot(trajData, metric, reprData);
       return;
     }
     
@@ -241,13 +279,17 @@ export class TrajectoryChart {
     this.chart.options.scales.x.max = duration;
     this.chart.options.scales.x.min = 0;
     
+    this.checkHorizontalLimits(datasetsData, metric, reprData);
     this.chart.update('none'); // Update immediately without animation
   }
   
   /**
    * Show horizontal curves for static pose trajectories
+   * @param {Object} trajData - Spline trajectory JSON data
+   * @param {string} metric - 'position', 'velocity', 'acceleration', 'jerk'
+   * @param {Object} [reprData] - Optional robot representation configuration for limits
    */
-  showStaticPlot(trajData, metric) {
+  showStaticPlot(trajData, metric, reprData = null) {
     const targetState = trajData.targetState || [0, 0, 0, 0, 0, 0];
     
     const datasetsData = Array.from({ length: 6 }, () => []);
@@ -276,7 +318,147 @@ export class TrajectoryChart {
     
     this.chart.options.scales.x.max = 1.0;
     this.chart.options.scales.x.min = 0.0;
+    
+    this.checkHorizontalLimits(datasetsData, metric, reprData);
     this.chart.update('none');
+  }
+
+  /**
+   * Helper to check if any joint value is within 5% of limits and setup limit lines
+   */
+  checkHorizontalLimits(datasetsData, metric, reprData) {
+    const activeLines = [];
+    if (reprData && datasetsData && (metric === 'position' || metric === 'velocity')) {
+      const equipment = reprData.equipment_model || {};
+      const limits = equipment.range_limits || [];
+      const modelName = equipment.model_name || 'generic';
+      const speedLimits = this.getRobotSpeedLimits(modelName);
+      
+      for (let j = 0; j < 6; j++) {
+        const curvePoints = datasetsData[j];
+        if (!curvePoints || curvePoints.length === 0) continue;
+        
+        const yVals = curvePoints.map(pt => pt.y);
+        const minCurveY = Math.min(...yVals);
+        const maxCurveY = Math.max(...yVals);
+        
+        if (metric === 'position') {
+          const limit = limits.find(l => l.joint_id === j);
+          if (limit) {
+            const minVal = limit.min_value;
+            const maxVal = limit.max_value;
+            const range = maxVal - minVal;
+            
+            // Check if minimum trajectory value is within 5% of min limit range
+            if (minCurveY - minVal <= 0.05 * range) {
+              const label = `J${j+1} Min Limit: ${(minVal * 180 / Math.PI).toFixed(0)}°`;
+              if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
+                activeLines.push({ value: minVal, label: label });
+              }
+            }
+            // Check if maximum trajectory value is within 5% of max limit range
+            if (maxVal - maxCurveY <= 0.05 * range) {
+              const label = `J${j+1} Max Limit: ${(maxVal * 180 / Math.PI).toFixed(0)}°`;
+              if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
+                activeLines.push({ value: maxVal, label: label });
+              }
+            }
+          }
+        } else if (metric === 'velocity') {
+          const maxSpeed = speedLimits[j];
+          if (maxSpeed) {
+            const minVal = -maxSpeed;
+            const maxVal = maxSpeed;
+            
+            // Check if minimum velocity is within 5% of speed limit range
+            if (minCurveY - minVal <= 0.05 * maxSpeed) {
+              const label = `J${j+1} Speed Limit: -${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
+              if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
+                activeLines.push({ value: minVal, label: label });
+              }
+            }
+            // Check if maximum velocity is within 5% of speed limit range
+            if (maxVal - maxCurveY <= 0.05 * maxSpeed) {
+              const label = `J${j+1} Speed Limit: ${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
+              if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
+                activeLines.push({ value: maxVal, label: label });
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    // Configure limit lines plugin options
+    if (!this.chart.options.plugins.horizontalLimits) {
+      this.chart.options.plugins.horizontalLimits = {};
+    }
+    this.chart.options.plugins.horizontalLimits.lines = activeLines;
+
+    // Adjust Y axis scale boundaries to ensure limit lines are fully visible
+    delete this.chart.options.scales.y.min;
+    delete this.chart.options.scales.y.max;
+    
+    if (activeLines.length > 0 && datasetsData) {
+      let minY = Infinity;
+      let maxY = -Infinity;
+      for (let j = 0; j < 6; j++) {
+        if (datasetsData[j]) {
+          datasetsData[j].forEach(pt => {
+            if (pt.y < minY) minY = pt.y;
+            if (pt.y > maxY) maxY = pt.y;
+          });
+        }
+      }
+      activeLines.forEach(line => {
+        if (line.value < minY) minY = line.value;
+        if (line.value > maxY) maxY = line.value;
+      });
+      const padding = (maxY - minY) * 0.08 || 0.1; // 8% padding to show text/lines comfortably
+      this.chart.options.scales.y.min = minY - padding;
+      this.chart.options.scales.y.max = maxY + padding;
+    }
+  }
+
+  /**
+   * Retrieves maximum velocity limits (radians/second) for each joint
+   */
+  getRobotSpeedLimits(modelName) {
+    const name = (modelName || '').toLowerCase();
+    if (name.includes('cr20a') || name.includes('cr20')) {
+      // CR20A J1-J2: 120°/s, J3: 150°/s, J4-J6: 180°/s
+      return [
+        120 * Math.PI / 180,
+        120 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else if (name.includes('cr30') || name.includes('dobot')) {
+      // CR30H J1-J2: 150°/s, J3: 200°/s, J4-J6: 300°/s
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        200 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180
+      ];
+    } else if (name.includes('aubo-is25') || name.includes('is25')) {
+      // Aubo iS25 standard velocity limits
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else {
+      // Standard default collaborative robot speed limits: 150°/s
+      return Array(6).fill(150 * Math.PI / 180);
+    }
   }
   
   /**

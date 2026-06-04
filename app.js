@@ -219,7 +219,7 @@ class TrajectoryApp {
         
         // Redraw chart
         if (this.activeTraj) {
-          this.chart.update(this.activeTraj, this.activeTab);
+          this.chart.update(this.activeTraj, this.activeTab, this.activeRepr);
           this.chart.setCursor(this.currentTime);
         }
       });
@@ -543,7 +543,7 @@ class TrajectoryApp {
       }
       
       // Set chart data
-      this.chart.update(this.activeTraj, this.activeTab);
+      this.chart.update(this.activeTraj, this.activeTab, this.activeRepr);
       
       // Reset play time
       this.currentTime = 0.0;
@@ -618,7 +618,7 @@ class TrajectoryApp {
     if (this.activeTraj.status === 70 && duration > 0) {
       this.computeAndDraw3dPath();
     }
-    this.chart.update(this.activeTraj, this.activeTab);
+    this.chart.update(this.activeTraj, this.activeTab, this.activeRepr);
     
     this.currentTime = isNaN(ratio) ? 0 : ratio * this.totalDuration;
     if (this.currentTime > this.totalDuration) this.currentTime = this.totalDuration;
@@ -983,7 +983,7 @@ class TrajectoryApp {
               this.viewer.drawTrajectoryPath([]);
             }
 
-            this.chart.update(this.activeTraj, this.activeTab);
+            this.chart.update(this.activeTraj, this.activeTab, this.activeRepr);
 
             // Clamp current playback time to new duration
             if (this.currentTime > this.totalDuration) {
