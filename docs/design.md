@@ -233,8 +233,8 @@ The 3D environment is rendered via Three.js with basic geometries representing l
     - **Position Approach/Violation**: $q_j$ is within $20^\circ$ (0.35 rad) or $15\%$ of the total range from either minimum or maximum limit, or exceeds them.
     - **Velocity Approach/Violation**: $|v_j|$ is $\ge 75\%$ of the joint's maximum speed limit, or exceeds it.
 - **Chart.js Limit Lines (`charts.js`)**:
-  - Implemented a custom Chart.js plugin `horizontalLimitsPlugin` that draws horizontal dashed red lines (`#ef4444`) at specified limit values, with clear JetBrains Mono labels on the left side of the chart.
+  - Implemented a custom Chart.js plugin `horizontalLimitsPlugin` that draws horizontal dashed lines (matching the corresponding joint's color) at specified limit values, with clear JetBrains Mono labels on the left side of the chart.
   - During `update` and `showStaticPlot`, the chart evaluates all points of the computed trajectories for each of the 6 joints:
-    - **Position Limits Check**: If any joint position is within 5% of its position limit range (`0.05 * (max_value - min_value)`), a dashed red line is drawn at that position limit.
-    - **Velocity Limits Check**: If any joint absolute velocity is within 5% of its speed limit (`0.05 * maxSpeed`, which corresponds to speed $\ge 95\%$ of max speed), a dashed red line is drawn at that speed limit.
+    - **Position Limits Check**: If any joint position is within 5% of its position limit range (`0.05 * (max_value - min_value)`), a dashed joint-colored line is drawn at that position limit.
+    - **Velocity Limits Check**: If any joint absolute velocity is within 5% of its speed limit (`0.05 * maxSpeed`, which corresponds to speed $\ge 95\%$ of max speed), a dashed joint-colored line is drawn at that speed limit.
   - The Chart.js Y-axis scale min/max bounds are dynamically expanded to include these limit values (with an extra 8% padding) so that the limit lines and their labels are fully visible and not clipped.

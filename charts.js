@@ -77,7 +77,6 @@ const horizontalLimitsPlugin = {
       const yAxis = chart.scales.y;
       
       ctx.save();
-      ctx.strokeStyle = '#ef4444'; // Always red
       ctx.lineWidth = 1.0;
       ctx.setLineDash([4, 4]); // Dashed line
       
@@ -85,12 +84,13 @@ const horizontalLimitsPlugin = {
         const yPixel = yAxis.getPixelForValue(line.value);
         if (yPixel >= yAxis.top && yPixel <= yAxis.bottom) {
           ctx.beginPath();
+          ctx.strokeStyle = line.color || '#ef4444';
           ctx.moveTo(xAxis.left, yPixel);
           ctx.lineTo(xAxis.right, yPixel);
           ctx.stroke();
           
           // Draw text label near the line (left-aligned above the line)
-          ctx.fillStyle = '#ef4444';
+          ctx.fillStyle = line.color || '#ef4444';
           ctx.font = '9px "JetBrains Mono", monospace';
           ctx.fillText(line.label, xAxis.left + 8, yPixel - 4);
         }
@@ -341,6 +341,7 @@ export class TrajectoryChart {
         const yVals = curvePoints.map(pt => pt.y);
         const minCurveY = Math.min(...yVals);
         const maxCurveY = Math.max(...yVals);
+        const jColor = this.jointColors[j];
         
         if (metric === 'position') {
           const limit = limits.find(l => l.joint_id === j);
@@ -353,14 +354,14 @@ export class TrajectoryChart {
             if (minCurveY - minVal <= 0.05 * range) {
               const label = `J${j+1} Min Limit: ${(minVal * 180 / Math.PI).toFixed(0)}°`;
               if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
-                activeLines.push({ value: minVal, label: label });
+                activeLines.push({ value: minVal, label: label, color: jColor });
               }
             }
             // Check if maximum trajectory value is within 5% of max limit range
             if (maxVal - maxCurveY <= 0.05 * range) {
               const label = `J${j+1} Max Limit: ${(maxVal * 180 / Math.PI).toFixed(0)}°`;
               if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
-                activeLines.push({ value: maxVal, label: label });
+                activeLines.push({ value: maxVal, label: label, color: jColor });
               }
             }
           }
@@ -374,14 +375,14 @@ export class TrajectoryChart {
             if (minCurveY - minVal <= 0.05 * maxSpeed) {
               const label = `J${j+1} Speed Limit: -${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
               if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
-                activeLines.push({ value: minVal, label: label });
+                activeLines.push({ value: minVal, label: label, color: jColor });
               }
             }
             // Check if maximum velocity is within 5% of speed limit range
             if (maxVal - maxCurveY <= 0.05 * maxSpeed) {
               const label = `J${j+1} Speed Limit: ${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
               if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
-                activeLines.push({ value: maxVal, label: label });
+                activeLines.push({ value: maxVal, label: label, color: jColor });
               }
             }
           }
