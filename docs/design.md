@@ -66,7 +66,7 @@ The backend handles static file serving, real-time file updates tracking, and a 
   - `num_rows`: Number of lines (excluding header) for CSV files.
   - `duration`:
     - For `.traj` files: Reads the last knot value in the spline definition.
-    - For `.csv` files: Defaults duration to `num_rows * 0.02` (assuming a standard $50\text{Hz}$ frequency).
+    - For `.csv` files: Defaults duration to `num_rows * 0.05` (assuming a standard $20\text{Hz}$ frequency).
   - `model`: Parsed from a corresponding `.repr` file if present; defaults to `"dobot-cr20a"` for CSV/MCAP files.
 - **Scene Obstacles**: Parses obstacle counts (e.g., shapes of type `"box"`) inside the scene properties of `.repr` files.
 - **Sorting & Writing**: Sorts files by number of obstacles and writes a clean JSON array to `trajectories.json`.
