@@ -21,7 +21,7 @@ class TrajectoryApp {
     this.activeMode = 'traj'; // 'traj', 'csv', 'mcap'
     this.globalCSVRobot = 'dobot-cr20a';
     this.globalCSVTimingMode = 'hz';
-    this.globalCSVTimingVal = 50;
+    this.globalCSVTimingVal = 20;
     
     this.activeRepr = null;
     this.activeTraj = null;
