@@ -426,31 +426,58 @@ export class TrajectoryViewer {
         
         this.jointLimits.push({ min: minVal, max: maxVal, maxSpeed: maxSpeed });
         
-        // Create dashed ring indicator around the joint cap
-        const points = [];
+        // Create 3 concentric dashed ring indicators around the joint cap to simulate thickness
         const segments = 64;
         const radius = r * 1.25;
+        const dr = 0.005; // radius offset for thickness steps
+        
+        const points1 = [];
+        const points2 = [];
+        const points3 = [];
         for (let sIdx = 0; sIdx <= segments; sIdx++) {
           const theta = (sIdx / segments) * Math.PI * 2;
-          points.push(new THREE.Vector3(Math.cos(theta) * radius, Math.sin(theta) * radius, 0));
+          points1.push(new THREE.Vector3(Math.cos(theta) * (radius - dr), Math.sin(theta) * (radius - dr), 0));
+          points2.push(new THREE.Vector3(Math.cos(theta) * radius, Math.sin(theta) * radius, 0));
+          points3.push(new THREE.Vector3(Math.cos(theta) * (radius + dr), Math.sin(theta) * (radius + dr), 0));
         }
-        const circleGeo = new THREE.BufferGeometry().setFromPoints(points);
+        
+        const circleGeo1 = new THREE.BufferGeometry().setFromPoints(points1);
+        const circleGeo2 = new THREE.BufferGeometry().setFromPoints(points2);
+        const circleGeo3 = new THREE.BufferGeometry().setFromPoints(points3);
+        
         const jointColor = jointHexColors[j];
-        const circleMat = new THREE.LineDashedMaterial({
+        
+        const createMat = () => new THREE.LineDashedMaterial({
           color: 0xef4444, // Always red
           dashSize: 0.015,
           gapSize: 0.01,
           linewidth: 2
         });
-        const dashedCircle = new THREE.Line(circleGeo, circleMat);
-        dashedCircle.computeLineDistances();
-        dashedCircle.position.set(0, 0, h / 2 + 0.005);
-        dashedCircle.visible = false; // Hidden by default
         
-        this.linkGroups[j].add(dashedCircle);
+        const dc1 = new THREE.Line(circleGeo1, createMat());
+        const dc2 = new THREE.Line(circleGeo2, createMat());
+        const dc3 = new THREE.Line(circleGeo3, createMat());
+        
+        dc1.computeLineDistances();
+        dc2.computeLineDistances();
+        dc3.computeLineDistances();
+        
+        dc1.position.set(0, 0, h / 2 + 0.005);
+        dc2.position.set(0, 0, h / 2 + 0.005);
+        dc3.position.set(0, 0, h / 2 + 0.005);
+        
+        dc1.visible = false;
+        dc2.visible = false;
+        dc3.visible = false;
+        
+        this.linkGroups[j].add(dc1);
+        this.linkGroups[j].add(dc2);
+        this.linkGroups[j].add(dc3);
         
         this.jointIndicators.push({
-          dashedCircle: dashedCircle,
+          dc1: dc1, // inner ring
+          dc2: dc2, // middle ring
+          dc3: dc3, // outer ring
           jointColor: jointColor
         });
       }
@@ -604,16 +631,36 @@ export class TrajectoryViewer {
         const isViolatingVel = (Math.abs(vVal) > maxSpeed);
         const isViolation = isViolatingPos || isViolatingVel;
 
+        // "Very close" is defined as 5% of range or speed limit
+        const isVeryClosePos = (qVal - minVal <= 0.05 * range) || (maxVal - qVal <= 0.05 * range);
+        const isVeryCloseVel = (Math.abs(vVal) >= 0.95 * maxSpeed);
+        const isVeryClose = isVeryClosePos || isVeryCloseVel;
+
         const isWarningPos = (qVal - minVal <= 0.35) || (maxVal - qVal <= 0.35) || 
                               (qVal - minVal <= 0.15 * range) || (maxVal - qVal <= 0.15 * range);
         const isWarningVel = (Math.abs(vVal) >= 0.75 * maxSpeed);
         const isWarning = isWarningPos || isWarningVel;
 
-        if (isViolation || isWarning) {
-          indicator.dashedCircle.visible = true;
-          indicator.dashedCircle.material.color.setHex(0xef4444); // Always red
+        if (isViolation) {
+          // Fat red circle (all 3 rings visible)
+          indicator.dc1.visible = true;
+          indicator.dc2.visible = true;
+          indicator.dc3.visible = true;
+        } else if (isVeryClose) {
+          // Medium red circle (2 rings visible)
+          indicator.dc1.visible = false;
+          indicator.dc2.visible = true;
+          indicator.dc3.visible = true;
+        } else if (isWarning) {
+          // Thin red circle (1 ring visible)
+          indicator.dc1.visible = false;
+          indicator.dc2.visible = true;
+          indicator.dc3.visible = false;
         } else {
-          indicator.dashedCircle.visible = false;
+          // Hide all
+          indicator.dc1.visible = false;
+          indicator.dc2.visible = false;
+          indicator.dc3.visible = false;
         }
       }
     }

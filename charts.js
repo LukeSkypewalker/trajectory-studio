@@ -77,14 +77,14 @@ const horizontalLimitsPlugin = {
       const yAxis = chart.scales.y;
       
       ctx.save();
-      ctx.lineWidth = 1.0;
-      ctx.setLineDash([4, 4]); // Dashed line
       
       limits.lines.forEach(line => {
         const yPixel = yAxis.getPixelForValue(line.value);
         if (yPixel >= yAxis.top && yPixel <= yAxis.bottom) {
           ctx.beginPath();
           ctx.strokeStyle = line.color || '#ef4444';
+          ctx.lineWidth = line.width || 1.0;
+          ctx.setLineDash(line.dash || [4, 4]); // Custom dash or solid
           ctx.moveTo(xAxis.left, yPixel);
           ctx.lineTo(xAxis.right, yPixel);
           ctx.stroke();
@@ -350,18 +350,35 @@ export class TrajectoryChart {
             const maxVal = limit.max_value;
             const range = maxVal - minVal;
             
-            // Check if minimum trajectory value is within 5% of min limit range
-            if (minCurveY - minVal <= 0.05 * range) {
+            // Check min limit
+            if (minCurveY < minVal) {
+              const label = `J${j+1} Min Limit EXCEEDED!`;
+              if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
+                activeLines.push({ value: minVal, label: label, color: '#ef4444', width: 3.0, dash: [] });
+              }
+            } else if (minCurveY - minVal <= 0.05 * range) {
+              const minDistVal = minCurveY - minVal;
+              const ratio = Math.max(0, Math.min(1, (0.05 * range - minDistVal) / (0.05 * range)));
+              const thickness = 1.0 + ratio * 1.5;
               const label = `J${j+1} Min Limit: ${(minVal * 180 / Math.PI).toFixed(0)}°`;
               if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
-                activeLines.push({ value: minVal, label: label, color: jColor });
+                activeLines.push({ value: minVal, label: label, color: jColor, width: thickness, dash: [4, 4] });
               }
             }
-            // Check if maximum trajectory value is within 5% of max limit range
-            if (maxVal - maxCurveY <= 0.05 * range) {
+            
+            // Check max limit
+            if (maxCurveY > maxVal) {
+              const label = `J${j+1} Max Limit EXCEEDED!`;
+              if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
+                activeLines.push({ value: maxVal, label: label, color: '#ef4444', width: 3.0, dash: [] });
+              }
+            } else if (maxVal - maxCurveY <= 0.05 * range) {
+              const minDistVal = maxVal - maxCurveY;
+              const ratio = Math.max(0, Math.min(1, (0.05 * range - minDistVal) / (0.05 * range)));
+              const thickness = 1.0 + ratio * 1.5;
               const label = `J${j+1} Max Limit: ${(maxVal * 180 / Math.PI).toFixed(0)}°`;
               if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
-                activeLines.push({ value: maxVal, label: label, color: jColor });
+                activeLines.push({ value: maxVal, label: label, color: jColor, width: thickness, dash: [4, 4] });
               }
             }
           }
@@ -371,18 +388,35 @@ export class TrajectoryChart {
             const minVal = -maxSpeed;
             const maxVal = maxSpeed;
             
-            // Check if minimum velocity is within 5% of speed limit range
-            if (minCurveY - minVal <= 0.05 * maxSpeed) {
+            // Check min limit
+            if (minCurveY < minVal) {
+              const label = `J${j+1} Speed Limit EXCEEDED!`;
+              if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
+                activeLines.push({ value: minVal, label: label, color: '#ef4444', width: 3.0, dash: [] });
+              }
+            } else if (minCurveY - minVal <= 0.05 * maxSpeed) {
+              const minDistVal = minCurveY - minVal;
+              const ratio = Math.max(0, Math.min(1, (0.05 * maxSpeed - minDistVal) / (0.05 * maxSpeed)));
+              const thickness = 1.0 + ratio * 1.5;
               const label = `J${j+1} Speed Limit: -${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
               if (!activeLines.some(l => Math.abs(l.value - minVal) < 1e-4)) {
-                activeLines.push({ value: minVal, label: label, color: jColor });
+                activeLines.push({ value: minVal, label: label, color: jColor, width: thickness, dash: [4, 4] });
               }
             }
-            // Check if maximum velocity is within 5% of speed limit range
-            if (maxVal - maxCurveY <= 0.05 * maxSpeed) {
+            
+            // Check max limit
+            if (maxCurveY > maxVal) {
+              const label = `J${j+1} Speed Limit EXCEEDED!`;
+              if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
+                activeLines.push({ value: maxVal, label: label, color: '#ef4444', width: 3.0, dash: [] });
+              }
+            } else if (maxVal - maxCurveY <= 0.05 * maxSpeed) {
+              const minDistVal = maxVal - maxCurveY;
+              const ratio = Math.max(0, Math.min(1, (0.05 * maxSpeed - minDistVal) / (0.05 * maxSpeed)));
+              const thickness = 1.0 + ratio * 1.5;
               const label = `J${j+1} Speed Limit: ${(maxSpeed * 180 / Math.PI).toFixed(0)}°/s`;
               if (!activeLines.some(l => Math.abs(l.value - maxVal) < 1e-4)) {
-                activeLines.push({ value: maxVal, label: label, color: jColor });
+                activeLines.push({ value: maxVal, label: label, color: jColor, width: thickness, dash: [4, 4] });
               }
             }
           }
