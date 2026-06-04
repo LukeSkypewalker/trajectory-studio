@@ -399,16 +399,60 @@ export class TrajectoryViewer {
 
     // Add visual joint cylinders to show revolute axes
     if (dh) {
+      this.jointIndicators = [];
+      this.jointLimits = [];
+      const limits = reprData.equipment_model.range_limits || [];
+      const jointHexColors = [0xa855f7, 0x3b82f6, 0x14b8a6, 0x22c55e, 0xf59e0b, 0xf43f5e];
+      
       // Render simple joint connector rings at the actual joint axes.
       // The axis of Joint i is the Z-axis of Link i-1.
       for (let i = 1; i <= 6; i++) {
-        const r = config.jointRingRadii[i - 1];
-        const h = config.jointRingHeights[i - 1];
+        const j = i - 1;
+        const r = config.jointRingRadii[j];
+        const h = config.jointRingHeights[j];
+        
         const ringGeo = new THREE.CylinderGeometry(r, r, h, 24);
         ringGeo.rotateX(Math.PI / 2);
         const ring = new THREE.Mesh(ringGeo, this.robotMaterials.joint);
         ring.name = 'joint-decor';
-        this.linkGroups[i - 1].add(ring);
+        this.linkGroups[j].add(ring);
+        
+        // Retrieve limits and speed limits for this joint
+        const limit = limits.find(l => l.joint_id === j);
+        const minVal = limit ? limit.min_value : -Math.PI;
+        const maxVal = limit ? limit.max_value : Math.PI;
+        const speedLimits = this.getRobotSpeedLimits(modelName);
+        const maxSpeed = speedLimits[j];
+        
+        this.jointLimits.push({ min: minVal, max: maxVal, maxSpeed: maxSpeed });
+        
+        // Create dashed ring indicator around the joint cap
+        const points = [];
+        const segments = 64;
+        const radius = r * 1.25;
+        for (let sIdx = 0; sIdx <= segments; sIdx++) {
+          const theta = (sIdx / segments) * Math.PI * 2;
+          points.push(new THREE.Vector3(Math.cos(theta) * radius, Math.sin(theta) * radius, 0));
+        }
+        const circleGeo = new THREE.BufferGeometry().setFromPoints(points);
+        const jointColor = jointHexColors[j];
+        const circleMat = new THREE.LineDashedMaterial({
+          color: jointColor,
+          dashSize: 0.015,
+          gapSize: 0.01,
+          linewidth: 2
+        });
+        const dashedCircle = new THREE.Line(circleGeo, circleMat);
+        dashedCircle.computeLineDistances();
+        dashedCircle.position.set(0, 0, h / 2 + 0.005);
+        dashedCircle.visible = false; // Hidden by default
+        
+        this.linkGroups[j].add(dashedCircle);
+        
+        this.jointIndicators.push({
+          dashedCircle: dashedCircle,
+          jointColor: jointColor
+        });
       }
     }
   }
@@ -508,8 +552,10 @@ export class TrajectoryViewer {
   /**
    * Updates the robot meshes to a set of link matrices
    * @param {Array<Array<number>>} linkTransforms - The computed 4x4 matrix transforms for links 0..6
+   * @param {Array<number>} [q] - Active joint angles
+   * @param {Array<number>} [v] - Active joint velocities
    */
-  updatePose(linkTransforms) {
+  updatePose(linkTransforms, q, v) {
     // Helper to transpose 4x4 flat row-major matrix to column-major
     const toColumnMajor = (m) => {
       return [
@@ -537,6 +583,85 @@ export class TrajectoryViewer {
       const y = t6[7];
       const z = t6[11];
       this.currentTcpMarker.position.set(x, y, z);
+    }
+
+    // Update joint limits warning indicators visibility and color
+    if (this.jointIndicators && this.jointLimits && q) {
+      for (let j = 0; j < 6; j++) {
+        const indicator = this.jointIndicators[j];
+        const limitInfo = this.jointLimits[j];
+        if (!indicator || !limitInfo) continue;
+
+        const qVal = q[j];
+        const vVal = v ? v[j] : 0;
+
+        const minVal = limitInfo.min;
+        const maxVal = limitInfo.max;
+        const maxSpeed = limitInfo.maxSpeed;
+        const range = maxVal - minVal;
+
+        const isViolatingPos = (qVal < minVal || qVal > maxVal);
+        const isViolatingVel = (Math.abs(vVal) > maxSpeed);
+        const isViolation = isViolatingPos || isViolatingVel;
+
+        const isWarningPos = (qVal - minVal <= 0.35) || (maxVal - qVal <= 0.35) || 
+                              (qVal - minVal <= 0.15 * range) || (maxVal - qVal <= 0.15 * range);
+        const isWarningVel = (Math.abs(vVal) >= 0.75 * maxSpeed);
+        const isWarning = isWarningPos || isWarningVel;
+
+        if (isViolation) {
+          indicator.dashedCircle.visible = true;
+          indicator.dashedCircle.material.color.setHex(0xef4444); // red
+        } else if (isWarning) {
+          indicator.dashedCircle.visible = true;
+          indicator.dashedCircle.material.color.setHex(indicator.jointColor);
+        } else {
+          indicator.dashedCircle.visible = false;
+        }
+      }
+    }
+  }
+
+  /**
+   * Retrieves maximum velocity limits (radians/second) for each joint
+   * @param {string} modelName - The model identifier
+   * @returns {Array<number>} Joint velocity limits
+   */
+  getRobotSpeedLimits(modelName) {
+    const name = (modelName || '').toLowerCase();
+    if (name.includes('cr20a') || name.includes('cr20')) {
+      // CR20A J1-J2: 120°/s, J3: 150°/s, J4-J6: 180°/s
+      return [
+        120 * Math.PI / 180,
+        120 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else if (name.includes('cr30') || name.includes('dobot')) {
+      // CR30H J1-J2: 150°/s, J3: 200°/s, J4-J6: 300°/s
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        200 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180,
+        300 * Math.PI / 180
+      ];
+    } else if (name.includes('aubo-is25') || name.includes('is25')) {
+      // Aubo iS25 standard velocity limits
+      return [
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        150 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180,
+        180 * Math.PI / 180
+      ];
+    } else {
+      // Standard default collaborative robot speed limits: 150°/s
+      return Array(6).fill(150 * Math.PI / 180);
     }
   }
 

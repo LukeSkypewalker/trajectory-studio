@@ -225,3 +225,14 @@ The 3D environment is rendered via Three.js with basic geometries representing l
   - Dimensions: $1.0\text{m}$ length, $0.005\text{m}$ radius.
   - Position: Elevated slightly by $+0.001\text{m}$ in Z to lie flat on the grid without z-fighting.
 - **Camera Configurations**: Orbit controls centered at target `(0, 0, 1.2)` with fixed standard projection view transforms (Front, Side, Top, Reset Ortho).
+- **Active Warning Indicators**:
+  - Around each joint cap (elevated at `h / 2 + 0.005` with radius `r * 1.25`), a dashed circle (`THREE.Line` with `THREE.LineDashedMaterial`) is created during `buildRobot()`.
+  - These circles are hidden by default.
+  - During the `updatePose(linkTransforms, q, v)` call, each joint's position $q_j$ and velocity $v_j$ are evaluated against its range limits and speed limits.
+  - The indicator is made visible if:
+    - **Position Approach/Violation**: $q_j$ is within $20^\circ$ (0.35 rad) or $15\%$ of the total range from either minimum or maximum limit, or exceeds them.
+    - **Velocity Approach/Violation**: $|v_j|$ is $\ge 75\%$ of the joint's maximum speed limit, or exceeds it.
+  - The dashed circle's material color updates dynamically:
+    - On violation (exceeding position or velocity limits), it turns bright red (`0xef4444`).
+    - On approach (warning but not exceeding), it displays the joint's unique color convention (J1-J6).
+    - Otherwise, it is hidden.

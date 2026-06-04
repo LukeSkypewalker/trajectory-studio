@@ -683,7 +683,7 @@ class TrajectoryApp {
     const linkTransforms = computeForwardKinematics(state.q, dh, T_base);
     
     // 3. Update 3D Viewer pose
-    this.viewer.updatePose(linkTransforms);
+    this.viewer.updatePose(linkTransforms, state.q, state.v);
     
     // 4. Update Joint Info table in UI
     this.updateJointTableUI(state, dh);
