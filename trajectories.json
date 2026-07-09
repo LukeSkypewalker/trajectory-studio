@@ -456,14 +456,50 @@
     "num_rows": 89
   },
   {
-    "id": "00ec13fd8d695ec600981e34a7a7b8ecce12598b624b3c89a977a654dbbb1cbc",
+    "id": "from_omnicontrol_path",
     "status": 70,
-    "model": "aubo-is25",
+    "model": "dobot-cr20a",
+    "duration": 2.65,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 0,
+    "format": "csv",
+    "num_rows": 53
+  },
+  {
+    "id": "bded0a2c507fbac7c8fd136b5ae81bfb5ccc1fa5c20d67d0a07ed8708f19135c",
+    "status": 70,
+    "model": "aubo-is20_arcs",
     "duration": 1.925,
     "num_parts": 1,
     "linear": false,
     "has_path": true,
-    "num_box_obstacles": 19,
+    "num_box_obstacles": 35,
+    "format": "traj",
+    "num_rows": 0
+  },
+  {
+    "id": "bded0a2c507fbac7c8fd136b5ae81bfb5ccc1fa5c20d67d0a07ed8708f19135c_edited_1783637294",
+    "status": 70,
+    "model": "aubo-is20_arcs",
+    "duration": 3.635,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 35,
+    "format": "traj",
+    "num_rows": 0
+  },
+  {
+    "id": "bded0a2c507fbac7c8fd136b5ae81bfb5ccc1fa5c20d67d0a07ed8708f19135c_edited_1783637662",
+    "status": 70,
+    "model": "aubo-is20_arcs",
+    "duration": 7.41,
+    "num_parts": 1,
+    "linear": false,
+    "has_path": true,
+    "num_box_obstacles": 35,
     "format": "traj",
     "num_rows": 0
   }
