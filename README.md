@@ -29,6 +29,11 @@
 - Displays active values for Joint, Position (rad), Velocity (rad/s), and Accel (rad/s²).
 - Features visual progress tracks displaying the current joint position/speed centered between its negative and positive limit markers. Exceeding limits highlights values in glowing red.
 
+### 5. Geometric Spline Recalculation
+- **Path Editing**: Users can graphically manipulate the 3D trajectory geometry using interactive drag-and-drop handles directly in the scene viewport.
+- **Kinematic Re-Planning**: A Python backend leverages an Inverse Kinematics (IK) solver (BFGS optimization) to calculate accurate continuous joint configurations for the modified path. It automatically locks and preserves the initial orientation (e.g., wrist-down) throughout the entire trajectory.
+- **Dynamic Time Scaling & Limits**: Uses Scipy's `CubicSpline` algorithm to re-parameterize the trajectory in time. It calculates safe velocity profiles that strictly obey user-configurable TCP Speed and Centripetal Force constraints, preventing dynamic torque violations.
+
 ---
 
 ## Directory Structure

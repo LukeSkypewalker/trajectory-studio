@@ -83,7 +83,8 @@ class TrajectoryApp {
       'btn-play-pause', 'btn-loop',
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
-      'time-scale-slider', 'time-scale-val', 'btn-save-scaled',
+      'time-scale-slider', 'time-scale-val',
+      'btn-edit-traj', 'btn-rename-traj', 'btn-delete-traj', 'btn-recalculate', 'btn-cancel-edit', 'view-mode-panels', 'edit-mode-panels', 'limit-tcp-speed', 'limit-centripetal',
       'scale-tools-panel', 'scene-csv-controls', 'scene-model-text', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val',
       'mode-btn-traj', 'mode-btn-csv', 'mode-btn-mcap'
     ];
@@ -122,41 +123,77 @@ class TrajectoryApp {
       this.applyTimeScaleToActiveTraj(scale);
     });
 
-    this.elements['btn-save-scaled'].addEventListener('click', async () => {
-      if (!this.selectedTraj) return;
-      const val = parseFloat(this.elements['time-scale-slider'].value);
-      const scale = Math.max(0.05, 1.0 + (val / 100.0));
-      
-      this.elements['btn-save-scaled'].disabled = true;
-      this.elements['btn-save-scaled'].innerText = 'Saving...';
-      
-      try {
-        const response = await fetch('/api/scale', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: this.selectedTraj, scale: scale })
-        });
-        
-        if (response.ok) {
-          this.elements['btn-save-scaled'].innerText = 'Saved!';
-          this.originalTraj = JSON.parse(JSON.stringify(this.activeTraj));
-          this.elements['time-scale-slider'].value = 0;
-          this.elements['time-scale-val'].innerText = '0%';
-          setTimeout(() => {
-            this.elements['btn-save-scaled'].innerText = 'Save Scaled';
-            this.elements['btn-save-scaled'].disabled = false;
-          }, 2000);
-        } else {
-          throw new Error('Server returned ' + response.status);
-        }
-      } catch (err) {
-        console.error(err);
-        this.elements['btn-save-scaled'].innerText = 'Error';
-        setTimeout(() => {
-          this.elements['btn-save-scaled'].innerText = 'Save Scaled';
-          this.elements['btn-save-scaled'].disabled = false;
-        }, 2000);
+
+
+    // Edit mode buttons
+    this.elements['btn-edit-traj'].addEventListener('click', () => {
+      if (this.selectedTraj && this.activeTraj && this.activeTraj.status === 70) {
+        this.setEditMode(true);
       }
+    });
+
+    this.elements['btn-rename-traj'].addEventListener('click', async () => {
+      if (!this.selectedTraj) return;
+      const newName = prompt('Enter new name for this trajectory:', this.selectedTraj);
+      if (newName && newName.trim() !== '' && newName !== this.selectedTraj) {
+        try {
+          const response = await fetch('/api/rename', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: this.selectedTraj, new_id: newName.trim() })
+          });
+          if (response.ok) {
+            await this.loadTrajectoryIndex();
+            this.selectTrajectory(newName.trim());
+          } else {
+            const err = await response.text();
+            alert('Rename failed: ' + err);
+          }
+        } catch(e) {
+          console.error(e);
+          alert('Rename failed: ' + e.message);
+        }
+      }
+    });
+
+    this.elements['btn-delete-traj'].addEventListener('click', async () => {
+      if (!this.selectedTraj) return;
+      if (confirm('Are you sure you want to delete this trajectory?')) {
+        try {
+          const response = await fetch('/api/delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: this.selectedTraj })
+          });
+          if (response.ok) {
+            await this.loadTrajectoryIndex();
+            // Select the first available trajectory if any exist
+            if (this.trajectories.length > 0) {
+              this.selectTrajectory(this.trajectories[0].id);
+            } else {
+              this.selectedTraj = null;
+              this.activeTraj = null;
+              this.elements['trajectory-list'].value = "";
+              this.elements['trajectory-list'].innerHTML = '<option value="" disabled selected>No trajectories available</option>';
+              this.viewer.drawTrajectoryPath([]);
+            }
+          } else {
+            const err = await response.text();
+            alert('Delete failed: ' + err);
+          }
+        } catch(e) {
+          console.error(e);
+          alert('Delete failed: ' + e.message);
+        }
+      }
+    });
+
+    this.elements['btn-cancel-edit'].addEventListener('click', () => {
+      this.setEditMode(false);
+    });
+
+    this.elements['btn-recalculate'].addEventListener('click', () => {
+      this.recalculateTrajectory();
     });
 
     // Segmented Mode Switcher
@@ -1036,6 +1073,74 @@ class TrajectoryApp {
 
   hideLoader() {
     this.elements['canvas-loader'].classList.add('hidden');
+  }
+
+  setEditMode(isEdit) {
+    if (isEdit) {
+      this.stopReset();
+      this.elements['view-mode-panels'].classList.add('hidden');
+      this.elements['edit-mode-panels'].classList.remove('hidden');
+      if (this.viewer.setEditMode) {
+        this.viewer.setEditMode(true);
+      }
+    } else {
+      this.elements['edit-mode-panels'].classList.add('hidden');
+      this.elements['view-mode-panels'].classList.remove('hidden');
+      if (this.viewer.setEditMode) {
+        this.viewer.setEditMode(false);
+      }
+    }
+  }
+
+  async recalculateTrajectory() {
+    const limitTcp = parseFloat(this.elements['limit-tcp-speed'].value);
+    const limitCentripetal = parseFloat(this.elements['limit-centripetal'].value);
+    
+    // Get new control points from viewer
+    let points = [];
+    if (this.viewer.getEditedControlPoints) {
+      points = this.viewer.getEditedControlPoints();
+    }
+    
+    this.elements['btn-recalculate'].disabled = true;
+    this.elements['btn-recalculate'].innerHTML = '<div class="spinner" style="width: 14px; height: 14px; display: inline-block; border-width: 2px;"></div> Recalculating...';
+    
+    try {
+      const response = await fetch('/api/recalculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: this.selectedTraj,
+          tcp_limit: limitTcp,
+          centripetal_limit: limitCentripetal,
+          control_points: points,
+          base_pos: this.activeRepr.equipment_model.position || [0,0,0],
+          base_quat: this.activeRepr.equipment_model.quaternion || [1,0,0,0]
+        })
+      });
+      
+      if (response.ok) {
+        const result = await response.json();
+        this.setEditMode(false);
+        if (result.new_id) {
+           await this.loadTrajectoryIndex();
+           this.selectTrajectory(result.new_id);
+        } else {
+           await this.loadTrajectoryIndex();
+           this.selectTrajectory(this.selectedTraj);
+        }
+      } else {
+        const errText = await response.text();
+        throw new Error('Server returned ' + response.status + ': ' + errText);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Failed to recalculate: ' + err.message);
+    } finally {
+      this.elements['btn-recalculate'].disabled = false;
+      this.elements['btn-recalculate'].innerHTML = '<i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i> Recalculate Trajectory';
+      if (window.lucide) window.lucide.createIcons();
+    }
   }
 }
 

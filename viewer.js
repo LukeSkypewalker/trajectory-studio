@@ -5,6 +5,7 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { TransformControls } from 'three/addons/controls/TransformControls.js';
 import { quatToMatrix } from './robot.js?v=36';
 import { getRobotConfig } from './robots/factory.js?v=36';
 
@@ -34,6 +35,13 @@ export class TrajectoryViewer {
     this.showGrid = true;
     this.showObstacles = true;
     this.xRayMode = false;
+    
+    // Editor State
+    this.editMode = false;
+    this.controlPoints = [];
+    this.transformControls = [];
+    this.controlSpheres = [];
+    this.splineCurve = null;
     
     // Materials
     this.robotMaterials = {
@@ -715,5 +723,113 @@ export class TrajectoryViewer {
    */
   updateTcpMarker(pos) {
     this.currentTcpMarker.position.copy(pos);
+  }
+
+  setEditMode(isEdit) {
+    this.editMode = isEdit;
+    
+    // Fade robot and obstacles
+    const opacity = isEdit ? 0.35 : 0.9;
+    const obsOpacity = isEdit ? 0.2 : 0.6;
+    
+    this.robotMaterials.solid.opacity = opacity;
+    this.robotMaterials.joint.opacity = opacity;
+    this.robotMaterials.xray.opacity = Math.min(0.35, opacity);
+    this.obstacleMaterial.opacity = obsOpacity;
+    
+    if (isEdit) {
+      this.buildEditorHandles();
+    } else {
+      this.clearEditorHandles();
+      // Re-draw normal trajectory
+      if (this.trajectoryPoints.length > 0) {
+        this.drawTrajectoryPath(this.trajectoryPoints);
+      }
+    }
+  }
+
+  buildEditorHandles() {
+    this.clearEditorHandles();
+    
+    // Decimate trajectoryPoints into control points
+    const numControls = Math.min(6, this.trajectoryPoints.length);
+    if (numControls < 2) return;
+    
+    const step = (this.trajectoryPoints.length - 1) / (numControls - 1);
+    
+    for (let i = 0; i < numControls; i++) {
+      const idx = Math.floor(i * step);
+      const pt = this.trajectoryPoints[idx].clone();
+      this.controlPoints.push(pt);
+      
+      // Create visible sphere
+      const sphereGeo = new THREE.SphereGeometry(0.04, 16, 16);
+      const sphereMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 });
+      const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+      sphere.position.copy(pt);
+      this.trajectoryGroup.add(sphere);
+      this.controlSpheres.push(sphere);
+      
+      // Add TransformControl
+      const tControl = new TransformControls(this.camera, this.renderer.domElement);
+      tControl.attach(sphere);
+      tControl.size = 0.5;
+      tControl.addEventListener('dragging-changed', (event) => {
+        this.controls.enabled = !event.value; // Disable OrbitControls when dragging
+      });
+      tControl.addEventListener('change', () => {
+        this.updateSplineFromHandles();
+      });
+      
+      this.scene.add(tControl);
+      this.transformControls.push(tControl);
+    }
+    
+    this.updateSplineFromHandles();
+  }
+
+  clearEditorHandles() {
+    this.transformControls.forEach(tc => {
+      tc.detach();
+      tc.dispose();
+      this.scene.remove(tc);
+    });
+    this.transformControls = [];
+    this.controlSpheres.forEach(s => {
+      this.trajectoryGroup.remove(s);
+    });
+    this.controlSpheres = [];
+    this.controlPoints = [];
+  }
+
+  updateSplineFromHandles() {
+    if (this.controlSpheres.length < 2) return;
+    
+    // Update controlPoints array from sphere positions
+    this.controlPoints = this.controlSpheres.map(s => s.position.clone());
+    
+    // Create new curve
+    this.splineCurve = new THREE.CatmullRomCurve3(this.controlPoints);
+    
+    // Sample curve for display
+    const newPoints = this.splineCurve.getPoints(100);
+    
+    // Remove old path if any
+    if (this.pathLine) this.trajectoryGroup.remove(this.pathLine);
+    if (this.pathTube) this.trajectoryGroup.remove(this.pathTube);
+    
+    // Draw solid thin path core
+    const lineGeo = new THREE.BufferGeometry().setFromPoints(newPoints);
+    const lineMat = new THREE.LineBasicMaterial({
+      color: 0xffffff,
+      linewidth: 3
+    });
+    this.pathLine = new THREE.Line(lineGeo, lineMat);
+    this.trajectoryGroup.add(this.pathLine);
+  }
+
+  getEditedControlPoints() {
+    if (!this.editMode || this.controlPoints.length === 0) return [];
+    return this.controlPoints.map(p => [p.x, p.y, p.z]);
   }
 }

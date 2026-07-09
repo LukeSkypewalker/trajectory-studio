@@ -9,6 +9,7 @@ import time
 import json
 from pathlib import Path
 import scale_traj_time
+import recalculate_traj
 
 PORT = 8000
 INDEX_FILE = "trajectories.json"
@@ -59,6 +60,85 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
                 self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+        elif self.path == '/api/recalculate':
+            content_length = int(self.headers.get('Content-Length', 0))
+            if content_length == 0:
+                self.send_response(400)
+                self.end_headers()
+                return
+
+            post_data = self.rfile.read(content_length)
+            try:
+                data = json.loads(post_data.decode('utf-8'))
+                traj_id = data.get('id')
+                tcp_limit = float(data.get('tcp_limit', 1000.0))
+                cent_limit = float(data.get('centripetal_limit', 150.0))
+                control_points = data.get('control_points', [])
+                base_pos = data.get('base_pos', [0.0, 0.0, 0.0])
+                base_quat = data.get('base_quat', [1.0, 0.0, 0.0, 0.0])
+
+                if not traj_id or len(control_points) < 2:
+                    raise ValueError("Invalid id or missing control points")
+
+                new_id = recalculate_traj.recalculate(traj_id, tcp_limit, cent_limit, control_points, base_pos, base_quat)
+
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"success": True, "new_id": new_id}).encode('utf-8'))
+
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+        elif self.path == '/api/rename':
+            content_length = int(self.headers.get('Content-Length', 0))
+            if content_length > 0:
+                post_data = self.rfile.read(content_length)
+                try:
+                    data = json.loads(post_data.decode('utf-8'))
+                    old_id = data.get('id')
+                    new_id = data.get('new_id')
+                    
+                    if old_id and new_id:
+                        for ext in ['.traj', '.repr', '.csv']:
+                            src = Path("Trajectories") / "traj" / f"{old_id}{ext}"
+                            if src.exists():
+                                src.rename(Path("Trajectories") / "traj" / f"{new_id}{ext}")
+                                
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"success": True}).encode('utf-8'))
+                except Exception as e:
+                    self.send_response(500)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
+        elif self.path == '/api/delete':
+            content_length = int(self.headers.get('Content-Length', 0))
+            if content_length > 0:
+                post_data = self.rfile.read(content_length)
+                try:
+                    data = json.loads(post_data.decode('utf-8'))
+                    traj_id = data.get('id')
+                    
+                    if traj_id:
+                        for ext in ['.traj', '.repr', '.csv']:
+                            src = Path("Trajectories") / "traj" / f"{traj_id}{ext}"
+                            if src.exists():
+                                src.unlink()
+                                
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"success": True}).encode('utf-8'))
+                except Exception as e:
+                    self.send_response(500)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
         else:
             self.send_response(404)
             self.end_headers()
