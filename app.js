@@ -84,7 +84,7 @@ class TrajectoryApp {
       'tab-position', 'tab-velocity', 'tab-acceleration', 'tab-jerk',
       'tcp-x', 'tcp-y', 'tcp-z',
       'time-scale-slider', 'time-scale-val',
-      'btn-edit-traj', 'btn-rename-traj', 'btn-delete-traj', 'btn-recalculate', 'btn-cancel-edit', 'view-mode-panels', 'edit-mode-panels', 'limit-tcp-speed', 'limit-centripetal',
+      'btn-edit-traj', 'btn-rename-traj', 'btn-delete-traj', 'btn-recalculate', 'btn-calculate-new', 'btn-cancel-edit', 'view-mode-panels', 'edit-mode-panels', 'limit-tcp-speed', 'limit-centripetal',
       'scale-tools-panel', 'scene-csv-controls', 'scene-model-text', 'csv-robot-select', 'csv-timing-mode', 'csv-timing-val',
       'mode-btn-traj', 'mode-btn-csv', 'mode-btn-mcap'
     ];
@@ -195,6 +195,7 @@ class TrajectoryApp {
     this.elements['btn-recalculate'].addEventListener('click', () => {
       this.recalculateTrajectory();
     });
+
 
     // Segmented Mode Switcher
     const modeButtons = document.querySelectorAll('.mode-switch-container .mode-btn');
@@ -1092,14 +1093,16 @@ class TrajectoryApp {
     }
   }
 
-  async recalculateTrajectory() {
+  async recalculateTrajectory(points = null, joint_path = null) {
     const limitTcp = parseFloat(this.elements['limit-tcp-speed'].value);
     const limitCentripetal = parseFloat(this.elements['limit-centripetal'].value);
     
-    // Get new control points from viewer
-    let points = [];
-    if (this.viewer.getEditedControlPoints) {
-      points = this.viewer.getEditedControlPoints();
+    if (!points) {
+      if (this.viewer.getEditedControlPoints) {
+        points = this.viewer.getEditedControlPoints();
+      } else {
+        points = [];
+      }
     }
     
     this.elements['btn-recalculate'].disabled = true;
@@ -1114,8 +1117,10 @@ class TrajectoryApp {
           tcp_limit: limitTcp,
           centripetal_limit: limitCentripetal,
           control_points: points,
+          joint_path: joint_path,
           base_pos: this.activeRepr.equipment_model.position || [0,0,0],
-          base_quat: this.activeRepr.equipment_model.quaternion || [1,0,0,0]
+          base_quat: this.activeRepr.equipment_model.quaternion || [1,0,0,0],
+          dh: this.activeRepr.equipment_model.dh_parameters
         })
       });
       

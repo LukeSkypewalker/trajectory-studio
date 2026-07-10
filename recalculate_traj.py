@@ -35,11 +35,17 @@ def dh_transform(a, d, alpha, theta):
         [ 0,      0,      0,    1]
     ])
 
-def forward_kinematics(q, T_base):
-    a = [0.0, -0.75, -0.70, 0.0, 0.0, 0.0]
-    d = [0.25, 0.0, 0.0, 0.18, 0.13, 0.11]
-    alpha = [math.pi/2, 0.0, 0.0, math.pi/2, -math.pi/2, 0.0]
-    theta_offset = [-math.pi/2, -math.pi/2, 0.0, -math.pi/2, 0.0, 0.0]
+def forward_kinematics(q, T_base, dh=None):
+    if dh:
+        a = dh.get('a', [0.0, -0.75, -0.70, 0.0, 0.0, 0.0])
+        d = dh.get('d', [0.25, 0.0, 0.0, 0.18, 0.13, 0.11])
+        alpha = dh.get('alpha', [math.pi/2, 0.0, 0.0, math.pi/2, -math.pi/2, 0.0])
+        theta_offset = dh.get('theta', [-math.pi/2, -math.pi/2, 0.0, -math.pi/2, 0.0, 0.0])
+    else:
+        a = [0.0, -0.75, -0.70, 0.0, 0.0, 0.0]
+        d = [0.25, 0.0, 0.0, 0.18, 0.13, 0.11]
+        alpha = [math.pi/2, 0.0, 0.0, math.pi/2, -math.pi/2, 0.0]
+        theta_offset = [-math.pi/2, -math.pi/2, 0.0, -math.pi/2, 0.0, 0.0]
     
     T = T_base.copy()
     for i in range(6):
@@ -48,9 +54,9 @@ def forward_kinematics(q, T_base):
         T = T @ Ti
     return T
 
-def inverse_kinematics(target_pos, q_guess, T_base, R_target=None):
+def inverse_kinematics(target_pos, q_guess, T_base, R_target=None, dh=None):
     def loss(q):
-        T = forward_kinematics(q, T_base)
+        T = forward_kinematics(q, T_base, dh)
         pos = T[:3, 3]
         err = np.linalg.norm(pos - target_pos)**2
         if R_target is not None:
@@ -124,7 +130,7 @@ def plan_dynamics(q_path, tcp_limit, centripetal_limit, T_base, payload_mass=20.
         
     return t_grid, q_grid
 
-def recalculate(traj_id, tcp_limit, centripetal_limit, control_points, base_pos=None, base_quat=None):
+def recalculate(traj_id, tcp_limit, centripetal_limit, control_points, base_pos=None, base_quat=None, joint_path=None, dh=None):
     # Load original
     src_path = Path("Trajectories") / "traj" / f"{traj_id}.traj"
     if not src_path.exists():
@@ -143,25 +149,28 @@ def recalculate(traj_id, tcp_limit, centripetal_limit, control_points, base_pos=
         base_quat = [0.7071, 0.0, 0.0, -0.7071]
     T_base = quat_to_matrix(base_quat, base_pos)
     
-    # 1. Run IK for all control points
-    q_path = []
-    # Start with original start pose
-    start_pos = []
-    part0 = traj_data['parts'][0]
-    for dof in range(len(part0['coeffs'])):
-        # index 3 is c0 (constant term), index 0 is first segment
-        start_pos.append(part0['coeffs'][dof][3][0])
-    q_current = np.array(start_pos)
-    
-    # Extract original orientation to maintain it throughout the trajectory
-    T_start = forward_kinematics(q_current, T_base)
-    R_target = T_start[:3, :3]
-    
-    for pt in control_points:
-        target_pos = np.array(pt)
-        q_new = inverse_kinematics(target_pos, q_current, T_base, R_target)
-        q_path.append(q_new.tolist())
-        q_current = q_new
+    if joint_path and len(joint_path) > 0:
+        q_path = joint_path
+    else:
+        # 1. Run IK for all control points
+        q_path = []
+        # Start with original start pose
+        start_pos = []
+        part0 = traj_data['parts'][0]
+        for dof in range(len(part0['coeffs'])):
+            # index 3 is c0 (constant term), index 0 is first segment
+            start_pos.append(part0['coeffs'][dof][3][0])
+        q_current = np.array(start_pos)
+        
+        # Extract original orientation to maintain it throughout the trajectory
+        T_start = forward_kinematics(q_current, T_base, dh)
+        R_target = T_start[:3, :3]
+        
+        for pt in control_points:
+            target_pos = np.array(pt)
+            q_new = inverse_kinematics(target_pos, q_current, T_base, R_target, dh)
+            q_path.append(q_new.tolist())
+            q_current = q_new
 
     q_path = np.array(q_path)
     num_pts = len(q_path)

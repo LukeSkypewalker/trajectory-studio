@@ -74,13 +74,15 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 tcp_limit = float(data.get('tcp_limit', 1000.0))
                 cent_limit = float(data.get('centripetal_limit', 150.0))
                 control_points = data.get('control_points', [])
+                joint_path = data.get('joint_path', None)
                 base_pos = data.get('base_pos', [0.0, 0.0, 0.0])
                 base_quat = data.get('base_quat', [1.0, 0.0, 0.0, 0.0])
+                dh = data.get('dh', None)
 
                 if not traj_id or len(control_points) < 2:
                     raise ValueError("Invalid id or missing control points")
 
-                new_id = recalculate_traj.recalculate(traj_id, tcp_limit, cent_limit, control_points, base_pos, base_quat)
+                new_id = recalculate_traj.recalculate(traj_id, tcp_limit, cent_limit, control_points, base_pos, base_quat, joint_path, dh)
 
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
